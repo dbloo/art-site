@@ -1,8 +1,14 @@
-import { StyledButton } from './button'
+import { Button } from './button'
 
+interface Props {
+    disabled?: boolean,
+    quantity: number,
+    setQuantity: (value: number) => void
+    setPrice?: (value: number) => void
+    className?: string
+}
 
-
-function QuantitySelector({disabled, quantity, setQuantity}: {disabled:boolean, quantity: number, setPrice: (value: number) => void, setQuantity: (value: number) => void}) {
+export function QuantitySelector({disabled, quantity, setQuantity, setPrice, className}: Props) {
     const handleIncrement = () => {
         setQuantity(quantity + 1);
     };
@@ -11,15 +17,14 @@ function QuantitySelector({disabled, quantity, setQuantity}: {disabled:boolean, 
         if (quantity > 1) {
             setQuantity(quantity - 1);
         }
-    };
+    }; 
 
     return (
         <div className="flex items-center gap-2">
-            <StyledButton disabled = {disabled} onClick = {handleDecrement} color = "black" className = " w-full cursor-pointer "> - </StyledButton>
+            <Button disabled = {disabled} onClick = {handleDecrement} color = "white" className = {` ${className}  bg-white border border-black text-black cursor-pointer `}> - </Button>
             <span className={`${disabled == true ? "opacity-50" : ""}tabular-nums`}>{quantity}</span>
-            <StyledButton disabled = {disabled} onClick = {handleIncrement} color = "black" className = " w-full cursor-pointer "> +</StyledButton>
+            <Button disabled = {disabled} onClick = {handleIncrement} color = "white" className = {` ${className} bg-white border border-black text-black cursor-pointer `}> +</Button>
         </div>
     );
 }
 
-export default QuantitySelector;

@@ -10,16 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrintsRouteImport } from './routes/prints'
+import { Route as PaintingsRouteImport } from './routes/paintings'
 import { Route as OriginalsRouteImport } from './routes/originals'
 import { Route as GraphicdesignRouteImport } from './routes/graphicdesign'
+import { Route as DrawingsRouteImport } from './routes/drawings'
+import { Route as CartRouteImport } from './routes/cart'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrintSlugRouteImport } from './routes/print/$slug'
+import { Route as PaintingSlugRouteImport } from './routes/painting/$slug'
 import { Route as OriginalSlugRouteImport } from './routes/original/$slug'
+import { Route as ApiCheckoutRouteImport } from './routes/api/checkout'
 
 const PrintsRoute = PrintsRouteImport.update({
   id: '/prints',
   path: '/prints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaintingsRoute = PaintingsRouteImport.update({
+  id: '/paintings',
+  path: '/paintings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OriginalsRoute = OriginalsRouteImport.update({
@@ -30,6 +40,16 @@ const OriginalsRoute = OriginalsRouteImport.update({
 const GraphicdesignRoute = GraphicdesignRouteImport.update({
   id: '/graphicdesign',
   path: '/graphicdesign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrawingsRoute = DrawingsRouteImport.update({
+  id: '/drawings',
+  path: '/drawings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -47,38 +67,63 @@ const PrintSlugRoute = PrintSlugRouteImport.update({
   path: '/print/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaintingSlugRoute = PaintingSlugRouteImport.update({
+  id: '/painting/$slug',
+  path: '/painting/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OriginalSlugRoute = OriginalSlugRouteImport.update({
   id: '/original/$slug',
   path: '/original/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCheckoutRoute = ApiCheckoutRouteImport.update({
+  id: '/api/checkout',
+  path: '/api/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cart': typeof CartRoute
+  '/drawings': typeof DrawingsRoute
   '/graphicdesign': typeof GraphicdesignRoute
   '/originals': typeof OriginalsRoute
+  '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
+  '/api/checkout': typeof ApiCheckoutRoute
   '/original/$slug': typeof OriginalSlugRoute
+  '/painting/$slug': typeof PaintingSlugRoute
   '/print/$slug': typeof PrintSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cart': typeof CartRoute
+  '/drawings': typeof DrawingsRoute
   '/graphicdesign': typeof GraphicdesignRoute
   '/originals': typeof OriginalsRoute
+  '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
+  '/api/checkout': typeof ApiCheckoutRoute
   '/original/$slug': typeof OriginalSlugRoute
+  '/painting/$slug': typeof PaintingSlugRoute
   '/print/$slug': typeof PrintSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cart': typeof CartRoute
+  '/drawings': typeof DrawingsRoute
   '/graphicdesign': typeof GraphicdesignRoute
   '/originals': typeof OriginalsRoute
+  '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
+  '/api/checkout': typeof ApiCheckoutRoute
   '/original/$slug': typeof OriginalSlugRoute
+  '/painting/$slug': typeof PaintingSlugRoute
   '/print/$slug': typeof PrintSlugRoute
 }
 export interface FileRouteTypes {
@@ -86,38 +131,58 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/cart'
+    | '/drawings'
     | '/graphicdesign'
     | '/originals'
+    | '/paintings'
     | '/prints'
+    | '/api/checkout'
     | '/original/$slug'
+    | '/painting/$slug'
     | '/print/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/cart'
+    | '/drawings'
     | '/graphicdesign'
     | '/originals'
+    | '/paintings'
     | '/prints'
+    | '/api/checkout'
     | '/original/$slug'
+    | '/painting/$slug'
     | '/print/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/cart'
+    | '/drawings'
     | '/graphicdesign'
     | '/originals'
+    | '/paintings'
     | '/prints'
+    | '/api/checkout'
     | '/original/$slug'
+    | '/painting/$slug'
     | '/print/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CartRoute: typeof CartRoute
+  DrawingsRoute: typeof DrawingsRoute
   GraphicdesignRoute: typeof GraphicdesignRoute
   OriginalsRoute: typeof OriginalsRoute
+  PaintingsRoute: typeof PaintingsRoute
   PrintsRoute: typeof PrintsRoute
+  ApiCheckoutRoute: typeof ApiCheckoutRoute
   OriginalSlugRoute: typeof OriginalSlugRoute
+  PaintingSlugRoute: typeof PaintingSlugRoute
   PrintSlugRoute: typeof PrintSlugRoute
 }
 
@@ -128,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/prints'
       fullPath: '/prints'
       preLoaderRoute: typeof PrintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paintings': {
+      id: '/paintings'
+      path: '/paintings'
+      fullPath: '/paintings'
+      preLoaderRoute: typeof PaintingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/originals': {
@@ -142,6 +214,20 @@ declare module '@tanstack/react-router' {
       path: '/graphicdesign'
       fullPath: '/graphicdesign'
       preLoaderRoute: typeof GraphicdesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drawings': {
+      id: '/drawings'
+      path: '/drawings'
+      fullPath: '/drawings'
+      preLoaderRoute: typeof DrawingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -165,11 +251,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrintSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/painting/$slug': {
+      id: '/painting/$slug'
+      path: '/painting/$slug'
+      fullPath: '/painting/$slug'
+      preLoaderRoute: typeof PaintingSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/original/$slug': {
       id: '/original/$slug'
       path: '/original/$slug'
       fullPath: '/original/$slug'
       preLoaderRoute: typeof OriginalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/checkout': {
+      id: '/api/checkout'
+      path: '/api/checkout'
+      fullPath: '/api/checkout'
+      preLoaderRoute: typeof ApiCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -178,10 +278,15 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CartRoute: CartRoute,
+  DrawingsRoute: DrawingsRoute,
   GraphicdesignRoute: GraphicdesignRoute,
   OriginalsRoute: OriginalsRoute,
+  PaintingsRoute: PaintingsRoute,
   PrintsRoute: PrintsRoute,
+  ApiCheckoutRoute: ApiCheckoutRoute,
   OriginalSlugRoute: OriginalSlugRoute,
+  PaintingSlugRoute: PaintingSlugRoute,
   PrintSlugRoute: PrintSlugRoute,
 }
 export const routeTree = rootRouteImport

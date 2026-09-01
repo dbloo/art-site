@@ -126,12 +126,12 @@ function StyledButton({
                       className="relative inline-block z-10 w-full"
                         
                         >
-                        <Link params= {params} hash = {hash} to ={to}><Button type = {type} onClick = {onClick} variant = "styled" className = {`${className }   z-10 select-none border border-${color} text-${color} `}>{children}</Button></Link>
+                        <Link params= {params} hash = {hash} to ={to}><Button type = {type} onClick = {onClick} variant = "styled" className = {`${className }   z-10 select-none border border-black text-${color} `}>{children}</Button></Link>
                         </motion.span>
                         <Button 
                         aria-hidden="true"
                         tabIndex={-1}
-                        variant="styled" type = {type} className={`${className }  select-none border border-${color} absolute top-2 z-0 left-0  bg-${color}`}>{children}</Button>
+                        variant="styled" type = {type} className={`${className }  select-none border border-black absolute top-2 z-0 left-0  bg-black`}>{children}</Button>
                         </span>
   )
 }

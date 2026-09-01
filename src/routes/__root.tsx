@@ -8,6 +8,9 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
+import { CartProvider } from '#/context/CartContext'
+
+
 import Navbar from '../components/ui/navbar'
 
 import appCss from '../styles.css?url'
@@ -49,6 +52,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
+            <CartProvider>
+
       <body>
         <Navbar />
         {children}
@@ -67,6 +72,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         /> */}
         <Scripts />
       </body>
+      </CartProvider>
     </html>
   )
 }

@@ -1,0 +1,24 @@
+{
+  "short_name": "Dominic Bloomfield's Portfolio",
+  "name": "The website exhibiting works of the renowed artist Dominic Bloomfield",
+  "icons": [
+    {
+      "src": "dbsig.svg",
+      "type": "image/x-icon",
+      "sizes": "64x64 32x32 24x24 16x16"
+    },
+    {
+      "src": "dbsig.svg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "dbsig.svg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

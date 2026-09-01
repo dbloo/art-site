@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { ConstructionPage } from '#/components/ui/construction'
 
 export const Route = createFileRoute('/graphicdesign')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return <div>Hello "/graphicdesign"!</div>
+  return <ConstructionPage/>
 }
