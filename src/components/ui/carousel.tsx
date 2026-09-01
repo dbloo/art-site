@@ -1,20 +1,23 @@
 // components/PrintsCarousel.tsx
 import { useEffect, useRef, useState } from 'react'
-import { Link } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router' 
+import {ChevronLeft, ChevronRight} from 'lucide-react'
 
 interface Print {
   slug: string
   image: string
+  images: string[]
   [key: string]: any
 }
 
-interface PrintsCarouselProps {
+interface CarouselProps {
+  images: string[];
   prints: Print[]
   autoScrollInterval?: number // ms between slides
   autoRotateInterval?: number
 }
 
-export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: PrintsCarouselProps) {
+export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const scrollRef = useRef<HTMLDivElement>(null)
   const isHovering = useRef(false)
@@ -59,7 +62,7 @@ export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: PrintsCar
           >
             <img
               className="rounded-xl w-50 lg:w-100 shadow-lg"
-              src={product.image}
+              src={product.images[0]}
               alt={product.slug}
             />
           </Link>
@@ -83,7 +86,7 @@ export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: PrintsCar
   )
 }
 
-export function RotatingCarousel({prints, autoRotateInterval = 2000}: PrintsCarouselProps){
+export function RotatingCarousel({prints, autoRotateInterval = 2000}: CarouselProps){
 
   const scrollRef = useRef(null)
 
@@ -109,4 +112,37 @@ export function RotatingCarousel({prints, autoRotateInterval = 2000}: PrintsCaro
           </Link>
         ))}
       </div>)
+}
+
+export function GalleryCarousel({images}: CarouselProps){
+
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  return (
+  
+  <div className=''>
+  
+
+    <div className='flex flex-row w-auto'> 
+      
+      <ChevronLeft size = {20 } className=''/>
+
+      <img className = " rounded-xl   w-full lg:w-200 shadow-lg"src = {`${images[activeIndex]}`}></img>
+     
+     <ChevronRight/>
+     
+      </div>
+     {images.length > 1 &&
+    <div className=' flex flex-row w-full gap-3 lg:gap-5 bg-black/2 border border-black/10 rounded-2xl mt-5 items-center  lg:p-3 p-2 '>{images.map((image ,e)=> (
+
+        <div style = {{backgroundImage: `url(${image})`}}key = {e} className = {`${activeIndex == e ? "opacity-100"  : " hover:opacity-80 transition-all opacity-50"} cursor-pointer w-10 h-10 lg:w-20 lg:h-20 bg-cover bg-center rounded-lg`}onClick = {() => setActiveIndex(e)}></div>
+    )
+       
+    )}</div>
+    }
+   
+  </div>)
+
+
+
 }

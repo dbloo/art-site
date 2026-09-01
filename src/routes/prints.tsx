@@ -24,9 +24,12 @@ function RouteComponent() {
 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
         {products.prints.map((print, e) => 
         
+
+        <>
         
-        
-        <div className='pb-10  '><Link to = {`/print/${print.slug}`}><div style={{backgroundImage: `url(${print.image})`}} className = "shadow-lg  hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out  bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"></div><h1 className='text-4xl lg:text-left text-center mt-5 mb-5 font-bold'>{print.name}</h1><div className = "flex flex-row justify-between w-full"><p>{print.year}</p><p className='opacity-70'>[{print.size}]</p></div></Link></div>
+        <div className = "flex absolute z-100 flex-row w-10"><p></p><span className='bg-red-500 w-10'></span></div>
+        <div className='pb-10  '><Link to = {`/print/${print.slug}`}><div style={{backgroundImage: `url(${print.images[0]})`}} className = "shadow-lg  hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out  bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"></div><h1 className='text-4xl lg:text-left text-center mt-5 mb-5 font-bold'>{print.name}</h1><div className = "flex flex-row justify-between w-full"><p>{print.year}</p><p className='font-light opacity-70'>[{print.size}]</p></div></Link></div>
+        </>
         
         
         

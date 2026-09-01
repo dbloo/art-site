@@ -13,7 +13,7 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 30},
                 {sizes: "24 x 25 in.", price: 40},
             ],
-            image: "/assets/products/SRII.JPG",
+            images: ["/assets/products/SRII.JPG", "/assets/products/moore.jpg",],
             description: "",
             year: "2026"
 
@@ -32,7 +32,7 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 30},
                 {sizes: "24 x 25 in.", price: 40},
             ],
-            image: "/assets/products/moore.jpg",
+            images: ["/assets/products/moore.jpg",],
             description: "",
             year: "2026"
         },
@@ -48,7 +48,7 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 30},
                 {sizes: "24 x 25 in.", price: 40},
             ],
-            image: "/assets/products/lookup.JPG",
+            images: ["/assets/products/lookup.JPG",],
             description: "",
             year: "2024"
 
@@ -66,7 +66,7 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 30},
                 {sizes: "24 x 25 in.", price: 40},
             ],
-            image: "/assets/products/flatground.JPG",
+            images: ["/assets/products/flatground.JPG",],
             description: "",
             year: "2026"
 
@@ -85,7 +85,7 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 50},
                 {sizes: "24 x 25 in.", price: 80},
             ],
-            image: "/assets/products/heavy.jpg",
+            images: ["/assets/products/heavy.jpg",],
             description: "",
             year: "2022"
 
@@ -104,7 +104,7 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 50},
                 {sizes: "24 x 25 in.", price: 80},
             ],
-            image: "/assets/products/overcrook.JPG",
+            images: ["/assets/products/overcrook.JPG",],
             description: "",
             year: "2026"
 
@@ -122,15 +122,16 @@ export const products = {
             name: "SRII",
             slug: "srii",
             medium: "Acrylic paint and marker on canvas",
-            size: "38 x 48 cm",
+            size: "48 x 48 inches",
             price: 250,
             prints: [
                {sizes: "8 x 8 in.", price: 20},
                 {sizes: "14 x 14 in.", price: 30},
                 {sizes: "24 x 25 in.", price: 40},
             ],
-            image: "/assets/products/SRII.JPG",
-            description: ""
+            images: ["/assets/products/SRII.JPG",],
+            description: "",
+            year: "2026"
 
         }
     ]

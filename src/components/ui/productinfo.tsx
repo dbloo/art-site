@@ -7,6 +7,7 @@ import {Spinner} from './spinner'
 import { ChevronLeft } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { useCart } from '#/context/CartContext'
+import {GalleryCarousel} from './carousel'
 
 export function ProductInfoPrints ({slug} : {slug: string}) {
 
@@ -34,7 +35,7 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
                 name: product ? product.name : " ",
                 selectedSize: selectedSize.size,
                 price: price ? price : 0,
-                image: product ? product.image : "",
+                image: product ? product.images[0] : "",
                 quantity: quantity,
                 productType: "fine art print",
                 slug: product ? product.slug : "",
@@ -54,12 +55,12 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
 
         <div className='   w-full gap-5 h-auto lg:h-5/6 flex flex-col lg:flex-row lg:p-8 p-5 border z-1000 bg-white  border-black rounded-2xl'>
 
-            <div className = "flex flex-col h gap-5 text-center ">
-                <img className = "rounded-xl   w-full lg:w-275 shadow-lg"src={product?.image}></img>
-            </div>
+
+                <GalleryCarousel images = {product ? product?.images : []}></GalleryCarousel>
+      
             <div className = "lg:ml-10 flex flex-col gap-5 text-left">
-                <h1 className='text-4xl text-center lg:text-8xl  lg:text-left font-black mt-5'>"{product?.name}"</h1>
-                <p className='opacity-60'>Printed onto acid-free archival paper via a high-resolution digital ink-jet that offers unrivaled UV resistance and color depth.</p>
+                <h1 className='text-4xl text-center lg:text-6xl  lg:text-left font-black mt-5'>"{product?.name}"</h1>
+                <p className='opacity-60 font-light'>Printed onto acid-free archival paper via a high-resolution digital ink-jet that offers unrivaled UV resistance and color depth.</p>
                 
 
             <hr className=' w-full border-black/30 mb-5'/>
@@ -75,7 +76,7 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
                                 
                                 {product?.prints.map((print) => (
                                     <SelectItem key={print.sizes} value={print.sizes}>
-                                        {print.sizes} - ${print.price}
+                                        {print.sizes}
                     
                                         
                                         
@@ -86,7 +87,7 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
                     </Select>
                 <QuantitySelector disabled = {isLoading} setQuantity ={setQuantity} setPrice = {setPrice} quantity={quantity}/>
                 </div>
-                <p className='lg:text-6xl text-4xl font-bold lg:font-light mt-10 mb-10 text-center'>${price ? price * quantity : 0}</p>
+                <p className='lg:text-6xl text-4xl  lg:font-light mt-10 mb-10 text-center'>${price ? price * quantity : 0}</p>
 
                 <div className=' relative w-full flex flex-col'>
                 <StyledButton disabled = {isLoading} onClick = {handleAddToCart} color = " bg-white" className = " border-black border w-full cursor-pointer ">{isLoading ? "Adding to your cart..." : "Add to your cart"}</StyledButton>

@@ -46,7 +46,7 @@ function Navbar() {
       <div className = "flex flex-row gap-8 items-center lg:text-lg text-xl ">
         
       <ul className="z-100 lg:top-0  lg:relative lg:right-0 absolute md:right-80 right-40 -top-27 flex lg:flex-row flex-col items-center justify-between gap-4">
-        <motion.li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` } transition-all duration-150 cursor-pointer`} onClick={()=> {setIsShopOpen(!isShopOpen); setIsWorksOpen(false)}}>Shop</motion.li>
+        <motion.li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` } font-light transition-all duration-150 cursor-pointer lg:hover:-translate-y-0.5 lg:ease-in-out`} onClick={()=> {setIsShopOpen(!isShopOpen); setIsWorksOpen(false)}}>Shop</motion.li>
             
             <motion.div 
               initial={{opacity: 0}}
@@ -67,7 +67,7 @@ function Navbar() {
             
             >
 
-        <li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` }`} onClick={()=> {{ setIsWorksOpen(!isWorksOpen); setIsShopOpen(false)}}}>Works</li>
+        <li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` } font-light cursor-pointer lg:hover:-translate-y-0.5 lg:transition-all lg:duration-100 lg:ease-in-out`} onClick={()=> {{ setIsWorksOpen(!isWorksOpen); setIsShopOpen(false)}}}>Works</li>
         <motion.div 
         
         initial={{opacity: 0}}
@@ -85,7 +85,7 @@ function Navbar() {
             <motion.div
              initial = {{y:0}}
         animate = {{y: (!isDesktop ?(isShopOpen ? 0 : (isWorksOpen ? 150 : 0)): 0)}}>
-        <li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` }`}><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to="/about">About</Link></li>
+        <li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` } font-light lg:hover:-translate-y-0.5 lg:transition-all lg:duration-100 lg:ease-in-out `}><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to="/about">About</Link></li>
         </motion.div>
         </motion.div>
 

@@ -4,7 +4,7 @@ export function Footer  () {
 
     return (<>        
 <div className="w-full mt-10 relative">
-    <img className = "h-5 lg:h-full lg:relative absolute  lg:top-0 -top-3 w-full"src = "./assets/graphics/footer-border.svg"></img>
+    <img className = "h-5 lg:h-full lg:relative absolute  lg:top-0 -top-3 w-full"src = "/assets/graphics/footer-border.svg"></img>
 
     <div className="p-5  w-full  lg:px-60 py-20 text-black h-auto  bg-accent1 ">
 
@@ -31,10 +31,10 @@ export function Footer  () {
                 <li className="cursor-pointer "><Link  to="/paintings">About</Link></li>
                                 <li className="cursor-pointer "><Link  to="/graphicdesign">Contact</Link></li>
 
-                <div className="flex flex-row w-full gap-2 items-center ">
-                <li className="cursor-pointer "><a href = "https://www.instagram.com/dom.ozail"><img className = "w-5 invert" src = "./assets/icons/instagram.svg"></img></a></li>
-                <li className="cursor-pointer "><a href = "https://www.youtube.com/@dominic.bloomfield"><img className = "w-6 invert" src = "./assets/icons/YT.svg"></img></a></li>
-                <li className="cursor-pointer "><a href = "https://www.tiktok.com/@dom.ozail"><img className = "w-5 invert" src = "./assets/icons/tiktok.svg"></img></a></li>
+                <div className="flex flex-row w-full gap-5 items-center ">
+                <li className="cursor-pointer "><a href = "https://www.instagram.com/dom.ozail"><img className = "w-5 invert" src = "/assets/icons/instagram.svg"></img></a></li>
+                <li className="cursor-pointer "><a href = "https://www.youtube.com/@dominic.bloomfield"><img className = "w-6 invert" src = "/assets/icons/YT.svg"></img></a></li>
+                <li className="cursor-pointer "><a href = "https://www.tiktok.com/@dom.ozail"><img className = "w-5 invert" src = "/assets/icons/tiktok.svg"></img></a></li>
                 </div>
                 </ul>
                 

@@ -15,7 +15,7 @@ function RouteComponent() {
     <div className=''>
       <h1 className='text-4xl lg:text-6xl mb-5'>About</h1>
       <hr className='mb-10 '/>
-    <p className='text-xl'>
+    <p className='font-light text-xl'>
       {about.description}
       
       </p>

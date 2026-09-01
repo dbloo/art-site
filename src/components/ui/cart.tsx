@@ -177,17 +177,17 @@ export function Cart () {
 
                    <strong className='text-2xl mt-5'> Original Artworks</strong>
 
-                    <p>{`All original works are one-of-a-kind and sold as final sale. Because of their unique nature, we do not accept returns or exchanges on originals except in cases of damage during shipping (see below).`}</p>
+                    <p className='font-light'>{`All original works are one-of-a-kind and sold as final sale. Because of their unique nature, we do not accept returns or exchanges on originals except in cases of damage during shipping (see below).`}</p>
 
                      <strong className='text-2xl mt-5'> Prints </strong>
 
-                    <p>{`We accept returns on prints within 14 days of delivery, provided the item is unused and in its original packaging, free of damage, marks, or alterations and accompanied by proof of purchase (order number or receipt)`}</p>
+                    <p className='font-light'>{`We accept returns on prints within 14 days of delivery, provided the item is unused and in its original packaging, free of damage, marks, or alterations and accompanied by proof of purchase (order number or receipt)`}</p>
 
-                    <p>To start a return, contact us at <strong>contact.dominicbloomfield@gmail.com</strong>  with your order number and reason for return. Once approved, we'll provide return instructions. Return shipping costs are the responsibility of the customer unless the return is due to our error (wrong item shipped, defect, etc.). Refunds are issued to the original payment method within 5–10 business days of us receiving the returned item</p>
+                    <p className='mt-5 font-light'>To start a return, contact us at <strong className='font-bold'>contact.dominicbloomfield@gmail.com</strong>  with your order number and reason for return. Once approved, we'll provide return instructions. Return shipping costs are the responsibility of the customer unless the return is due to our error (wrong item shipped, defect, etc.). Refunds are issued to the original payment method within 5–10 business days of us receiving the returned item</p>
 
                     <strong className='text-2xl mt-5'> Damaged or Defective Items </strong>
 
-                    <p>{`If your artwork arrives damaged or defective, contact us within 48 hours of delivery with your order number and photos of the damaged item and packaging. We'll arrange a replacement, repair, or full refund at no cost to you, including return shipping if applicable.`}</p>
+                    <p className='font-light'>{`If your artwork arrives damaged or defective, contact us within 48 hours of delivery with your order number and photos of the damaged item and packaging. We'll arrange a replacement, repair, or full refund at no cost to you, including return shipping if applicable.`}</p>
                     </div>
 
                                 
