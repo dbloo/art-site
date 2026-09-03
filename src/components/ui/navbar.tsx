@@ -47,7 +47,7 @@ function Navbar() {
       </motion.div>
       <div className = "flex flex-row  gap-8 items-center lg:text-lg text-xl ">
         
-      <ul className="z-100 lg:top-0  lg:relative lg:right-0 absolute md:right-80 right-42 -top-27 flex lg:flex-row flex-col items-center justify-between gap-4">
+      <ul className="z-100 lg:top-0  lg:relative lg:right-0 absolute md:right-80 right-40 -top-27 flex lg:flex-row flex-col text-center items-center justify-between gap-4">
         <motion.li className={`${isShopOpen || isWorksOpen ?  `opacity-30` : `opacity-100` } font-light transition-all duration-150 cursor-pointer lg:hover:-translate-y-0.5 lg:ease-in-out`} onClick={()=> {setIsShopOpen(!isShopOpen); setIsWorksOpen(false)}}>Shop</motion.li>
             
             <motion.div 
@@ -56,7 +56,7 @@ function Navbar() {
               exit={{opacity: 0, y: -10}}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             
-            className = {` ${!isShopOpen ? "hidden":"absolute top-10 "} flex flex-col gap-2 font-medium lg:right-33 text-center`}>
+            className = {` ${!isShopOpen ? "hidden":"absolute top-11 "} flex flex-col gap-2 font-medium lg:right-33 text-center`}>
             <li className="cursor-pointer"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(!isShopOpen); setIsWorksOpen(false)}} to="/originals">Originals</Link></li>
             <li className="cursor-pointer"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(!isShopOpen); setIsWorksOpen(false)}} to="/prints">Prints</Link></li>
             </motion.div>
@@ -64,7 +64,7 @@ function Navbar() {
             <motion.div
             
             initial = {{y:0}}
-        animate = {{y: (!isDesktop ?(isShopOpen ? 70 :  0) : 0 )}}
+        animate = {{y: (!isDesktop ?(isShopOpen ? 90 :  0) : 0 )}}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
 
             className='lg:flex-row flex-col flex gap-4'
@@ -80,7 +80,7 @@ function Navbar() {
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             
 
-        className = {`text-center  ${!isWorksOpen ? "  hidden":" w-50 lg:bg white font-medium absolute lg:left-0 md:-left-87 -left-17 flex flex-col gap-3 top-10 "}`}>
+        className = {`text-center  ${!isWorksOpen ? "  hidden":" w-50 lg:bg white font-medium absolute lg:left-0 md:-left-87 -left-15 flex flex-col gap-3 top-10 "}`}>
             <li className="cursor-pointer"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to="/paintings">Paintings</Link></li>
             <li className="cursor-pointer"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to="/drawings">Drawings</Link></li>
             <li className="cursor-pointer"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to="/graphicdesign">Graphic Design</Link></li>
