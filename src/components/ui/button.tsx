@@ -126,7 +126,7 @@ function StyledButton({
                       className="relative inline-block z-10 w-full"
                         
                         >
-                        <Link params= {params} hash = {hash} to ={to}><Button disabled = {disabled} type = {type} onClick = {onClick} variant = "styled" className = {`${className }   z-10 select-none border border-black text-${color} `}>{children}</Button></Link>
+                        <Link params= {params} hash = {hash} to ={to}><Button  type = {type} onClick = {onClick} variant = "styled" className = {`${className }   z-10 select-none border border-black text-${color} `}>{children}</Button></Link>
                         </motion.span>
                         <Button 
                         aria-hidden="true"
