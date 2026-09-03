@@ -139,12 +139,14 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
        const [stockMap, setStockMap] = useState<Record<number, boolean>>({});
 
        async function fetchStock() {
-
-        const stock = await getStock({ data: product.id });
-
-        setStock(stock !== null ? stock : 0);
-        
-       }
+            try {
+                const stock = await getStock({ data: product.id });
+                setStock(stock !== null ? stock : 0);
+            } catch (e) {
+                console.error('Failed to fetch stock', e);
+                setStock(0); 
+            }
+                }
     
       useEffect(() => {
         fetchStock();
