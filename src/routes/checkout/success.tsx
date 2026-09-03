@@ -5,8 +5,6 @@ import { useCart } from '@/context/CartContext'
 import { Spinner } from '@/components/ui/spinner'
 
 import { verifyCheckoutSession } from '@/serverFunctions/verifySession'
-import { decrementStockIfAvailable } from '@/serverFunctions/stock'
-import { SelectItem } from '#/components/ui/select'
 
 
 
