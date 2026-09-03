@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_SECRET_TEST_KEY ? "" : '');
+const stripe = new Stripe(process.env.NODE_ENV == 'development' ? (process.env.STRIPE_SECRET_TEST_KEY ? "" : '') : (process.env.STRIPE_SECRET_KEY ? " ": ""));
 
 export async function POST(req:any){
     const {cart} = await req.json()

@@ -1,11 +1,12 @@
 import { products } from '../../siteinfo/products'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import {getStock} from "@/serverFunctions/stock"
 import { StyledButton, Button} from './button'
 import {QuantitySelector} from "./quantityselector"
 import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectValue, SelectTrigger} from './select'
 import {Spinner} from './spinner'
-import { ChevronLeft } from 'lucide-react'
-import { Link } from '@tanstack/react-router'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { useCart } from '#/context/CartContext'
 import {GalleryCarousel} from './carousel'
 
@@ -13,18 +14,38 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
 
     const [quantity, setQuantity] = useState(1);
 
-    const {addToCart, setStatus, isLoading, status} = useCart();
+    const {addToCart, setStatus, isLoading, status, isItemInCart} = useCart();
+
+    useEffect(() => {
+        setStatus('');
+    }, [slug]);
 
 
-    const product = products.prints.find((product) => product.slug === slug);
+    const [product, setProduct] = useState(products.prints.find((product) => product.slug === slug));
+    const productID = product?.id
+
+    const navigate = useNavigate();
+ 
+
+ 
     const [price, setPrice] = useState(product?.prints[0].price);
     const[selectedSize, setSelectedSize] = useState({size:product?.prints[0].sizes, price: product?.prints[0].price});
     const [loading, setLoading] = useState(false);
+    const nextProduct = "overcrook"
 
     const handleSizeChange = (size: string) => {
         setSelectedSize({size: size, price: product?.prints.find((print) => print.sizes === size)?.price});
         setPrice(product?.prints.find((print) => print.sizes === size)?.price);
     }
+
+    function getTitleClass(title: string) {
+        const len = title.length;
+        if (len <= 8) return "text-5xl";
+        if (len <= 14) return "text-4xl";
+        if (len <= 20) return "text-xl";
+        return "text-xl";
+}
+
 
     const handleAddToCart = async () => {
         setStatus('');
@@ -37,7 +58,7 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
                 price: price ? price : 0,
                 image: product ? product.images[0] : "",
                 quantity: quantity,
-                productType: "fine art print",
+                productType: "print",
                 slug: product ? product.slug : "",
         }
 
@@ -48,7 +69,8 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
     }
 
     return (
-        <div className='rise-in lg:w-screen w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
+        <div className='rise-in lg:w-screen w-full mb-30 h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
+
 
         <div className="justify-center w-full lg:pt-30 pt-25 h-auto  relative  flex flex-col  gap-5 lg:px-60  p-5 ">
             <Link className = "w-25"to = {`/prints`}><Button className = " cursor-pointer hover:bg-black/10 justify-baseline items-center w-25 -z-10  bg-white text-black border border-black"><ChevronLeft></ChevronLeft>Back </Button></Link>
@@ -59,7 +81,7 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
                 <GalleryCarousel images = {product ? product?.images : []}></GalleryCarousel>
       
             <div className = "lg:ml-10 flex flex-col gap-5 text-left">
-                <h1 className='text-4xl text-center lg:text-6xl  lg:text-left font-black mt-5'>"{product?.name}"</h1>
+                <h1 className='text-4xl text-center lg:text-6xl  lg:text-left font-bold mt-5'>{product?.name}</h1>
                 <p className='opacity-60 font-light'>Printed onto acid-free archival paper via a high-resolution digital ink-jet that offers unrivaled UV resistance and color depth.</p>
                 
 
@@ -109,87 +131,117 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
     
 
     const product = products.paintings.find((product) => product.slug === slug);
-    const [price, setPrice] = useState(product?.prints[0].price);
-    const[selectedSize, setSelectedSize] = useState({size:product?.prints[0].sizes, price: product?.prints[0].price});
-    const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState('');
+    const [price, setPrice] = useState(product?.price);
+    const[selectedSize, setSelectedSize] = useState({size:product?.size, price: product?.price});
+    const [stock, setStock] = useState(0);
 
-    const handleSizeChange = (size: string) => {
-        setSelectedSize({size: size, price: product?.prints.find((print) => print.sizes === size)?.price});
-        setPrice(product?.prints.find((print) => print.sizes === size)?.price);
-    }
+
+       const [stockMap, setStockMap] = useState<Record<number, boolean>>({});
+
+       async function fetchStock() {
+
+        const stock = await getStock({ data: product.id });
+
+        setStock(stock !== null ? stock : 0);
+        
+       }
+    
+      useEffect(() => {
+        fetchStock();
+        
+      }, []);
+
+      const {addToCart, setStatus, isLoading, status, isItemInCart} = useCart();
+
+      const isInCart = isItemInCart(product.id ? product.id : 0, "original") ? true : false;
+
+
+      function getTitleClass(title: string) {
+        const len = title.length;
+        if (len <= 8) return "text-5xl";
+        if (len <= 14) return "text-4xl";
+        if (len <= 20) return "text-xl";
+        return "text-xl";
+}
 
     const handleAddToCart = async () => {
-
-
-        try{                                           setLoading(true)
-
             
-             setTimeout(() => {
+                
+                try{
 
-        
-                    setStatus('This item has been added to your cart!');
-                                setLoading(false);
+                fetchStock();
+                } catch (e){
+                    setStatus("Sorry, something went wrong checking the stock of this item.")
+                }
 
-                    }, 1000);
+        setStatus('');
 
+        const item = {
+
+            id: product ? product.id : 0,
+                name: product ? product.name : " ",
+                selectedSize: selectedSize.size,
+                price: price ? price : 0,
+                image: product ? product.images[0] : "",
+                quantity: quantity,
+                productType: "original",
+                slug: product ? product.slug : "",
         }
-        
-        catch (error) {            
-            
-            setLoading(false);
-            setStatus('Sorry, Something went wrong. Please try again later.');
+
+      
 
 
+    
+
+
+
+        if(stock === 0 || stock === null){
+
+            setStatus("Sorry, this item is no longer available")
+
+        }else {
+            addToCart(item);
+            setTimeout(()=> {setStatus("")},7000)
 
         }
                         
        
+    
+                        
+       
     }
 
-    return (
-        <div className="w-screen h-screen lg:p-8 p-5  gap-4">
-        <div className='w-full mt-20 gap-5 h-full flex flex-col lg:flex-row lg:p-8 p-5 border border-black rounded-2xl'>
-            <div className = "flex flex-col gap-5 text-center ">
-                <img className = "rounded-xl  w-180 shadow-lg"src={product?.image}></img>
-            </div>
-            <div className = "lg:ml-10 flex flex-col gap-5 text-left">
-                <h1 className='text-3xl lg:text-4xl text-center lg:text-leftfont-black mt-5'>{product?.name}</h1>
-            <p className='text-sm lg:text-xl font-light text-black/40 italic '>[{product?.size} {product?.medium}]</p>
-            <hr className=' w-full border-black/50 '/>
-                <p className='text-lg lg:text-xl font-light'>Printed on premium Giclee fine art paper.</p>
-                                <div className='flex flex-row gap-5'>
-                    <Select onValueChange={handleSizeChange} defaultValue={product?.prints[0].sizes}>
-                        <SelectTrigger disabled = {loading} className="w-100 py-5 cursor-pointer border-black">
-                            <SelectValue placeholder="Select a size"/>
-                                                    </SelectTrigger>
-                        <SelectContent >
-                                <SelectGroup >
-                                <SelectLabel>Select a Size</SelectLabel>
-                                
-                                {product?.prints.map((print) => (
-                                    <SelectItem key={print.sizes} value={print.sizes}>
-                                        {print.sizes}
-                    
-                                        
-                                        
-                                    </SelectItem>
-                                ))}
-                                </SelectGroup>
-                        </SelectContent>
-                    </Select>
-                <QuantitySelector disabled = {loading} setQuantity ={setQuantity} setPrice = {setPrice} quantity={quantity}/>
-                </div>
-                <p className='lg:text-4xl text-4xl font-bold lg:font-light mt-10 mb-10 text-center'>${price ? price * quantity : 0}</p>
+     return (
+        <div className='rise-in mb-30 lg:w-screen w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
+
+        <div className="justify-center w-full lg:pt-30 pt-25 h-auto  relative  flex flex-col  gap-5 lg:px-60  p-5 ">
+            <Link className = "w-25"to = {`/originals`}><Button className = " cursor-pointer hover:bg-black/10 justify-baseline items-center w-25 -z-10  bg-white text-black border border-black"><ChevronLeft></ChevronLeft>Back </Button></Link>
+
+        <div className='   w-full gap-5 h-auto lg:h-5/6 flex flex-col lg:flex-row lg:p-8 p-5 border z-1000 bg-white  border-black rounded-2xl'>
+
+
+                <GalleryCarousel images = {product ? product?.images : []}></GalleryCarousel>
+      
+            <div className = "lg:ml-10 flex flex-col gap-5 text-left w-full">
+                <h1 className={`text-4xl text-center lg:text-6xl  lg:text-left font-bold mt-5 w-full break-all ${getTitleClass(product.name)} `}>{product?.name}</h1>
+                <p className='opacity-60 font-light w-full lg:w-150'>[{product?.year} |  {product?.size} | {product?.medium}] </p>
+                
+
+            <hr className=' w-full border-black/30 mb-5'/>
+ 
+                <p className='lg:text-6xl text-4xl  lg:font-light mt-10 mb-10 text-center'>${price ? (price * quantity).toLocaleString() : 0}</p>
 
                 <div className=' relative w-full flex flex-col'>
-                <StyledButton disabled = {loading} onClick = {handleAddToCart} color = "black" className = " w-full cursor-pointer ">Add to Cart</StyledButton>
-                {loading && <Spinner color="black" className = "z-10  top-2 right-5 absolute "></Spinner>}
+                <StyledButton disabled = {isLoading || stock == 0 || isInCart} onClick = {isLoading || stock != 0  && !isInCart ? handleAddToCart : () =>{}} color = " bg-white" className = {`${isLoading || stock == 0 || isInCart ? "cursor-not-allowed" : "cursor-pointer"} border-black border w-full `}>{stock == 0 ? "Sorry, this item has already been sold." : isLoading ? "Adding to your cart..." : isInCart ? "This item is in your cart." : "Add to your cart"}</StyledButton>
+                {isLoading && <Spinner color="black" className = "z-10  top-2 right-5 absolute "></Spinner>}
                 </div>
-                {status && <p className='text-center mt-5'>{status}</p>}
+                 <p className={`${status ? "rise-in opacity-100": "translate-3 opacity-0"}  opacity-0 text-center mt-5 duration-100 transition-all`}>{status}</p>
+                
             </div>
         </div>
         
         </div>
+        </div>
     )
 }
+

@@ -1,7 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { decrementStockIfAvailable } from '#/serverFunctions/stock';
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_TEST_KEY!)
+const stripe = new Stripe(
+  process.env.NODE_ENV === 'development'
+    ? process.env.STRIPE_SECRET_TEST_KEY ?? ''
+    : process.env.STRIPE_SECRET_KEY ?? ''
+)
 
 export const Route = createFileRoute('/api/checkout')({
   server: {
@@ -24,7 +29,14 @@ export const Route = createFileRoute('/api/checkout')({
             })),
             success_url: `${process.env.SITE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${process.env.SITE_URL}/cart`,
+             metadata: {
+    cart: JSON.stringify(
+      cart.map((item: any) => ({ id: item.id, size: item.selectedSize, qty: item.quantity }))
+    ),
+  },
           })
+
+
 
           return Response.json({ url: session.url })
         } catch (e) {

@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const INPUT_DIR = path.join(__dirname, "public/assets/products");
+const INPUT_DIR = path.join(__dirname, "public/assets/products/mockups");
 const OUTPUT_DIR = INPUT_DIR; // Outputs next to original
 
 const sizes = [

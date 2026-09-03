@@ -14,15 +14,15 @@ export const Route = createFileRoute('/')({ component: Home })
 function Home() {
   return (
     <main className="">
-      <section><div className="overflow-clip w-screen  lg:w-auto bg-black h-auto lg:h-120 ">
-              <video className='w-screen 'autoPlay loop muted playsInline src = "./assets/videos/flatground.mp4"></video>
+      <section><div className="overflow-clip w-screen  lg:w-auto bg-black h-auto lg:h-150  ">
+              <video className='w-screen 'autoPlay loop muted playsInline src = "/assets/videos/flatground(web).mp4"></video>
               </div></section>
      <section className="w-screen lg:px-60 p-5  gap-4">
       <div className = "mt-10">
 
 
     <div className="mt-10 text-2xl lg:text-4xl font-light">
-      <h1 className='lg:text-8xl text-4xl font-bold'>Shop Prints</h1>
+      <h1 className='lg:text-6xl text-4xl font-black'>Shop Prints</h1>
       <p className="mb-10 text-xl font-light opacity-50 mt-3">
     Premium archival fine art prints
   </p>

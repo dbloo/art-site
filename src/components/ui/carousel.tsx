@@ -61,6 +61,7 @@ export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: CarouselP
             className="shrink-0 snap-center"
           >
             <img
+            draggable = {false}
               className="rounded-xl w-50 lg:w-100 shadow-lg"
               src={product.images[0]}
               alt={product.slug}
@@ -105,6 +106,7 @@ export function RotatingCarousel({prints, autoRotateInterval = 2000}: CarouselPr
             className="shrink-0 snap-center"
           >
             <img
+            draggable = {false}
               className={`rounded-xl absolute   w-50 lg:w-100 shadow-lg`}
               src={product.image}
               alt={product.slug}
@@ -127,7 +129,7 @@ export function GalleryCarousel({images}: CarouselProps){
       
       <ChevronLeft size = {20 } className=''/>
 
-      <img className = " rounded-xl   w-full lg:w-200 shadow-lg"src = {`${images[activeIndex]}`}></img>
+      <img  draggable = {false} className = " rounded-xl   w-full lg:w-200 shadow-lg"src = {`${images[activeIndex]}`}></img>
      
      <ChevronRight/>
      
@@ -135,7 +137,7 @@ export function GalleryCarousel({images}: CarouselProps){
      {images.length > 1 &&
     <div className=' flex flex-row w-full gap-3 lg:gap-5 bg-black/2 border border-black/10 rounded-2xl mt-5 items-center  lg:p-3 p-2 '>{images.map((image ,e)=> (
 
-        <div style = {{backgroundImage: `url(${image})`}}key = {e} className = {`${activeIndex == e ? "opacity-100"  : " hover:opacity-80 transition-all opacity-50"} cursor-pointer w-10 h-10 lg:w-20 lg:h-20 bg-cover bg-center rounded-lg`}onClick = {() => setActiveIndex(e)}></div>
+        <div  draggable = {false} style = {{backgroundImage: `url(${image})`}}key = {e} className = {`${activeIndex == e ? "opacity-100"  : " hover:opacity-80 transition-all opacity-50"} cursor-pointer w-10 h-10 lg:w-20 lg:h-20 bg-cover bg-center rounded-lg`}onClick = {() => setActiveIndex(e)}></div>
     )
        
     )}</div>

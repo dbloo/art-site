@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect  } from "react";
 import {Spinner} from "@/components/ui/spinner"
+import {getStock} from "@/serverFunctions/stock"
 
 
 
@@ -16,6 +17,7 @@ export interface CartItem {
   quantity: number;
   [key: string]: any;
   slug: string;
+  inStock?: boolean;
 }
 
 interface CartContextType {
@@ -29,12 +31,14 @@ interface CartContextType {
     forceRemove?: boolean
   ) => Promise<void>;
   clearCart: () => void;
-  isItemInCart: (productId: string, productType: string) => CartItem | undefined;
+  isItemInCart: (productId: number, productType?: string) => CartItem | undefined;
   isLoading: boolean;
   setIsLoading: (loading: boolean) => void;
   setStatus: (status: string) => void;
   getCartSize: number,
   status: string,
+  inStock: boolean,
+  setIsInStock: (id: string, inStock: boolean) => void;
 }
 
 
@@ -50,6 +54,8 @@ const defaultCartValue: CartContextType = {
   getCartSize: 0,
   status: "",
   setStatus: ()=> {},
+  setIsInStock: () => {},
+  inStock: false,
 };
 const CartContext = createContext(defaultCartValue);
 
@@ -72,7 +78,7 @@ export function CartProvider({children} : CartProviderProps) {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart)
+
   }, [cart]);
 
   const addToCart = async (item:CartItem) => {
@@ -112,7 +118,6 @@ export function CartProvider({children} : CartProviderProps) {
       
   }
   setIsLoading(false);
-    console.log("success")
 
     setStatus("Item successfully added to your cart!");
 
@@ -124,7 +129,6 @@ export function CartProvider({children} : CartProviderProps) {
 
 
   const isItemInCart = (productId:string, productType:any) => {
-    console.log(productId, productType)
 
     return cart.find((item:any)=> 
       item.id === productId && 
@@ -182,7 +186,9 @@ export function CartProvider({children} : CartProviderProps) {
  
   return (
     <CartContext.Provider value={{ getCartSize, cart, status, addToCart, removeFromCart, subtotal, isItemInCart, isLoading, setStatus, setIsLoading, clearCart}}>
-      {isLoading && <Spinner />}
+      {isLoading && <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
+    <Spinner />
+  </div>}
       {children}
     </CartContext.Provider>
   );
