@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router"
 export function Footer  () {
 
     return (<>        
-<div className="w-full  mt-30 ">
+<div className="w-full  relative mt-30 ">
     <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-5 lg:h-full lg:relative absolute  lg:top-0 -top-3 w-full"src = "/assets/graphics/footer-graphic_2.svg"></img>
     <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-15 lg:h-20  absolute  lg:top-0 -top-9 w-full"src = "/assets/graphics/graphic2.svg"></img>
 
