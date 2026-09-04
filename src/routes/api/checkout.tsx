@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { decrementStockIfAvailable } from '#/serverFunctions/stock';
+import { getStock } from '@/serverFunctions/stock';
 import Stripe from 'stripe'
 
 const stripe = new Stripe(
