@@ -17,6 +17,8 @@ export const Route = createFileRoute('/api/checkout')({
           const { cart } = await request.json()
 
           for (const item of cart) {
+
+            if (item.productType == "original"){
       const stock = await getStock({ data: item.id })
       if (stock === null || stock <= 0) {
         return Response.json(
@@ -24,6 +26,7 @@ export const Route = createFileRoute('/api/checkout')({
           { status: 409 }
         )
       }
+    }
     }
 
           const session = await stripe.checkout.sessions.create({
