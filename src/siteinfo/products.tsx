@@ -110,9 +110,9 @@ export const products = {
             size: "18 x 24 inches",
             price: 250,
             prints: [
-               {sizes: "8 x 8 in.", price: 35},
-                {sizes: "14 x 14 in.", price: 50},
-                {sizes: "24 x 25 in.", price: 80},
+                {sizes: "8 x 10 in.", price: 50},
+                {sizes: "10 x 12 in.", price: 95},
+                {sizes: "20 x 24 in.", price: 150},
             ],
             images: ["/assets/products/overcrook-large.webp", "/assets/products/mockups/overcrook_mockuo-large.webp",],
             thumbnail:["/assets/products/overcrook-thumbnail.webp"],

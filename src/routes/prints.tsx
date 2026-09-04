@@ -27,7 +27,7 @@ function RouteComponent() {
         {products.prints.map((print, e) => 
         <>
         
-        <div className='pb-10  '><Link to = {`/print/${print.slug}`}><div style={{backgroundImage: `url(${print.thumbnail})`}} className = "shadow-lg  hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out  bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"></div><h1 className='text-4xl lg:text-left text-center mt-5 mb-5 font-bold'>{print.name}</h1><div className = "flex flex-row justify-between w-full"><p>{print.year}</p><p className='font-light opacity-70'>[{print.size}]</p></div></Link></div>
+        <div className='pb-10  '><Link to = {`/print/${print.slug}`}><div style={{backgroundImage: `url(${print.thumbnail})`}} className = "shadow-lg  hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out  bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"></div><h1 className='text-4xl lg:text-left text-center mt-5 mb-5 font-bold'>{print.name}</h1><div className = "flex flex-row justify-between w-full"><p>From ${print.prints[0].price}</p><p className='font-light opacity-70'>[{print.size}]</p></div></Link></div>
 
         </>
         
