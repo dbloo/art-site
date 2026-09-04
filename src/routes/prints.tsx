@@ -16,7 +16,7 @@ function RouteComponent() {
       <div className = " w-full border border-black rounded-2xl  px-3 py-5  lg:p-8 "> 
         <div className=' '> 
           <div className='flex flex-col mb-10'>
-                <h1 className='lg:text-7xl text-4xl font-black mb-2'>Prints</h1>
+                <h1 className='lg:text-7xl text-4xl font-black mt-2 '>Prints</h1>
                 <p className='text-lg opacity-70 font-light mb-5'>Printed on archival fine-art paper. </p>
 
                 <hr className=''></hr>
