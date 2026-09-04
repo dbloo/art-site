@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import {getStock} from "@/serverFunctions/stock"
 import {Skeleton} from "@/components/ui/skeleton"
 
-import {db} from '@/db/index'
 
 export const Route = createFileRoute('/originals')({
   component: RouteComponent,

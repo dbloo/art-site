@@ -1,10 +1,13 @@
+"use server"
+
 import { createServerFn } from '@tanstack/react-start'
 import { eq, and, gt, sql } from 'drizzle-orm'
+import { getDb } from '@/db';
 
 export const getStock = createServerFn({ method: 'GET' })
   .validator((id: number) => id)
   .handler(async ({ data: id }) => {
-    const { db } = await import('@/db')
+    const db = getDb()
     const { originalsStock } = await import('@/db/schema')
     try {
       const result = await db
@@ -22,7 +25,7 @@ export const decrementStockIfAvailable = createServerFn({ method: 'POST' })
   .validator((input: { id: number }) => input)
   .handler(async ({ data }) => {
     const { id } = data
-    const { db } = await import('@/db')
+    const db = getDb()
     const { originalsStock } = await import('@/db/schema')
     try {
       const result = await db
