@@ -1,8 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ConstructionPage } from '#/components/ui/construction'
 import {Gallery} from '@/components/ui/gallery'
 import {images} from '@/siteinfo/gallery'
-import { useEffect } from 'react'
 
 export const Route = createFileRoute('/paintings')({
   component: RouteComponent,

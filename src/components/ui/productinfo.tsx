@@ -31,7 +31,6 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
     const [price, setPrice] = useState(product?.prints[0].price);
     const[selectedSize, setSelectedSize] = useState({size:product?.prints[0].sizes, price: product?.prints[0].price});
     const [loading, setLoading] = useState(false);
-    const nextProduct = "overcrook"
 
     const handleSizeChange = (size: string) => {
         setSelectedSize({size: size, price: product?.prints.find((print) => print.sizes === size)?.price});
@@ -59,11 +58,16 @@ export function ProductInfoPrints ({slug} : {slug: string}) {
                 image: product ? product.images[0] : "",
                 quantity: quantity,
                 productType: "print",
+                productImage: product?.productImage,
                 slug: product ? product.slug : "",
         }
 
+
         addToCart(item);
         setTimeout(()=> {setStatus("")},7000)
+
+                console.log(item.productImage)
+
                         
        
     }
@@ -178,6 +182,7 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
 
         setStatus('');
 
+
         const item = {
 
             id: product ? product.id : 0,
@@ -185,10 +190,12 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
                 selectedSize: selectedSize.size,
                 price: price ? price : 0,
                 image: product ? product.images[0] : "",
+                productImage: product ? product.productImage : "",
                 quantity: quantity,
                 productType: "original",
                 slug: product ? product.slug : "",
         }
+
 
       
 

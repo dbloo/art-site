@@ -36,6 +36,7 @@ export const Route = createFileRoute('/api/checkout')({
                 currency: 'usd',
                 product_data: {
                   name: `${item.name}${item.selectedSize ? ` (${item.selectedSize})` : ''}`,
+                  images: [`${process.env.SITE_URL}${item.productImage}`,]
                 },
                 unit_amount: Math.round(item.price * 100),
               },
@@ -45,10 +46,12 @@ export const Route = createFileRoute('/api/checkout')({
             cancel_url: `${process.env.SITE_URL}/cart`,
              metadata: {
     cart: JSON.stringify(
-      cart.map((item: any) => ({ id: item.id, size: item.selectedSize, qty: item.quantity }))
+      cart.map((item: any) => ({ id: item.id, size: item.selectedSize, qty: item.quantity, img: item.productImage }))
     ),
   },
           })
+
+          console.log(session.metadata)
 
 
 

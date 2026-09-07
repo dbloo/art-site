@@ -31,12 +31,20 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         title: 'Dominic Bloomfield',
       },
+      {
+        
+      },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      
       },
+      {
+        rel: 'icon',
+        href: '/favicon.png',       
+      }
     ],
   }),
   shellComponent: RootDocument,

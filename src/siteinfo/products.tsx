@@ -13,8 +13,9 @@ export const products = {
                 {sizes: "14 x 14 in.", price: 95},
                 {sizes: "24 x 36 in.", price: 150},
                 {sizes: "36 x 36 in.", price: 275},
-            ],
+            ], 
             images: ["/assets/products/SRII-large.webp", "/assets/products/mockups/srii_mockup-large.webp",],
+            productImage: "/assets/products/SRII.JPG",
             thumbnail:["/assets/products/SRII-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -36,6 +37,7 @@ export const products = {
                 {sizes: "40 x 56 in.", price: 375},
             ],
             images: ["/assets/products/moore-large.webp", "/assets/products/mockups/moore_mockup-large.webp",],
+            productImage: "/assets/products/moore.jpg",
             thumbnail:["/assets/products/moore-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -54,6 +56,7 @@ export const products = {
                 {sizes: "36 x 36 in.", price: 275},
             ],
             images: ["/assets/products/lookup-large.webp", "/assets/products/mockups/lookup_mockup-large.webp",],
+            productImage: "/assets/products/lookup.JPG",
             thumbnail:["/assets/products/lookup-thumbnail.webp"],
             description: "",
             year: "2024"
@@ -74,6 +77,7 @@ export const products = {
                 {sizes: "36 x 36 in.", price: 275},
             ],
             images: ["/assets/products/flatground-large.webp", "/assets/products/mockups/flatground_mockup-large.webp",],
+            productImage: "/assets/products/flatground.JPG",
             thumbnail:["/assets/products/flatground-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -95,6 +99,7 @@ export const products = {
                 {sizes: "36 x 36 in.", price: 275},
             ],
             images: ["/assets/products/heavy-large.webp", "/assets/products/mockups/heavy_mockup-large.webp",],
+            productImage: "/assets/products/heavy.jpg",
             thumbnail:["/assets/products/heavy-thumbnail.webp", ],
             description: "",
             year: "2022"
@@ -115,6 +120,7 @@ export const products = {
                 {sizes: "20 x 24 in.", price: 150},
             ],
             images: ["/assets/products/overcrook-large.webp", "/assets/products/mockups/overcrook_mockuo-large.webp",],
+            productImage: "/assets/products/overcrook.JPG",
             thumbnail:["/assets/products/overcrook-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -136,6 +142,7 @@ export const products = {
             size: "48 x 48 inches",
             price: 700,
             images: ["/assets/products/SRII-large.webp",],
+            productImage: "/assets/products/SRII.JPG",
             thumbnail: ["/assets/products/SRII-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -149,6 +156,7 @@ export const products = {
             size: "48 x 48 inches",
             price: 200,
             images: ["/assets/products/fiveam-large.webp"],
+            productImage: "/assets/products/fiveam.JPG",
             thumbnail: ["/assets/products/fiveam-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -162,6 +170,7 @@ export const products = {
             size: "48 x 48 inches",
             price: 1200,
             images: ["/assets/products/flatground-large.webp"],
+            productImage: "/assets/products/flatground.JPG",
             thumbnail:["/assets/products/flatground-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -175,6 +184,7 @@ export const products = {
             size: "48 x 48 inches",
             price: 400,
             images: ["/assets/products/moore-large.webp",],
+            productImage: "/assets/products/moore.jpg",
             thumbnail:["/assets/products/moore-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -189,6 +199,7 @@ export const products = {
             size: "48 x 48 inches",
             price: 300,
             images: ["/assets/products/overcrook-large.webp",],
+            productImage: "/assets/products/overcrook.JPG",
             thumbnail:["/assets/products/overcrook-thumbnail.webp"],
             description: "",
             year: "2026"
@@ -203,6 +214,7 @@ export const products = {
             size: "48 x 48 inches",
             price: 400,
             images: ["/assets/products/heavy-large.webp",],
+            productImage: "/assets/products/heavy.jpg",
             thumbnail:["/assets/products/heavy-thumbnail.webp", ],
             description: "",
             year: "2026"

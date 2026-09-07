@@ -16,8 +16,9 @@ export interface CartItem {
   price: number;
   quantity: number;
   [key: string]: any;
-  slug: string;
+  slug: string; 
   inStock?: boolean;
+  productImage?: string;
 }
 
 interface CartContextType {
@@ -39,6 +40,7 @@ interface CartContextType {
   status: string,
   inStock: boolean,
   setIsInStock: (id: string, inStock: boolean) => void;
+  productImage: string;
 }
 
 
@@ -56,6 +58,7 @@ const defaultCartValue: CartContextType = {
   setStatus: ()=> {},
   setIsInStock: () => {},
   inStock: false,
+  productImage: ""
 };
 const CartContext = createContext(defaultCartValue);
 
@@ -63,7 +66,6 @@ const CartContext = createContext(defaultCartValue);
 export function CartProvider({children} : CartProviderProps) {
 
 
-  const [added, setAdded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("");
 
@@ -93,12 +95,12 @@ export function CartProvider({children} : CartProviderProps) {
 
       
       const existingItem = prevCart.find(
-        (cartItem:CartItem) => cartItem.id === item.id && cartItem.selectedSize === item.selectedSize && item.productType == cartItem.productType
+        (cartItem:CartItem) => cartItem.id === item.id && cartItem.selectedSize === item.selectedSize && item.productType == cartItem.productType && cartItem.productImage == item.productImage
       );
   
       if (existingItem) {
         return prevCart.map((cartItem:CartItem) =>
-          cartItem.id === item.id && cartItem.selectedSize === item.selectedSize && cartItem.productType == item.productType
+          cartItem.id === item.id && cartItem.selectedSize === item.selectedSize && cartItem.productType == item.productType && cartItem.productImage == item.productImage
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
@@ -144,16 +146,15 @@ export function CartProvider({children} : CartProviderProps) {
 
     await new Promise(resolve => setTimeout(resolve, 800));
     setCart((prevCart:any) => {
-      // Filter out the item completely if forceRemove is true
+      
       if (forceRemove) {
         return prevCart.filter((item:any) => 
           !(item.id === productId && 
             item.selectedSize === size && 
-            item.productType === productType)
+            item.productType === productType && item.productImage)
         );
       }
       
-      // Otherwise decrease quantity
       return prevCart.map((item:any)=> {
         if (item.id === productId && 
             item.selectedSize === size && 
@@ -176,7 +177,7 @@ export function CartProvider({children} : CartProviderProps) {
 
   const clearCart = () => {
     setCart([]);
-    localStorage.removeItem('cart'); // or sessionStorage, whichever you use
+    localStorage.removeItem('cart');
   };
 
   const getCartSize = cart.reduce(
