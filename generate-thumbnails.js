@@ -7,11 +7,12 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const INPUT_DIR = path.join(__dirname, "public/assets/graphics");
-const OUTPUT_DIR = INPUT_DIR; // Outputs next to original
+const INPUT_DIR = path.join(__dirname, "public/assets/products");
+const OUTPUT_DIR = INPUT_DIR;
 
 const sizes = [
-  { suffix: "-small", width: 300, fileType: "webp" },
+  { suffix: "large", width: 1200, fileType: "webp" },
+  { suffix: "thumbnail", width: 800, fileType: "webp" }
 ];
 
 async function processImage(file) {
@@ -19,7 +20,7 @@ async function processImage(file) {
   const base = path.basename(file, ext);
   const inputPath = path.join(INPUT_DIR, file);
 
-  if (![".svg", ".jpeg", ".png"].includes(ext)) return;
+  if (![".jpg"].includes(ext)) return;
 
   for (const { suffix, width, fileType } of sizes) {
     const outputFileName = `${base}${suffix}.${fileType}`;
@@ -39,7 +40,7 @@ async function processImage(file) {
 async function run() {
   const files = await fs.readdir(INPUT_DIR);
   for (const file of files) {
-    await processImage(file);
+    await processImage("SRII.jpg");
   }
   console.log("✅ All thumbnails generated!");
 }

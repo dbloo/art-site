@@ -25,20 +25,19 @@ export const products = {
 
         {
             id: 2,
-            name: "Moore",
-            slug: "moore",
+            name: "Heel Flip",
+            slug: "heel-flip",
             medium: "Acrylic paint and marker on canvas",
-            size: "18 x 24 inches",
+            size: "19 x 17 inches",
             price: 250,
             prints: [
-                {sizes: "8 x 11 in.", price: 50},
-                {sizes: "10 x 14 in.", price: 95},
-                {sizes: "20 x 28 in.", price: 150},
-                {sizes: "40 x 56 in.", price: 375},
+                {sizes: "8 x 10 in.", price: 50},
+                {sizes: "10 x 12 in.", price: 95},
+                {sizes: "20 x 24 in.", price: 150},
             ],
-            images: ["/assets/products/moore-large.webp", "/assets/products/mockups/moore_mockup-large.webp",],
-            productImage: "/assets/products/moore.jpg",
-            thumbnail:["/assets/products/moore-thumbnail.webp"],
+            images: ["/assets/products/heelflip-large.webp"],
+            productImage: "/assets/products/heelflip.jpg",
+            thumbnail:["/assets/products/heelflip-thumbnail.webp"],
             description: "",
             year: "2026"
         },
@@ -164,28 +163,28 @@ export const products = {
         },
         {
             id: 3,
-            name: "Flat Ground",
+            name: "Show Your Face",
             slug: "flat-ground",
             medium: "Acrylic paint and marker on canvas",
             size: "48 x 48 inches",
-            price: 1200,
-            images: ["/assets/products/flatground-large.webp"],
-            productImage: "/assets/products/flatground.JPG",
-            thumbnail:["/assets/products/flatground-thumbnail.webp"],
+            price: 600,
+            images: ["/assets/products/syf-large.webp"],
+            productImage: "/assets/products/syf.JPG",
+            thumbnail:["/assets/products/syf-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2024"
 
         },
         {
             id: 4,
-            name: "Moore",
-            slug: "moore",
+            name: "Heel Flip",
+            slug: "heel-flip",
             medium: "Acrylic paint and marker on canvas",
-            size: "48 x 48 inches",
-            price: 400,
-            images: ["/assets/products/moore-large.webp",],
-            productImage: "/assets/products/moore.jpg",
-            thumbnail:["/assets/products/moore-thumbnail.webp"],
+            size: "19 x 17 inches",
+            price: 500,
+            images: ["/assets/products/heelflip-large.webp",],
+            productImage: "/assets/products/heelflip.jpg",
+            thumbnail:["/assets/products/heelflip-thumbnail.webp"],
             description: "",
             year: "2026"
 
@@ -217,7 +216,7 @@ export const products = {
             productImage: "/assets/products/heavy.jpg",
             thumbnail:["/assets/products/heavy-thumbnail.webp", ],
             description: "",
-            year: "2026"
+            year: "2021"
 
         },
     ]

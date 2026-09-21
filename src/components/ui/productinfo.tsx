@@ -143,13 +143,19 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
        const [stockMap, setStockMap] = useState<Record<number, boolean>>({});
 
        async function fetchStock() {
+        setFetchingStock(true)
             try {
                 const stock = await getStock({ data: product.id });
                 setStock(stock !== null ? stock : 0);
+
             } catch (e) {
                 console.error('Failed to fetch stock', e);
                 setStock(0); 
+                setFetchingStock(false)
             }
+
+            setFetchingStock(false)
+
                 }
     
       useEffect(() => {
@@ -160,6 +166,7 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
       const {addToCart, setStatus, isLoading, status, isItemInCart} = useCart();
 
       const isInCart = isItemInCart(product.id ? product.id : 0, "original") ? true : false;
+      const [fetchingStock, setFetchingStock] = useState(false);
 
 
       function getTitleClass(title: string) {
@@ -241,7 +248,7 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
                 <p className='lg:text-6xl text-4xl  lg:font-light mt-10 mb-10 text-center'>${price ? (price * quantity).toLocaleString() : 0}</p>
 
                 <div className=' relative w-full flex flex-col'>
-                <StyledButton disabled = {isLoading || stock == 0 || isInCart} onClick = {isLoading || stock != 0  && !isInCart ? handleAddToCart : () =>{}} color = " bg-white" className = {`${isLoading || stock == 0 || isInCart ? "cursor-not-allowed" : "cursor-pointer"} border-black border w-full `}>{stock == 0 ? "Sorry, this item has already been sold." : isLoading ? "Adding to your cart..." : isInCart ? "This item is in your cart." : "Add to your cart"}</StyledButton>
+                <StyledButton disabled = {isLoading || stock == 0 || isInCart} onClick = {isLoading || stock != 0  && !isInCart ? handleAddToCart : () =>{}} color = " bg-white" className = {`${isLoading || stock == 0 || fetchingStock || isInCart ? "cursor-not-allowed" : "cursor-pointer"} border-black border w-full `}>{ fetchingStock ? "Checking the stock for this item..." : stock == 0 ? "Sorry, this item has already been sold."  : isLoading ? "Adding to your cart..." : isInCart ? "This item is in your cart." : "Add to your cart"}</StyledButton>
                 {isLoading && <Spinner color="black" className = "z-10  top-2 right-5 absolute "></Spinner>}
                 </div>
                  <p className={`${status ? "rise-in opacity-100": "translate-3 opacity-0"}  opacity-0 text-center mt-5 duration-100 transition-all`}>{status}</p>

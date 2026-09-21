@@ -6,5 +6,8 @@ export const Route = createFileRoute('/graphicdesign')({
 })
 
 function RouteComponent() {
-  return <ConstructionPage/>
+
+      const construction = true;
+
+  if (construction )return <ConstructionPage/>
 }

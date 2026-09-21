@@ -33,7 +33,7 @@ function RouteComponent() {
         const len = title.length;
         if (len <= 8) return "text-5xl";
         if (len <= 14) return "text-4xl";
-        if (len <= 20) return "lg:text-5xl text-xl";
+        if (len <= 20) return "lg:text-4xl text-xl";
         return "text-xl";
 }
 
