@@ -86,8 +86,8 @@ export const products = {
 
         {
             id: 5,
-            name: "Heavy",
-            slug: "heavy",
+            name: "Look Up",
+            slug: "look-up",
             medium: "Acrylic paint and marker on canvas",
             size: "12 x 12 inches",
             price: 250,
@@ -97,11 +97,11 @@ export const products = {
                 {sizes: "24 x 24 in.", price: 150},
                 {sizes: "36 x 36 in.", price: 275},
             ],
-            images: ["/assets/products/heavy-large.webp", "/assets/products/mockups/heavy_mockup-large.webp",],
-            productImage: "/assets/products/heavy.jpg",
-            thumbnail:["/assets/products/heavy-thumbnail.webp", ],
+            images: ["/assets/products/lookup-large.webp", "/assets/products/mockups/lookup_mockup-large.webp",],
+            productImage: "/assets/products/lookup.jpg",
+            thumbnail:["/assets/products/lookup-thumbnail.webp", ],
             description: "",
-            year: "2022"
+            year: "2024"
 
 
         },
@@ -166,7 +166,7 @@ export const products = {
             name: "Look Up",
             slug: "look-up",
             medium: "Acrylic on canvas",
-            size: "4 x 3 feet",
+            size: "38 x 38 inches",
             price: 1100,
             images: ["/assets/products/lookup-large.webp"],
             productImage: "/assets/products/lookup.JPG",
