@@ -35,7 +35,7 @@ export const items = {
             images: ["/assets/products/lookup-thumbnail.webp"],
             description: "",
             year: "2024",
-            forSale: false,
+            forSale: true,
 
 
         },
@@ -77,7 +77,7 @@ export const items = {
             images: ["/assets/products/overcrook-thumbnail.webp"],
             description: "Apart of my skateboarding series, this skater can be seen hitting an overcrook grind on a rail, riding a custom spitfire board.",
             year: "2026",
-            forSale: true,
+            forSale: false,
 
 
         },
@@ -92,7 +92,7 @@ export const items = {
             images: ["/assets/products/whatifnot-thumbnail.webp"],
             description: "",
             year: "2026",
-            forSale: false,
+            forSale: true,
 
 
         },
@@ -161,7 +161,7 @@ export const items = {
             images: ["/assets/products/crystal-thumbnail.webp"],
             description: "",
             year: "2026",
-            forSale: false,
+            forSale: true,
 
 
         },
@@ -272,7 +272,7 @@ export const items = {
             images: ["/assets/products/syf-thumbnail.webp"],
             description: "",
             year: "2026",
-            forSale: true,
+            forSale: false,
 
 
         },
@@ -293,7 +293,7 @@ export const items = {
 
         {
             id: 22,
-            name: "adequate natural",
+            name: "Adequate Natural",
             slug: "adequate",
             medium: "Acrylic paint and marker on canvas",
             size: "18 x 24 inches",
@@ -342,7 +342,7 @@ export const items = {
             images: ["/assets/products/goldback-thumbnail.webp"],
             description: "",
             year: "2026",
-            forSale: false,
+            forSale: true,
 
 
         },
@@ -356,7 +356,7 @@ export const items = {
             images: ["/assets/products/heelflip-thumbnail.webp"],
             description: "Apart of my skateboarding series, this painting depicts a boy doing a heel flip over a gap while a passerby watches. The boy can be seen wearing black skate shoes by Straye, and is riding a Blind Bighead Yellow Skateboard. This scene takes place at Bamford Park in Davie, Florida. ",
             year: "2026",
-            forSale: true,
+            forSale: false,
 
 
         },
