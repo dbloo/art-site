@@ -40,7 +40,7 @@ async function processImage(file) {
 async function run() {
   const files = await fs.readdir(INPUT_DIR);
   for (const file of files) {
-    await processImage("thatsme.jpg");
+    await processImage("horizon.jpg");
   }
   console.log("✅ All thumbnails generated!");
 }

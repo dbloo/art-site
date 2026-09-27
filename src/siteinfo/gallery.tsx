@@ -29,7 +29,7 @@ export const items = {
         {
             id: 3,
             name: "Look Up",
-            slug: "lookup",
+            slug: "look-up",
             medium: "Acrylic on canvas",
             size: "38 x 38 inches",
             images: ["/assets/products/lookup-thumbnail.webp"],

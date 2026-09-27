@@ -43,8 +43,8 @@ export const products = {
         },
         {
             id: 3,
-            name: "Look Up",
-            slug: "lookup",
+            name: "Horizon",
+            slug: "horizon",
             medium: "Acrylic on canvas",
             size: "38 x 38 inches",
             price: 250,
@@ -54,11 +54,11 @@ export const products = {
                 {sizes: "24 x 24 in.", price: 150},
                 {sizes: "36 x 36 in.", price: 275},
             ],
-            images: ["/assets/products/lookup-large.webp", "/assets/products/mockups/lookup_mockup-large.webp",],
-            productImage: "/assets/products/lookup.JPG",
-            thumbnail:["/assets/products/lookup-thumbnail.webp"],
+            images: ["/assets/products/horizon-large.webp"],
+            productImage: "/assets/products/horizon.JPG",
+            thumbnail:["/assets/products/horizon-thumbnail.webp"],
             description: "",
-            year: "2024"
+            year: "2026"
 
 
         },
