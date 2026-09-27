@@ -1,4 +1,5 @@
-import { products } from '../../siteinfo/products'
+import { products } from '@/siteinfo/products'
+import { items } from '@/siteinfo/gallery'
 import { useState, useEffect } from 'react'
 import {getStock} from "@/serverFunctions/stock"
 import { StyledButton, Button} from './button'
@@ -8,6 +9,7 @@ import {Spinner} from './spinner'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useCart } from '#/context/CartContext'
+import { ArrowRight } from 'lucide-react'
 import {GalleryCarousel} from './carousel'
 
 export function ProductInfoPrints ({slug} : {slug: string}) {
@@ -259,5 +261,64 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
         </div>
         </div>
     )
+}
+
+export function ItemInfoPaintings ({slug} : {slug:string}){
+
+    
+
+    const painting = items.paintings.find((painting) => painting.slug === slug);
+
+
+
+      
+
+
+      function getTitleClass(title: string) {
+        const len = title.length;
+        if (len <= 8) return "text-5xl";
+        if (len <= 14) return "text-4xl";
+        if (len <= 20) return "text-xl";
+        return "text-xl";
+}
+
+    
+
+     return (
+        <div className='rise-in mb-30 lg:w-screen w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
+
+        <div className="justify-center w-full lg:pt-30 pt-25 h-auto  relative  flex flex-col  gap-5 lg:px-60  p-5 ">
+            <Link className = "w-25"to = {`/paintings`}><Button className = " cursor-pointer hover:bg-black/10 justify-baseline items-center w-25 -z-10  bg-white text-black border border-black"><ChevronLeft></ChevronLeft>Back </Button></Link>
+
+        <div className='   w-full gap-5 h-auto lg:h-5/6 flex flex-col lg:flex-row lg:p-8 p-5 border z-1000 bg-white  border-black rounded-2xl'>
+
+
+                <GalleryCarousel images = {painting ? painting?.images : []}></GalleryCarousel>
+      
+            <div className = "lg:ml-10 flex flex-col gap-5 text-left w-full">
+                <h1 className={`text-4xl text-center lg:text-6xl  lg:text-left font-bold mt-5 w-full break-all ${getTitleClass(painting?.name)} `}>{painting?.name}</h1>
+
+                <div className='flex flex-col gap-1'>
+                <p className='opacity-80 font-light w-full lg:w-150'><strong>Year: </strong>{painting?.year} </p>
+                <p className='opacity-80 font-light w-full lg:w-150'><strong>Size:</strong> {painting?.size} </p>
+                <p className='opacity-80 font-light w-full lg:w-150'><strong>Medium: </strong>| {painting?.medium}</p>
+                </div>
+                
+
+            {painting?.description != "" && <><hr className=' w-full border-black/30 mb-5'/>
+
+            <p>{painting?.description}</p></>}
+ 
+
+               
+                {painting?.forSale && <StyledButton className = "mt-20" to={`/original/${painting.slug}`}>This painting is for sale <ChevronRight></ChevronRight></StyledButton>}
+                
+            </div>
+        </div>
+        
+        </div>
+        </div>
+    )
+
 }
 

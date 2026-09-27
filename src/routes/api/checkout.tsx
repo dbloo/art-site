@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { decrementStockIfAvailable } from '#/serverFunctions/stock';
-import { getStock } from '@/serverFunctions/stock';
+import { getStock, decrementStockIfAvailable } from '@/serverFunctions/stock';
+
 import Stripe from 'stripe'
 
 const stripe = new Stripe(
@@ -53,7 +53,8 @@ export const Route = createFileRoute('/api/checkout')({
 
           console.log(session.metadata)
 
-
+          for(const item of cart) { if(item.productType == "original") { {decrementStockIfAvailable({data: item.id}) }}
+}
 
           return Response.json({ url: session.url })
         } catch (e) {

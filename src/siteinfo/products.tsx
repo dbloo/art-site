@@ -135,58 +135,58 @@ export const products = {
 
         {
             id: 1,
-            name: "SRII",
-            slug: "srii",
-            medium: "Acrylic paint and marker on canvas",
-            size: "48 x 48 inches",
-            price: 700,
-            images: ["/assets/products/SRII-large.webp",],
-            productImage: "/assets/products/SRII.JPG",
-            thumbnail: ["/assets/products/SRII-thumbnail.webp"],
+            name: "Goldback",
+            slug: "Goldback",
+            medium: "Acrylic on canvas",
+            size: "4 x 3 feet",
+            price: 920,
+            images: ["/assets/products/goldback-large.webp",],
+            productImage: "/assets/products/goldback.jpeg",
+            thumbnail: ["/assets/products/goldback-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2024"
 
         },
         {
             id: 2,
-            name: "fiveinthemorning",
-            slug: "fiveinthemorning",
+            name: "What if not! Complete??",
+            slug: "whatifnot",
             medium: "Acrylic paint and marker on canvas",
-            size: "48 x 48 inches",
-            price: 200,
-            images: ["/assets/products/fiveam-large.webp"],
-            productImage: "/assets/products/fiveam.JPG",
-            thumbnail: ["/assets/products/fiveam-thumbnail.webp"],
+            size: "73 x 73 inches",
+            price: 4300,
+            images: ["/assets/products/whatifnot-large.webp"],
+            productImage: "/assets/products/whatifnot.JPG",
+            thumbnail: ["/assets/products/whiteifnot-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2025"
 
         },
         {
             id: 3,
-            name: "Show Your Face",
-            slug: "flat-ground",
-            medium: "Acrylic paint and marker on canvas",
-            size: "48 x 48 inches",
-            price: 600,
-            images: ["/assets/products/syf-large.webp"],
-            productImage: "/assets/products/syf.JPG",
-            thumbnail:["/assets/products/syf-thumbnail.webp"],
+            name: "Look Up",
+            slug: "look-up",
+            medium: "Acrylic on canvas",
+            size: "4 x 3 feet",
+            price: 1100,
+            images: ["/assets/products/lookup-large.webp"],
+            productImage: "/assets/products/lookup.JPG",
+            thumbnail:["/assets/products/lookup-thumbnail.webp"],
             description: "",
             year: "2024"
 
         },
         {
             id: 4,
-            name: "Heel Flip",
+            name: "Mr. Crystal",
             slug: "heel-flip",
             medium: "Acrylic paint and marker on canvas",
             size: "19 x 17 inches",
-            price: 500,
-            images: ["/assets/products/heelflip-large.webp",],
-            productImage: "/assets/products/heelflip.jpg",
+            price: 1100,
+            images: ["/assets/products/crystal-large.webp",],
+            productImage: "/assets/products/crystal.jpg",
             thumbnail:["/assets/products/heelflip-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2025"
 
         },
 
@@ -207,14 +207,14 @@ export const products = {
 
         {
             id: 6,
-            name: "Heavy",
-            slug: "heavy",
+            name: "Heel Flip",
+            slug: "heel-flip",
             medium: "Acrylic paint and marker on canvas",
             size: "48 x 48 inches",
             price: 400,
-            images: ["/assets/products/heavy-large.webp",],
-            productImage: "/assets/products/heavy.jpg",
-            thumbnail:["/assets/products/heavy-thumbnail.webp", ],
+            images: ["/assets/products/heelflip-large.webp",],
+            productImage: "/assets/products/heelflip.jpg",
+            thumbnail:["/assets/products/heelflip-thumbnail.webp", ],
             description: "",
             year: "2021"
 

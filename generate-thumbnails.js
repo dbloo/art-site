@@ -23,7 +23,7 @@ async function processImage(file) {
   if (![".jpg"].includes(ext)) return;
 
   for (const { suffix, width, fileType } of sizes) {
-    const outputFileName = `${base}${suffix}.${fileType}`;
+    const outputFileName = `${base}-${suffix}.${fileType}`;
     const outputPath = path.join(OUTPUT_DIR, outputFileName);
 
     try {
@@ -40,7 +40,7 @@ async function processImage(file) {
 async function run() {
   const files = await fs.readdir(INPUT_DIR);
   for (const file of files) {
-    await processImage("SRII.jpg");
+    await processImage("thatsme.jpg");
   }
   console.log("✅ All thumbnails generated!");
 }

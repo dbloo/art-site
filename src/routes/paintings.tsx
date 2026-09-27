@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import {Gallery} from '@/components/ui/gallery'
-import {images} from '@/siteinfo/gallery'
+import {items} from '@/siteinfo/gallery'
 
 export const Route = createFileRoute('/paintings')({
   component: RouteComponent,
@@ -11,9 +11,7 @@ export const Route = createFileRoute('/paintings')({
 
 function RouteComponent() {
 
-  const imageArray = images.paintings.map((painting, i) => {
-  return painting.images[0]
-})
+  const paintings = items.paintings
 
 
   return (<div className='w-screen h-auto p-5 lg:px-60 py-30  lg:py-40'>
@@ -23,7 +21,7 @@ function RouteComponent() {
     <p className='text-lg font-light lg:text-xl opacity-60 mb-5'>(almost) Everything I've ever painted.</p>
 
     <hr/>
-    <Gallery images = {imageArray} type = "paintings"/>
+    <Gallery paintings = {paintings}/>
 
 </div>
     

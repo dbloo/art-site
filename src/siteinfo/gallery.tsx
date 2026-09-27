@@ -1,4 +1,4 @@
-export const images = {
+export const items = {
     paintings: [
 
         {
@@ -8,8 +8,9 @@ export const images = {
             medium: "Acrylic paint and marker on canvas",
             size: "38 x 38 inches",
             images: ["/assets/products/SRII-thumbnail.webp"],
-            description: "",
-            year: "2026"
+            description: "This was made for a car show and art exhibit that I curated. It's of a 1998 Viper GTS, the SR-II generation, and this painting was placed right next to the very same car. I've loved vipers since I was a kid, so it was the honor of a lifetime to be able to pay homage to it.",
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -22,7 +23,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/moore-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
         },
         {
             id: 3,
@@ -32,7 +34,8 @@ export const images = {
             size: "38 x 38 inches",
             images: ["/assets/products/lookup-thumbnail.webp"],
             description: "",
-            year: "2024"
+            year: "2024",
+            forSale: false,
 
 
         },
@@ -44,7 +47,8 @@ export const images = {
             size: "48 x 48 inches",
             images: ["/assets/products/flatground-thumbnail.webp", "/assets/products/mockups/flatground_mockup.jpg",],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -57,7 +61,9 @@ export const images = {
             size: "12 x 12 inches",
             images: ["/assets/products/heavy-thumbnail.webp"],
             description: "",
-            year: "2022"
+            year: "2022",
+            forSale: false,
+
 
 
         },
@@ -69,8 +75,9 @@ export const images = {
             medium: "Acrylic paint and marker on canvas",
             size: "18 x 24 inches",
             images: ["/assets/products/overcrook-thumbnail.webp"],
-            description: "",
-            year: "2026"
+            description: "Apart of my skateboarding series, this skater can be seen hitting an overcrook grind on a rail, riding a custom spitfire board.",
+            year: "2026",
+            forSale: true,
 
 
         },
@@ -84,7 +91,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/whatifnot-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -96,7 +104,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/flycatcher-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -109,7 +118,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/allday-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -122,7 +132,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/foreign-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -135,7 +146,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/lessmoney-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -148,7 +160,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/crystal-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -161,7 +174,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/lightshow-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -174,7 +188,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/lightshow2-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -187,7 +202,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/lightshow3-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -199,7 +215,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/catchandrelease-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -212,7 +229,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/okmom-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -225,7 +243,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/tryagain-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -238,7 +257,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/sundown-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -251,7 +271,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/syf-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: true,
 
 
         },
@@ -264,7 +285,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/forward-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -276,8 +298,9 @@ export const images = {
             medium: "Acrylic paint and marker on canvas",
             size: "18 x 24 inches",
             images: ["/assets/products/adequate-thumbnail.webp"],
-            description: "",
-            year: "2026"
+            description: "This painting was created a little after my childhood dog passed away. I had only done 3 paintings at this point, and was feeling pressured to put out more work, but couldn't find the voice. I made this to break that tension.",
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -290,7 +313,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/hundred-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -303,7 +327,8 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/blu-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
 
 
         },
@@ -316,7 +341,36 @@ export const images = {
             size: "18 x 24 inches",
             images: ["/assets/products/goldback-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2026",
+            forSale: false,
+
+
+        },
+
+        {
+            id: 25,
+            name: "Heel Flip",
+            slug: "heel-flip",
+            medium: "Acrylic paint and marker on canvas",
+            size: "17 x 19 inches",
+            images: ["/assets/products/heelflip-thumbnail.webp"],
+            description: "Apart of my skateboarding series, this painting depicts a boy doing a heel flip over a gap while a passerby watches. The boy can be seen wearing black skate shoes by Straye, and is riding a Blind Bighead Yellow Skateboard. This scene takes place at Bamford Park in Davie, Florida. ",
+            year: "2026",
+            forSale: true,
+
+
+        },
+
+        {
+            id: 25,
+            name: "That's Me?",
+            slug: "thats-me",
+            medium: "Acrylic paint and marker on canvas",
+            size: "72 x 74 inches",
+            images: ["/assets/products/thatsme-thumbnail.webp"],
+            description: "Created for my first self-curated gallery exhibit about self reflection titled Troubled Waters, I wanted to make something that expressed what it felt like to look in the mirror during that period. This painting features an element from the animated series, Adventure Time, where Finn the Human's personality gets split and trapped inside a sword. The person inside the sword (Whom many believe to be the original Finn) eventually becomes Fern, an alter ego of Finn. Fern is used to articulate themes of self acceptance and one's shadow side, having all the original memories and experiences of the current Finn, but is never granted the validity or acknowledgement from others as being Finn too.",
+            year: "2026",
+            forSale: false,
 
 
         },
