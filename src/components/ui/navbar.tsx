@@ -31,9 +31,9 @@ function Navbar() {
             transition={{ type: "spring", stiffness: 500, damping: 50, duration: 0.2 }}
 
     
-    className = {` z-100 fixed w-full`}>
+    className = {` z-40 fixed w-full`}>
 
-      <div className={`  ${isShopOpen ? ` transition-all h-70`: `transition-all ${isWorksOpen ? `h-90` : `lg:h-55 h-50`}`}  fixed bg-white z-100   w-full lg:items-center flex flex-row `}>
+      <div className={`  ${isShopOpen ? ` transition-all h-70`: `transition-all ${isWorksOpen ? `h-90` : `lg:h-55 h-50`}`}  fixed bg-white  w-full lg:items-center flex flex-row `}>
      
     <nav className=" flex  py-8 px-5 lg:px-60 w-full fixed top-30 justify-between items-center  flex-row">
       <motion.div 

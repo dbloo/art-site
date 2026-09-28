@@ -1,7 +1,8 @@
-// components/PrintsCarousel.tsx
 import { useEffect, useRef, useState } from 'react'
 import { Link } from '@tanstack/react-router' 
-import {ChevronLeft, ChevronRight} from 'lucide-react'
+import {ChevronLeft, ChevronRight, X} from 'lucide-react'
+import { createPortal } from 'react-dom'
+
 
 interface Print {
   slug: string
@@ -15,6 +16,7 @@ interface CarouselProps {
   prints: Print[]
   autoScrollInterval?: number // ms between slides
   autoRotateInterval?: number
+ 
 }
 
 export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: CarouselProps) {
@@ -116,35 +118,64 @@ export function RotatingCarousel({prints, autoRotateInterval = 2000}: CarouselPr
       </div>)
 }
 
-export function GalleryCarousel({images}: CarouselProps){
-
+export function GalleryCarousel({ images }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  useEffect(() => {
+    if (!isOpen) return
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [isOpen])
 
   return (
-  
-  <div className=''>
-  
+    <div className=''>
+      {mounted && isOpen && createPortal(
+        <div
+          className='w-screen h-screen fixed z-9999 left-0 top-0'
+          onClick={() => setIsOpen(false)}
+        >
+          <div className=' bg-black w-screen h-screen absolute opacity-40 top-0 -z-10' />
+          <div className=' flex fixed justify-center items-center  w-full h-full'>
+            <div className='relative'>
+            <div className='w-10 z-100 rise-in cursor-pointer hover:brightness-110 transition all h-10 shadow-lg rounded-full m-2 absolute right-0 justify-center items-center flex bg-white/50 backdrop-blur-2xl '><X></X></div>
+            <img
+              draggable={false}
+              className='rise-in rounded-xl w-full lg:w-180  shadow-lg'
+              src={images[activeIndex]}
+              onClick={(e) => e.stopPropagation()}
+            />
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
 
-    <div className='flex flex-row w-auto'> 
-      
-      <ChevronLeft size = {20 } className=''/>
-
-      <img  draggable = {false} className = " rounded-xl   w-full lg:w-200 shadow-lg"src = {`${images[activeIndex]}`}></img>
-     
-     <ChevronRight/>
-     
+      <div className='flex flex-row w-auto'>
+        <img
+          onClick={() => setIsOpen(true)}
+          draggable={false}
+          className='cursor-pointer hover:-translate-y-0.5 transition-all rounded-xl w-full lg:w-200 shadow-lg'
+          src={images[activeIndex]}
+        />
       </div>
-     {images.length > 1 &&
-    <div className=' flex flex-row w-full gap-3 lg:gap-5 bg-black/2 border border-black/10 rounded-2xl mt-5 items-center  lg:p-3 p-2 '>{images.map((image ,e)=> (
 
-        <div  draggable = {false} style = {{backgroundImage: `url(${image})`}}key = {e} className = {`${activeIndex == e ? "opacity-100"  : " hover:opacity-80 transition-all opacity-50"} cursor-pointer w-10 h-10 lg:w-20 lg:h-20 bg-cover bg-center rounded-lg`}onClick = {() => setActiveIndex(e)}></div>
-    )
-       
-    )}</div>
-    }
-   
-  </div>)
-
-
-
+      {images.length > 1 && (
+        <div className='flex flex-row w-full gap-3 lg:gap-5 bg-black/2 border border-black/10 rounded-2xl mt-5 items-center lg:p-3 p-2'>
+          {images.map((image, e) => (
+            <div
+              draggable={false}
+              style={{ backgroundImage: `url(${image})` }}
+              key={e}
+              className={`${activeIndex === e ? 'opacity-100' : 'hover:opacity-80 transition-all opacity-50'} cursor-pointer w-10 h-10 lg:w-20 lg:h-20 bg-cover bg-center rounded-lg`}
+              onClick={() => setActiveIndex(e)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
 }

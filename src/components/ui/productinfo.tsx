@@ -11,6 +11,7 @@ import { Link, useNavigate } from '@tanstack/react-router'
 import { useCart } from '#/context/CartContext'
 import { ArrowRight } from 'lucide-react'
 import {GalleryCarousel} from './carousel'
+import { Lightbox } from './lightbox'
 
 export function ProductInfoPrints ({slug} : {slug: string}) {
 
@@ -311,7 +312,7 @@ export function ItemInfoPaintings ({slug} : {slug:string}){
  
 
                
-                {painting?.forSale && <StyledButton className = "mt-20" to={`/original/${painting.slug}`}>This painting is for sale <ChevronRight></ChevronRight></StyledButton>}
+                {/* {painting?.forSale && <StyledButton className = "mt-20" to={`/original/${painting.slug}`}>This painting is for sale <ChevronRight></ChevronRight></StyledButton>} */}
                 
             </div>
         </div>

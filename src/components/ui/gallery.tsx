@@ -10,6 +10,7 @@ export interface Painting {
     images: string[];
     description: string;
     year: string;
+    thumbnail: string;
 }
 
 interface GalleryProps {
@@ -31,7 +32,7 @@ export const Gallery = ({paintings} : GalleryProps)  =>{
                 
                 <div className = " pb-5  w-full " >
                 
-                <img draggable = {false} className = "rounded-lg shadow-lg" src = {painting.images[0]}></img>
+                <img draggable = {false} className = "rounded-lg shadow-lg" src = {painting.thumbnail}></img>
                 
                 </div>
                 </Link>

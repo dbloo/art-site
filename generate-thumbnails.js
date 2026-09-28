@@ -11,8 +11,8 @@ const INPUT_DIR = path.join(__dirname, "public/assets/products");
 const OUTPUT_DIR = INPUT_DIR;
 
 const sizes = [
-  { suffix: "large", width: 1200, fileType: "webp" },
-  { suffix: "thumbnail", width: 800, fileType: "webp" }
+  { suffix: "xl", width: 3200, fileType: "webp" },
+
 ];
 
 async function processImage(file) {
@@ -20,7 +20,7 @@ async function processImage(file) {
   const base = path.basename(file, ext);
   const inputPath = path.join(INPUT_DIR, file);
 
-  if (![".jpg"].includes(ext)) return;
+  if (![".png"].includes(ext)) return;
 
   for (const { suffix, width, fileType } of sizes) {
     const outputFileName = `${base}-${suffix}.${fileType}`;
@@ -40,7 +40,7 @@ async function processImage(file) {
 async function run() {
   const files = await fs.readdir(INPUT_DIR);
   for (const file of files) {
-    await processImage("horizon.jpg");
+    await processImage(file);
   }
   console.log("✅ All thumbnails generated!");
 }
