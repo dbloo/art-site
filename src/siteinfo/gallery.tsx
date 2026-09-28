@@ -181,7 +181,7 @@ export const items = {
         {
             id: 13,
             name: "Lightshow Frame 3",
-            slug: "lightshow-",
+            slug: "lightshow-3",
             medium: "Acrylic paint and marker on canvas",
             size: "27 x 43 inches",
             images: ["/assets/products/lightshow-large.webp"],
@@ -195,8 +195,8 @@ export const items = {
 
         {
             id: 14,
-            name: "Lightshow Frame 2",
-            slug: "lightshow-2",
+            name: "Lightshow Frame 1",
+            slug: "lightshow-1",
             medium: "Acrylic paint and marker on canvas",
             size: "27 x 43 inches",
             images: ["/assets/products/lightshow2-large.webp"],
@@ -210,8 +210,8 @@ export const items = {
 
         {
             id: 15,
-            name: "Lightshow Frame 4",
-            slug: "lightshow-4",
+            name: "Lightshow Frame 2",
+            slug: "lightshow-2",
             medium: "Acrylic paint and marker on canvas",
             size: "27 x 43 inches",
             images: ["/assets/products/lightshow3-large.webp"],

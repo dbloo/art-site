@@ -139,15 +139,17 @@ export function GalleryCarousel({ images }: CarouselProps) {
           onClick={() => setIsOpen(false)}
         >
           <div className=' bg-black w-screen h-screen absolute opacity-40 top-0 -z-10' />
-          <div className=' flex fixed justify-center items-center  w-full h-full'>
+          <div className='flex fixed justify-center items-center w-full h-full'>
             <div className='relative'>
-            <div className='w-10 z-100 rise-in cursor-pointer hover:brightness-110 transition all h-10 shadow-lg rounded-full m-2 absolute right-0 justify-center items-center flex bg-white/50 backdrop-blur-2xl '><X></X></div>
-            <img
-              draggable={false}
-              className='rise-in rounded-xl w-full lg:w-180  shadow-lg'
-              src={images[activeIndex]}
-              onClick={(e) => e.stopPropagation()}
-            />
+              <div className='lg:w-10 w-8 z-100 rise-in cursor-pointer hover:brightness-110 transition-all h-8 lg:h-10 shadow-lg rounded-full m-2 absolute right-0 justify-center items-center flex bg-white/50 backdrop-blur-2xl'>
+                <X />
+              </div>
+              <img
+                draggable={false}
+                className='rise-in rounded-xl shadow-lg max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain'
+                src={images[activeIndex]}
+                onClick={(e) => e.stopPropagation()}
+              />
             </div>
           </div>
         </div>,
