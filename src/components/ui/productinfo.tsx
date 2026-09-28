@@ -301,8 +301,8 @@ export function ItemInfoPaintings ({slug} : {slug:string}){
 
                 <div className='flex flex-col gap-1'>
                 <p className='opacity-80 font-light w-full lg:w-150'><strong>Year: </strong>{painting?.year} </p>
-                <p className='opacity-80 font-light w-full lg:w-150'><strong>Size:</strong> {painting?.size} </p>
-                <p className='opacity-80 font-light w-full lg:w-150'><strong>Medium: </strong>| {painting?.medium}</p>
+                <p className='opacity-80 font-light w-full lg:w-150'><strong>Size: </strong> [{painting?.size}] </p>
+                <p className='opacity-80 font-light w-full lg:w-150'><strong>Medium: </strong>{painting?.medium}</p>
                 </div>
                 
 

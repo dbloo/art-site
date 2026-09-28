@@ -171,7 +171,7 @@ export const items = {
             size: "17 x 15 inches",
             images: ["/assets/products/crystal-large.webp"],
             thumbnail: "/assets/products/crystal-thumbnail.webp",
-            description: "",
+            description: "Mr. Crystal, born in 1774 as Bartholomew Braithworth, was a biological phenomenon. Born with pure diamond teeth, he has been a specular marvel his entire life, quickly becoming a highly sought after circus act from the incredibly young age of 4 years old. Braithworth, starting his career as Little Specular, delivered his first act at the age of 6 and went on to perform across the globe well into his mid twenties. His diamond teeth took center stage, and they became profoundly desired by philanthropists and showmen everywhere, as no other human at the time had ever had diamond implants or fronts, let alone diamond teeth at birth. Because of the desire surrounding his opulent tusks, Braithworth faced a great deal of exploitation, often being discarded of and neglected between shows, who grew reluctant to laugh or smile as he realized that people only cared for his act. Becuase he, nor anyone else knew how to care for crystal teeth, he started to lose them to decay one by one, and the older he got the sillier people found him to look. A once respected performer was now a worn out laughing stock. His peers and once-fans became vultures as they hovered around him in the event another one of his teeth fell out so they could fence it for coin, some having taken them out forcefully. Growing increasingly disillusioned with the circus, Braithworth, now known as Mr. Crystal performed for the last time on June 19th, 1798.",
             year: "2025",
             forSale: true,
 
