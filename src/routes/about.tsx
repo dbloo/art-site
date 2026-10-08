@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ShowerHead } from 'lucide-react'
 
 export const Route = createFileRoute('/about')({
   component: RouteComponent,

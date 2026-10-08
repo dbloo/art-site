@@ -447,6 +447,21 @@ export const items = {
 
         },
 
+         {
+            id: 28,
+            name: "Merriman",
+            slug: "merriman",
+            medium: "Acrylic on canvas",
+            size: "25 x 27 inches",
+            images: ["/assets/products/merriman-large.webp"],
+            thumbnail: "/assets/products/merriman-thumbnail.webp",
+            description: "Commission for Kyle Merriman.",
+            year: "2026",
+            forSale: false,
+
+
+        },
+
         
 
     

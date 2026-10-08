@@ -10,6 +10,7 @@ import { verifyCheckoutSession } from '@/serverFunctions/verifySession'
 
 
 
+
 export const Route = createFileRoute('/checkout/success')({
   component: RouteComponent,
 })
