@@ -41,7 +41,7 @@ async function processImage(file) {
 async function run() {
   const files = await fs.readdir(INPUT_DIR);
   for (const file of files) {
-    await processImage("merriman.jpg");
+    await processImage("cartillage.jpg");
   }
   console.log("✅ All thumbnails generated!");
 }

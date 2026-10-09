@@ -462,6 +462,21 @@ export const items = {
 
         },
 
+        {
+            id: 29,
+            name: "Cartillage",
+            slug: "cartillage",
+            medium: "Acrylic on canvas",
+            size: "17 x 15 inches",
+            images: ["/assets/products/cartillage-large.webp"],
+            thumbnail: "/assets/products/cartillage-thumbnail.webp",
+            description: "",
+            year: "2026",
+            forSale: false,
+
+
+        },
+
         
 
     
