@@ -3,8 +3,8 @@ export const products = {
 
         {
             id: 1,
-            name: "Cartillage",
-            slug: "cartillage",
+            name: "What if not! Complete??",
+            slug: "whatifnot",
             medium: "Acrylic paint and marker on canvas",
             size: "15 x 17 inches",
             price: 250,
@@ -13,9 +13,9 @@ export const products = {
                 {sizes: "10 x 12 in.", price: 95},
                 {sizes: "20 x 24 in.", price: 150},
             ], 
-            images: ["/assets/products/cartillage-large.webp"],
-            productImage: "/assets/products/cartillage.jpg",
-            thumbnail:["/assets/products/cartillage-thumbnail.webp"],
+            images: ["/assets/products/whatifnot-large.webp"],
+            productImage: "/assets/products/whatifnot.jpg",
+            thumbnail:["/assets/products/whatifnot-thumbnail.webp"],
             description: "",
             year: "2026"
 
