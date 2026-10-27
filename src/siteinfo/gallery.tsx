@@ -341,7 +341,6 @@ export const items = {
 
 
         },
-
         {
             id: 24,
             name: "Thru La Blu",
