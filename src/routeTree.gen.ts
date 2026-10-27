@@ -9,55 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PrintsRouteImport } from './routes/prints'
-import { Route as PaintingsRouteImport } from './routes/paintings'
-import { Route as OriginalsRouteImport } from './routes/originals'
-import { Route as GraphicdesignRouteImport } from './routes/graphicdesign'
-import { Route as DrawingsRouteImport } from './routes/drawings'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CartRouteImport } from './routes/cart'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PrintSlugRouteImport } from './routes/print/$slug'
-import { Route as PaintingSlugRouteImport } from './routes/painting/$slug'
-import { Route as OriginalSlugRouteImport } from './routes/original/$slug'
-import { Route as CheckoutSuccessRouteImport } from './routes/checkout/success'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DrawingsRouteImport } from './routes/drawings'
+import { Route as GraphicdesignRouteImport } from './routes/graphicdesign'
+import { Route as OriginalsRouteImport } from './routes/originals'
+import { Route as PaintingsRouteImport } from './routes/paintings'
+import { Route as PrintsRouteImport } from './routes/prints'
 import { Route as ApiCheckoutRouteImport } from './routes/api/checkout'
+import { Route as CheckoutSuccessRouteImport } from './routes/checkout/success'
+import { Route as OriginalSlugRouteImport } from './routes/original/$slug'
+import { Route as PaintingSlugRouteImport } from './routes/painting/$slug'
+import { Route as PrintSlugRouteImport } from './routes/print/$slug'
 import { Route as ApiWebhooksStripeRouteImport } from './routes/api/webhooks/stripe'
 
-const PrintsRoute = PrintsRouteImport.update({
-  id: '/prints',
-  path: '/prints',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PaintingsRoute = PaintingsRouteImport.update({
-  id: '/paintings',
-  path: '/paintings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OriginalsRoute = OriginalsRouteImport.update({
-  id: '/originals',
-  path: '/originals',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GraphicdesignRoute = GraphicdesignRouteImport.update({
-  id: '/graphicdesign',
-  path: '/graphicdesign',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DrawingsRoute = DrawingsRouteImport.update({
-  id: '/drawings',
-  path: '/drawings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartRoute = CartRouteImport.update({
-  id: '/cart',
-  path: '/cart',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -65,24 +35,44 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrintSlugRoute = PrintSlugRouteImport.update({
-  id: '/print/$slug',
-  path: '/print/$slug',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PaintingSlugRoute = PaintingSlugRouteImport.update({
-  id: '/painting/$slug',
-  path: '/painting/$slug',
+const DrawingsRoute = DrawingsRouteImport.update({
+  id: '/drawings',
+  path: '/drawings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OriginalSlugRoute = OriginalSlugRouteImport.update({
-  id: '/original/$slug',
-  path: '/original/$slug',
+const GraphicdesignRoute = GraphicdesignRouteImport.update({
+  id: '/graphicdesign',
+  path: '/graphicdesign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OriginalsRoute = OriginalsRouteImport.update({
+  id: '/originals',
+  path: '/originals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaintingsRoute = PaintingsRouteImport.update({
+  id: '/paintings',
+  path: '/paintings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrintsRoute = PrintsRouteImport.update({
+  id: '/prints',
+  path: '/prints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCheckoutRoute = ApiCheckoutRouteImport.update({
+  id: '/api/checkout',
+  path: '/api/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutSuccessRoute = CheckoutSuccessRouteImport.update({
@@ -90,9 +80,19 @@ const CheckoutSuccessRoute = CheckoutSuccessRouteImport.update({
   path: '/checkout/success',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiCheckoutRoute = ApiCheckoutRouteImport.update({
-  id: '/api/checkout',
-  path: '/api/checkout',
+const OriginalSlugRoute = OriginalSlugRouteImport.update({
+  id: '/original/$slug',
+  path: '/original/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaintingSlugRoute = PaintingSlugRouteImport.update({
+  id: '/painting/$slug',
+  path: '/painting/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrintSlugRoute = PrintSlugRouteImport.update({
+  id: '/print/$slug',
+  path: '/print/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiWebhooksStripeRoute = ApiWebhooksStripeRouteImport.update({
@@ -227,53 +227,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/prints': {
-      id: '/prints'
-      path: '/prints'
-      fullPath: '/prints'
-      preLoaderRoute: typeof PrintsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/paintings': {
-      id: '/paintings'
-      path: '/paintings'
-      fullPath: '/paintings'
-      preLoaderRoute: typeof PaintingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/originals': {
-      id: '/originals'
-      path: '/originals'
-      fullPath: '/originals'
-      preLoaderRoute: typeof OriginalsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/graphicdesign': {
-      id: '/graphicdesign'
-      path: '/graphicdesign'
-      fullPath: '/graphicdesign'
-      preLoaderRoute: typeof GraphicdesignRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/drawings': {
-      id: '/drawings'
-      path: '/drawings'
-      fullPath: '/drawings'
-      preLoaderRoute: typeof DrawingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cart': {
-      id: '/cart'
-      path: '/cart'
-      fullPath: '/cart'
-      preLoaderRoute: typeof CartRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -283,32 +241,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/print/$slug': {
-      id: '/print/$slug'
-      path: '/print/$slug'
-      fullPath: '/print/$slug'
-      preLoaderRoute: typeof PrintSlugRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/painting/$slug': {
-      id: '/painting/$slug'
-      path: '/painting/$slug'
-      fullPath: '/painting/$slug'
-      preLoaderRoute: typeof PaintingSlugRouteImport
+    '/drawings': {
+      id: '/drawings'
+      path: '/drawings'
+      fullPath: '/drawings'
+      preLoaderRoute: typeof DrawingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/original/$slug': {
-      id: '/original/$slug'
-      path: '/original/$slug'
-      fullPath: '/original/$slug'
-      preLoaderRoute: typeof OriginalSlugRouteImport
+    '/graphicdesign': {
+      id: '/graphicdesign'
+      path: '/graphicdesign'
+      fullPath: '/graphicdesign'
+      preLoaderRoute: typeof GraphicdesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/originals': {
+      id: '/originals'
+      path: '/originals'
+      fullPath: '/originals'
+      preLoaderRoute: typeof OriginalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paintings': {
+      id: '/paintings'
+      path: '/paintings'
+      fullPath: '/paintings'
+      preLoaderRoute: typeof PaintingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prints': {
+      id: '/prints'
+      path: '/prints'
+      fullPath: '/prints'
+      preLoaderRoute: typeof PrintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/checkout': {
+      id: '/api/checkout'
+      path: '/api/checkout'
+      fullPath: '/api/checkout'
+      preLoaderRoute: typeof ApiCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout/success': {
@@ -318,11 +304,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/checkout': {
-      id: '/api/checkout'
-      path: '/api/checkout'
-      fullPath: '/api/checkout'
-      preLoaderRoute: typeof ApiCheckoutRouteImport
+    '/original/$slug': {
+      id: '/original/$slug'
+      path: '/original/$slug'
+      fullPath: '/original/$slug'
+      preLoaderRoute: typeof OriginalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painting/$slug': {
+      id: '/painting/$slug'
+      path: '/painting/$slug'
+      fullPath: '/painting/$slug'
+      preLoaderRoute: typeof PaintingSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/print/$slug': {
+      id: '/print/$slug'
+      path: '/print/$slug'
+      fullPath: '/print/$slug'
+      preLoaderRoute: typeof PrintSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/webhooks/stripe': {
