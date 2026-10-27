@@ -426,7 +426,7 @@ export const items = {
             images: ["/assets/products/hurt-large.webp"],
             thumbnail: "/assets/products/hurt-thumbnail.webp",
             description: "",
-            year: "2026",
+            year: "2024",
             forSale: false,
 
 
@@ -470,6 +470,21 @@ export const items = {
             size: "17 x 15 inches",
             images: ["/assets/products/cartillage-large.webp"],
             thumbnail: "/assets/products/cartillage-thumbnail.webp",
+            description: "",
+            year: "2026",
+            forSale: false,
+
+
+        },
+
+        {
+            id: 30,
+            name: "Big Top",
+            slug: "bigtop",
+            medium: "Acrylic on canvas",
+            size: "17 x 16 inches",
+            images: ["/assets/products/bigtop-large.webp"],
+            thumbnail: "/assets/products/bigtop-thumbnail.webp",
             description: "",
             year: "2026",
             forSale: false,

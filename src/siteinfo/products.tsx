@@ -3,8 +3,8 @@ export const products = {
 
         {
             id: 1,
-            name: "What if not! Complete??",
-            slug: "whatifnot",
+            name: "Big Top",
+            slug: "bigtop",
             medium: "Acrylic paint and marker on canvas",
             size: "15 x 17 inches",
             price: 250,
@@ -13,9 +13,9 @@ export const products = {
                 {sizes: "10 x 12 in.", price: 95},
                 {sizes: "20 x 24 in.", price: 150},
             ], 
-            images: ["/assets/products/whatifnot-large.webp"],
-            productImage: "/assets/products/whatifnot.jpg",
-            thumbnail:["/assets/products/whatifnot-thumbnail.webp"],
+            images: ["/assets/products/bigtop-large.webp"],
+            productImage: "/assets/products/bigtop.jpg",
+            thumbnail:["/assets/products/bigtop-thumbnail.webp"],
             description: "",
             year: "2026"
 
@@ -84,8 +84,8 @@ export const products = {
 
         {
             id: 5,
-            name: "Look Up",
-            slug: "look-up",
+            name: "What if not! Complete??",
+            slug: "whatifnot",
             medium: "Acrylic paint and marker on canvas",
             size: "12 x 12 inches",
             price: 250,
@@ -95,9 +95,9 @@ export const products = {
                 {sizes: "24 x 24 in.", price: 150},
                 {sizes: "36 x 36 in.", price: 275},
             ],
-            images: ["/assets/products/lookup-xl.webp", "/assets/products/mockups/lookup_mockup-large.webp",],
-            productImage: "/assets/products/lookup.jpg",
-            thumbnail:["/assets/products/lookup-thumbnail.webp", ],
+            images: ["/assets/products/whatifnot-large.webp"],
+            productImage: "/assets/products/whatifnot.jpg",
+            thumbnail:["/assets/products/whatifnot-thumbnail.webp" ],
             description: "",
             year: "2024"
 

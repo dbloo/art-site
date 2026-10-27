@@ -14,9 +14,13 @@ export const Route = createFileRoute('/')({ component: Home })
 function Home() {
   return (
     <main className="">
-      <section><div className="overflow-clip w-screen  lg:w-auto bg-black h-auto lg:h-150  ">
+      <section>
+        
+        <div className="overflow-clip w-screen text-center justify-center items-center relative lg:w-full bg-black h-auto lg:h-150  ">
+        {/* <h1 className='absolute text-3xl mt-40 lg:mt-30 left-5 lg:left-70 lg:top-30 lg:text-8xl font-black  text-white  z-100 '>Dominic Bloomfield</h1> */}
               <video className='w-screen 'autoPlay loop muted playsInline src = "/assets/videos/flatground(web).mp4"></video>
-              </div></section>
+              </div>
+              </section>
      <section className="w-screen lg:px-60 p-5  gap-4">
       <div className = "mt-10">
 
