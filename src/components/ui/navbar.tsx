@@ -33,7 +33,7 @@ function Navbar() {
     
     className = {` z-40 fixed w-full`}>
 
-      <div className={`  ${isShopOpen ? ` transition-all h-70`: `transition-all ${isWorksOpen ? `h-90` : `lg:h-55 h-50`}`}  fixed bg-white/80 backdrop-blur-2xl  w-full lg:items-center flex flex-row `}>
+      <div className={`  ${isShopOpen ? ` transition-all h-70`: `transition-all ${isWorksOpen ? `h-90` : `lg:h-55 h-50`}`}  fixed bg-white/80 backdrop-blur-md  w-full lg:items-center flex flex-row `}>
      
     <nav className=" flex  py-8 px-5 lg:px-60 w-full fixed top-30 justify-between items-center  flex-row">
       <motion.div 
