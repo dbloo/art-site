@@ -14,6 +14,8 @@
   --accent1: oklch(89.8% 0.16854 98.756);
   --accent2: oklch(37.65% 0.19127 309.23);
 
+  --lightshow-bg: oklch(81.891% 0.08946 80.559);
+  --lightshow-accent: oklch(36.389% 0.14933 29.223);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -54,6 +56,8 @@
 
 @theme inline {
   --font-sans: 'nimbus-sans-extended', ui-sans-serif, system-ui, sans-serif;
+  --color-lightshow-bg: var(--lightshow-bg);
+  --color-lightshow-accent: var(--lightshow-accent);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent1: var(--accent1);

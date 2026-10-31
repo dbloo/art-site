@@ -21,9 +21,9 @@ export function QuantitySelector({disabled, quantity, setQuantity, setPrice, cla
 
     return (
         <div className="flex items-center gap-2">
-            <Button disabled = {disabled} onClick = {handleDecrement} color = "white" className = {` ${className}  bg-white border border-black text-black cursor-pointer `}> - </Button>
+            <Button disabled = {disabled} onClick = {handleDecrement} color = "white" className = {` ${className}  bg-white border border-black hover:bg-black/10 text-black cursor-pointer `}> - </Button>
             <span className={`${disabled == true ? "opacity-50" : ""}tabular-nums`}>{quantity}</span>
-            <Button disabled = {disabled} onClick = {handleIncrement} color = "white" className = {` ${className} bg-white border border-black text-black cursor-pointer `}> +</Button>
+            <Button disabled = {disabled} onClick = {handleIncrement} color = "white" className = {` ${className} bg-white border border-black hover:bg-black/10 text-black cursor-pointer `}> +</Button>
         </div>
     );
 }

@@ -33,7 +33,7 @@ function Navbar() {
     
     className = {` z-40 fixed w-full`}>
 
-      <div className={`  ${isShopOpen ? ` transition-all h-70`: `transition-all ${isWorksOpen ? `h-90` : `lg:h-55 h-50`}`}  fixed bg-white  w-full lg:items-center flex flex-row `}>
+      <div className={`  ${isShopOpen ? ` transition-all h-70`: `transition-all ${isWorksOpen ? `h-90` : `lg:h-55 h-50`}`}  fixed bg-white/80 backdrop-blur-2xl  w-full lg:items-center flex flex-row `}>
      
     <nav className=" flex  py-8 px-5 lg:px-60 w-full fixed top-30 justify-between items-center  flex-row">
       <motion.div 
@@ -111,7 +111,7 @@ function Navbar() {
 
 
 
-         <div className = "relative"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to = "/cart"><ShoppingCart size={30}></ShoppingCart>{ getCartSize > 0 && <span className='absolute left-5 block rounded-full bg-black text-white size-4 text-xs text-center top-0 outline-3 outline-white '>{getCartSize}</span>}</Link></div>
+         <div className = "relative"><Link onClick={()=> {setIsOpen(false); setIsShopOpen(false); setIsWorksOpen(false)}} to = "/cart"><ShoppingCart size={30}></ShoppingCart>{ getCartSize > 0 && <span className='absolute  left-5 inline-flex  rounded-full justify-center  bg-black text-white size-4 text-xs tabular  top-0 items-center  '>{getCartSize}</span>}</Link></div>
             <div className="flex z-100 gap-1 flex-col lg:hidden cursor-pointer" onClick={() => {setIsOpen(!isOpen); setIsShopOpen(false); setIsWorksOpen(false)}}>
                 <motion.span
                         animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}

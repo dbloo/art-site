@@ -24,39 +24,39 @@ export const products = {
 
         {
             id: 2,
-            name: "Heel Flip",
-            slug: "heel-flip",
+            name: "After You",
+            slug: "after-you",
             medium: "Acrylic paint and marker on canvas",
-            size: "19 x 17 inches",
+            size: "15 x 17 inches",
             price: 250,
             prints: [
                 {sizes: "8 x 10 in.", price: 50},
                 {sizes: "10 x 12 in.", price: 95},
                 {sizes: "20 x 24 in.", price: 150},
             ],
-            images: ["/assets/products/heelflip-xl.webp"],
-            productImage: "/assets/products/heelflip.jpg",
-            thumbnail:["/assets/products/heelflip-thumbnail.webp"],
+            images: ["/assets/products/afteryou-large.webp"],
+            productImage: "/assets/products/afteryou.jpg",
+            thumbnail:["/assets/products/afteryou-thumbnail.webp"],
             description: "",
             year: "2026"
         },
         {
-            id: 3,
-            name: "Moore",
-            slug: "moore",
-            medium: "Acrylic on canvas",
-            size: "18 x 24 inches",
-            price: 250,
+            id: 4,
+            name: "Mr. Crystal",
+            slug: "mr-crystal",
+            medium: "Acrylic paint and marker on canvas",
+            size: "19 x 17 inches",
+            price: 1100,
             prints: [
-               {sizes: "8 x 10 in.", price: 50},
+                {sizes: "8 x 10 in.", price: 50},
                 {sizes: "10 x 12 in.", price: 95},
                 {sizes: "20 x 24 in.", price: 150},
             ],
-            images: ["/assets/products/moore-xl.webp", "/assets/products/mockups/moore_mockup-large.webp"],
-            productImage: "/assets/products/moore.JPG",
-            thumbnail:["/assets/products/moore-thumbnail.webp"],
+            images: ["/assets/products/crystal-xl.webp",],
+            productImage: "/assets/products/crystal.jpg",
+            thumbnail:["/assets/products/crystal-thumbnail.webp"],
             description: "",
-            year: "2026"
+            year: "2025"
 
 
         },
@@ -106,19 +106,19 @@ export const products = {
 
          {
             id: 6,
-            name: "Overcrook",
-            slug: "overcrook",
-            medium: "Acrylic paint and marker on canvas",
+            name: "Moore",
+            slug: "moore",
+            medium: "Acrylic on canvas",
             size: "18 x 24 inches",
             price: 250,
             prints: [
-                {sizes: "8 x 10 in.", price: 50},
+               {sizes: "8 x 10 in.", price: 50},
                 {sizes: "10 x 12 in.", price: 95},
                 {sizes: "20 x 24 in.", price: 150},
             ],
-            images: ["/assets/products/overcrook-xl.webp", "/assets/products/mockups/overcrook_mockuo-large.webp",],
-            productImage: "/assets/products/overcrook.JPG",
-            thumbnail:["/assets/products/overcrook-thumbnail.webp"],
+            images: ["/assets/products/moore-xl.webp", "/assets/products/mockups/moore_mockup-large.webp"],
+            productImage: "/assets/products/moore.JPG",
+            thumbnail:["/assets/products/moore-thumbnail.webp"],
             description: "",
             year: "2026"
 
@@ -182,7 +182,7 @@ export const products = {
             price: 1100,
             images: ["/assets/products/crystal-xl.webp",],
             productImage: "/assets/products/crystal.jpg",
-            thumbnail:["/assets/products/heelflip-thumbnail.webp"],
+            thumbnail:["/assets/products/crystal-thumbnail.webp"],
             description: "",
             year: "2025"
 

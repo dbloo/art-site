@@ -9,3 +9,17 @@ export interface Product {
     image: string;
     description: string;
 }
+
+
+export type Series = {
+    title: string,
+    image: string,
+    banner: string,
+    background: string,
+    id: number,
+    images: string[],
+    supportingImages: string[],
+    accent: string,
+    find: (s:any)=>{}
+
+}
