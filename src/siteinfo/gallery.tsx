@@ -12,6 +12,7 @@ export const items = {
             description: "This was made for a car show and art exhibit that I curated. It's of a 1998 Viper GTS, the SR-II generation, and this painting was placed right next to the very same car. I've loved vipers since I was a kid, so it was the honor of a lifetime to be able to pay homage to it.",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -27,6 +28,7 @@ export const items = {
             description: "",
             year: "2026",
             forSale: false,
+            isSeries: false,
         },
         {
             id: 3,
@@ -39,6 +41,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: true,
+            isSeries: false,
 
 
         },
@@ -53,6 +56,7 @@ export const items = {
             description: "Apart of my skateboarding series, this skater can be seen performing a flatground trick while his friends watch to see what trick he'll do.",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -68,6 +72,7 @@ export const items = {
             description: "",
             year: "2022",
             forSale: false,
+            isSeries: false,
 
 
 
@@ -84,6 +89,7 @@ export const items = {
             description: "Apart of my skateboarding series, this skater can be seen hitting an overcrook grind on a rail, riding a custom spitfire board.",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -100,6 +106,7 @@ export const items = {
             description: "",
             year: "2026",
             forSale: true,
+            isSeries: false,
 
 
         },
@@ -114,6 +121,7 @@ export const items = {
             description: "",
             year: "2025",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -129,6 +137,7 @@ export const items = {
             description: "",
             year: "2025",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -144,6 +153,7 @@ export const items = {
             description: "As an immigrant from Jamaica, I felt that it was my responsibility to create a conversation around xenophobia during a time where the criminalization of immigrants was becoming more and more rampant in the U.S. I always thought that the term 'alien' was such a strange way to describe immigrants, and the older I got, the more I realized that it is a term used solely to dehumanize us. I used a picture of myself from when my family and I first moved to infomrm the subject's character, and illustrated his transition from a place filled with culture, and childhood memories, to one that felt unsteady, and void of community. My 7 year old cousin, who was visiting from Jamaica at the time, loves sitting with me while I paint, and she really wanted to contribute to this piece. I think children are masters of creativity, and I figured it would be a great way to broaden my horizons and unlearn some of the rules and restrictions I assigned to my work. Both of us doodled, and scribbled, and painted areas of the right side of the painting, and I absolutely love how it came out. ",
             year: "2025",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -159,6 +169,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -167,6 +178,7 @@ export const items = {
             id: 12,
             name: "Mr. Crystal",
             slug: "mr-crystal",
+            series: "lightshow",
             medium: "Acrylic on canvas",
             size: "17 x 15 inches",
             images: ["/assets/products/crystal-large.webp"],
@@ -174,29 +186,18 @@ export const items = {
             description: "Mr. Crystal, b. 1774 as Bartholomew Braithworth, was a biological phenomenon. Born with pure diamond teeth, he has been a specular marvel his entire life, quickly becoming a highly sought after circus act from the incredibly young age of 4 years old. Braithworth, starting his career as Little Specular, delivered his first act at the age of 6 and went on to perform across the globe well into his mid twenties. His diamond teeth took center stage, and they became profoundly desired by philanthropists and showmen everywhere, as no other human at the time had ever had diamond implants or fronts, let alone diamond teeth at birth. Because of the desire surrounding his opulent tusks, Braithworth faced a great deal of exploitation, often being discarded of and neglected between shows, who grew reluctant to laugh or smile as he realized that people only cared for his act. Becuase he, nor anyone else knew how to care for crystal teeth, he started to lose them to decay one by one, and the older he got the sillier people found him to look. A once respected performer was now a worn out laughing stock. His peers and once-fans became vultures as they hovered around him in the event another one of his teeth fell out so they could fence it for coin, some having taken them out forcefully. Growing increasingly disillusioned with the circus, Braithworth, now known as Mr. Crystal performed for the last time on June 19th, 1798.",
             year: "2025",
             forSale: true,
+            isSeries: true,
 
 
         },
 
-        {
-            id: 13,
-            name: "Lightshow Frame 3",
-            slug: "lightshow-3",
-            medium: "Acrylic  on canvas",
-            size: "27 x 43 inches",
-            images: ["/assets/products/lightshow-large.webp"],
-            thumbnail: "/assets/products/lightshow-thumbnail.webp",
-            description: "The third painting in a series about a renowned traveling circus clown, named Mr. Crystal, and the last time he performed for the world. Here we see a medium shot of Crystal as he stands in the spotlight, in a shadow just barely casted by the ringleader, being laughed at before he's started his performance. ",
-            year: "2026",
-            forSale: false,
-
-
-        },
+        
 
         {
             id: 14,
             name: "Lightshow Frame 1",
             slug: "lightshow-1",
+            series: "lightshow",
             medium: "Acrylic on canvas",
             size: "27 x 43 inches",
             images: ["/assets/products/lightshow2-large.webp"],
@@ -204,6 +205,7 @@ export const items = {
             description: "The first painting in a series about a renowned traveling circus clown, named Mr. Crystal, and the last time he performed for the world. Here we see Crystal on the right, born Bartholomew Braithworth, about to walk out into the ring, seemingly pensive and concerned. On the left, we see a poster for one of his previous performances, and in the middle, we see the ringleader basking in his percieved prestige and poise as he opens the show.",
             year: "2026",
             forSale: false,
+            isSeries: true,
 
 
         },
@@ -212,6 +214,7 @@ export const items = {
             id: 15,
             name: "Lightshow Frame 2",
             slug: "lightshow-2",
+            series: "lightshow",
             medium: "Acrylic on canvas",
             size: "27 x 43 inches",
             images: ["/assets/products/lightshow3-large.webp"],
@@ -219,6 +222,58 @@ export const items = {
             description: "The second painting in a series about a renowned traveling circus clown, named Mr. Crystal, and the last time he performed for the world. Here we see a wide shot of the crowd and the ring as Aemrica's favorite Jester walks into the spotlight.",
             year: "2026",
             forSale: false,
+            isSeries: true,
+
+
+        },
+
+        {
+            id: 13,
+            name: "Lightshow Frame 3",
+            slug: "lightshow-3",
+            series: "lightshow",
+            medium: "Acrylic  on canvas",
+            size: "27 x 43 inches",
+            images: ["/assets/products/lightshow-large.webp"],
+            thumbnail: "/assets/products/lightshow-thumbnail.webp",
+            description: "The third painting in a series about a renowned traveling circus clown, named Mr. Crystal, and the last time he performed for the world. Here we see a medium shot of Crystal as he stands in the spotlight, in a shadow just barely casted by the ringleader, being laughed at before he's started his performance. ",
+            year: "2026",
+            forSale: false,
+            isSeries: true,
+
+
+        },
+
+        {
+            id: 15,
+            name: "Lightshow Frame 4",
+            slug: "lightshow-4",
+            series: "lightshow",
+            medium: "Acrylic on canvas",
+            size: "27 x 43 inches",
+            images: ["/assets/products/lightshow-4-large.webp"],
+            thumbnail: "/assets/products/lightshow-4-thumbnail.webp",
+            description: "The fourth painting in a series about a renowned traveling circus clown, named Mr. Crystal, and the last time he performed for the world. Here we see a member of the audience thoroughly entertained by the performance, as a bread hawker offers him more bread, despite having a mouthful already.",
+            year: "2026",
+            forSale: false,
+            isSeries: true,
+
+
+        },
+
+        {
+            id: 15,
+            name: "Lightshow Frame 5",
+            slug: "lightshow-5",
+            series: "lightshow",
+            medium: "Acrylic on canvas",
+            size: "27 x 43 inches",
+            images: ["/assets/products/lightshow-5-large.webp"],
+            thumbnail: "/assets/products/lightshow-5-thumbnail.webp",
+            description: "The fifth painting in a series about a renowned traveling circus clown, named Mr. Crystal, and the last time he performed for the world. Here we see a wide shot of Crystal, striking his iconic pose and showing off what's left of his diamond teeth, while the showman lay ass-up.",
+            year: "2026",
+            forSale: false,
+            isSeries: true,
 
 
         },
@@ -226,6 +281,7 @@ export const items = {
             id: 16,
             name: "Catch and Release",
             slug: "catch-and-release",
+            series: "",
             medium: "Acrylic on canvas",
             size: "36 x 36 inches",
             images: ["/assets/products/catchandrelease-large.webp"],
@@ -233,6 +289,7 @@ export const items = {
             description: "",
             year: "2025",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -241,6 +298,7 @@ export const items = {
             id: 17,
             name: "Ok Mom",
             slug: "ok-mom",
+            series: "",
             medium: "Acrylic on canvas",
             size: "10 x 12 inches",
             images: ["/assets/products/okmom-large.webp"],
@@ -248,6 +306,7 @@ export const items = {
             description: "",
             year: "2025",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -256,6 +315,7 @@ export const items = {
             id: 18,
             name: "Try Again",
             slug: "try-again",
+            series: "",
             medium: "Acrylic paint and marker on canvas",
             size: "36 x 36 inches",
             images: ["/assets/products/tryagain-large.webp"],
@@ -263,6 +323,7 @@ export const items = {
             description: "",
             year: "2025",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -271,6 +332,7 @@ export const items = {
             id: 19,
             name: "Sundown",
             slug: "sundown",
+            series: "",
             medium: "Acrylic on canvas",
             size: "48 x 48 inches",
             images: ["/assets/products/sundown-large.webp"],
@@ -278,6 +340,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -286,6 +349,7 @@ export const items = {
             id: 20,
             name: "Show your face",
             slug: "show-your-face",
+            series: "",
             medium: "Acrylic on canvas",
             size: "20 x 24 inches",
             images: ["/assets/products/syf-large.webp"],
@@ -293,6 +357,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -301,6 +366,7 @@ export const items = {
             id: 21,
             name: "Forward",
             slug: "forward",
+            series: "",
             medium: "Acrylic on canvas",
             size: "48 x 48 inches",
             images: ["/assets/products/forward-large.webp"],
@@ -308,6 +374,7 @@ export const items = {
             description: "",
             year: "2021",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -316,6 +383,7 @@ export const items = {
             id: 22,
             name: "Adequate Natural",
             slug: "adequate",
+            series: "",
             medium: "Acrylic paint and marker on canvas",
             size: "36 x 36 inches",
             images: ["/assets/products/adequate-large.webp"],
@@ -323,6 +391,7 @@ export const items = {
             description: "This painting was created a little after my childhood dog passed away. I had only done 3 paintings at this point, and was feeling pressured to put out more work, but couldn't find the voice. I made this to break that tension.",
             year: "2022",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -331,6 +400,7 @@ export const items = {
             id: 23,
             name: "Hundred Mark",
             slug: "hundred",
+            series: "",
             medium: "Acrylic  on canvas",
             size: "22 x 18 inches",
             images: ["/assets/products/hundred-large.webp"],
@@ -345,6 +415,7 @@ export const items = {
             id: 24,
             name: "Thru La Blu",
             slug: "thru-la-blu",
+            series: "",
             medium: "Acrylic on canvas",
             size: "12 x 16 inches",
             images: ["/assets/products/blu-large.webp"],
@@ -352,6 +423,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -360,6 +432,7 @@ export const items = {
             id: 24,
             name: "Goldback",
             slug: "goldback",
+            series: "",
             medium: "Acrylic paint and marker on canvas",
             size: "5 x 3 feet",
             images: ["/assets/products/goldback-large.webp"],
@@ -367,6 +440,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: true,
+            isSeries: false,
 
 
         },
@@ -375,6 +449,7 @@ export const items = {
             id: 25,
             name: "Heel Flip",
             slug: "heel-flip",
+            series: "",
             medium: "Acrylic on canvas",
             size: "17 x 19 inches",
             images: ["/assets/products/heelflip-large.webp"],
@@ -382,6 +457,7 @@ export const items = {
             description: "Apart of my skateboarding series, this painting depicts a boy doing a heel flip over a gap while a passerby watches. The boy can be seen wearing black skate shoes by Straye, and is riding a Blind Bighead Yellow Skateboard. This scene takes place at Bamford Park in Davie, Florida. ",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -390,6 +466,7 @@ export const items = {
             id: 25,
             name: "That's Me?",
             slug: "thats-me",
+            series: "",
             medium: "Acrylic on canvas",
             size: "72 x 74 inches",
             images: ["/assets/products/thatsme-large.webp"],
@@ -397,6 +474,7 @@ export const items = {
             description: "Created for my first self-curated gallery exhibit about self reflection titled Troubled Waters, I wanted to make something that expressed what it felt like to look in the mirror during that period. This painting features an element from the animated series, Adventure Time, where Finn the Human's personality gets split and trapped inside a sword. The person inside the sword (Whom many believe to be the original Finn) eventually becomes Fern, an alter ego of Finn. Fern is used to articulate themes of self acceptance and one's shadow side, having all the original memories and experiences of the current Finn, but is never granted the validity or acknowledgement from others as being Finn too.",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -405,6 +483,7 @@ export const items = {
             id: 25,
             name: "Horizon",
             slug: "horizon",
+            series: "",
             medium: "Acrylic on canvas",
             size: "22 x 24 inches",
             images: ["/assets/products/horizon-large.webp"],
@@ -412,6 +491,7 @@ export const items = {
             description: "",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -420,6 +500,7 @@ export const items = {
             id: 26,
             name: "It doesn't even hurt",
             slug: "hurt",
+            series: "",
             medium: "Acrylic paint and marker on canvas",
             size: "16 x 14 inches",
             images: ["/assets/products/hurt-large.webp"],
@@ -427,6 +508,7 @@ export const items = {
             description: "",
             year: "2024",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -435,6 +517,7 @@ export const items = {
             id: 27,
             name: "fiveinthemorning",
             slug: "fiveam",
+            series: "",
             medium: "Acrylic on canvas",
             size: "16 x 19 inches",
             images: ["/assets/products/fiveam-large.webp"],
@@ -442,6 +525,7 @@ export const items = {
             description: "Inspired by the music video for No Sleep by Roc Chamberlain, directed by Rara Vulcain.",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -450,6 +534,7 @@ export const items = {
             id: 28,
             name: "Merriman",
             slug: "merriman",
+            series: "",
             medium: "Acrylic on canvas",
             size: "25 x 27 inches",
             images: ["/assets/products/merriman-large.webp"],
@@ -457,6 +542,7 @@ export const items = {
             description: "Commission for Kyle Merriman.",
             year: "2026",
             forSale: false,
+            isSeries: false,
 
 
         },
@@ -465,6 +551,7 @@ export const items = {
             id: 29,
             name: "Cartillage",
             slug: "cartillage",
+            series: "",
             medium: "Acrylic on canvas",
             size: "17 x 15 inches",
             images: ["/assets/products/cartillage-large.webp"],
@@ -480,6 +567,7 @@ export const items = {
             id: 30,
             name: "Big Top",
             slug: "bigtop",
+            series: "lightshow",
             medium: "Acrylic on canvas",
             size: "17 x 16 inches",
             images: ["/assets/products/bigtop-large.webp"],
@@ -487,6 +575,23 @@ export const items = {
             description: "",
             year: "2026",
             forSale: false,
+            isSeries: true,
+
+
+        },
+        {
+            id: 31,
+            name: "After You",
+            slug: "afteryou",
+            series: "lightshow",
+            medium: "Acrylic on canvas",
+            size: "17 x 16 inches",
+            images: ["/assets/products/afteryou-large.webp"],
+            thumbnail: "/assets/products/afteryou-thumbnail.webp",
+            description: "",
+            year: "2026",
+            forSale: false,
+            isSeries: true,
 
 
         },

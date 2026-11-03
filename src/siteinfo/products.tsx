@@ -133,16 +133,16 @@ export const products = {
 
         {
             id: 1,
-            name: "Goldback",
-            slug: "goldback",
+            name: "Big Top",
+            slug: "bigtop",
             medium: "Acrylic on canvas",
-            size: "4 x 3 feet",
-            price: 920,
-            images: ["/assets/products/goldback-xl.webp",],
-            productImage: "/assets/products/goldback.jpeg",
-            thumbnail: ["/assets/products/goldback-thumbnail.webp"],
+            size: "15 x 17 inches",
+            price: 500,
+            images: ["/assets/products/bigtop-large.webp",],
+            productImage: "/assets/products/bigtop.jpg",
+            thumbnail: ["/assets/products/bigtop-thumbnail.webp"],
             description: "",
-            year: "2024"
+            year: "2026"
 
         },
         {
@@ -161,16 +161,16 @@ export const products = {
         },
         {
             id: 3,
-            name: "Look Up",
-            slug: "look-up",
+            name: "After You",
+            slug: "after-you",
             medium: "Acrylic on canvas",
-            size: "38 x 38 inches",
-            price: 1100,
-            images: ["/assets/products/lookup-xl.webp"],
-            productImage: "/assets/products/lookup.JPG",
-            thumbnail:["/assets/products/lookup-thumbnail.webp"],
+            size: "19 x 17 inches",
+            price: 800,
+            images: ["/assets/products/afteryou-large.webp"],
+            productImage: "/assets/products/afteryou.jpg",
+            thumbnail:["/assets/products/afteryou-thumbnail.webp"],
             description: "",
-            year: "2024"
+            year: "2026"
 
         },
         {

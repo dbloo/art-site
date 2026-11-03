@@ -11,7 +11,10 @@ export interface Painting {
     description: string;
     year: string;
     thumbnail: string;
-}
+    isSeries: boolean;
+    series?: string;
+  }
+
 
 interface GalleryProps {
     paintings: Painting[];
@@ -28,7 +31,7 @@ export const Gallery = ({paintings} : GalleryProps)  =>{
         {paintings.map((painting, i) => {
                 return(
                     <div className='lg:hover:-translate-y-2 lg:hover:brightness-80 duration-300 ease-in-out'>
-                    <Link to = {`/painting/${painting.slug}`}>
+                    <Link to = { `/painting/${painting.slug}`}>
                 
                 <div className = " pb-5  w-full " >
                 

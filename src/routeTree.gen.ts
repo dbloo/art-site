@@ -24,6 +24,8 @@ import { Route as OriginalSlugRouteImport } from './routes/original/$slug'
 import { Route as PaintingSlugRouteImport } from './routes/painting/$slug'
 import { Route as PrintSlugRouteImport } from './routes/print/$slug'
 import { Route as SeriesSlugRouteImport } from './routes/series/$slug'
+import { Route as SeriesLightshowRouteImport } from './routes/series/lightshow'
+import { Route as SeriesLightshowtempRouteImport } from './routes/series/lightshowtemp'
 import { Route as ApiWebhooksStripeRouteImport } from './routes/api/webhooks/stripe'
 
 const IndexRoute = IndexRouteImport.update({
@@ -101,6 +103,16 @@ const SeriesSlugRoute = SeriesSlugRouteImport.update({
   path: '/series/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SeriesLightshowRoute = SeriesLightshowRouteImport.update({
+  id: '/series/lightshow',
+  path: '/series/lightshow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeriesLightshowtempRoute = SeriesLightshowtempRouteImport.update({
+  id: '/series/lightshowtemp',
+  path: '/series/lightshowtemp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiWebhooksStripeRoute = ApiWebhooksStripeRouteImport.update({
   id: '/api/webhooks/stripe',
   path: '/api/webhooks/stripe',
@@ -123,6 +135,8 @@ export interface FileRoutesByFullPath {
   '/painting/$slug': typeof PaintingSlugRoute
   '/print/$slug': typeof PrintSlugRoute
   '/series/$slug': typeof SeriesSlugRoute
+  '/series/lightshow': typeof SeriesLightshowRoute
+  '/series/lightshowtemp': typeof SeriesLightshowtempRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
 }
 export interface FileRoutesByTo {
@@ -141,6 +155,8 @@ export interface FileRoutesByTo {
   '/painting/$slug': typeof PaintingSlugRoute
   '/print/$slug': typeof PrintSlugRoute
   '/series/$slug': typeof SeriesSlugRoute
+  '/series/lightshow': typeof SeriesLightshowRoute
+  '/series/lightshowtemp': typeof SeriesLightshowtempRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
 }
 export interface FileRoutesById {
@@ -160,6 +176,8 @@ export interface FileRoutesById {
   '/painting/$slug': typeof PaintingSlugRoute
   '/print/$slug': typeof PrintSlugRoute
   '/series/$slug': typeof SeriesSlugRoute
+  '/series/lightshow': typeof SeriesLightshowRoute
+  '/series/lightshowtemp': typeof SeriesLightshowtempRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
 }
 export interface FileRouteTypes {
@@ -180,6 +198,8 @@ export interface FileRouteTypes {
     | '/painting/$slug'
     | '/print/$slug'
     | '/series/$slug'
+    | '/series/lightshow'
+    | '/series/lightshowtemp'
     | '/api/webhooks/stripe'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -198,6 +218,8 @@ export interface FileRouteTypes {
     | '/painting/$slug'
     | '/print/$slug'
     | '/series/$slug'
+    | '/series/lightshow'
+    | '/series/lightshowtemp'
     | '/api/webhooks/stripe'
   id:
     | '__root__'
@@ -216,6 +238,8 @@ export interface FileRouteTypes {
     | '/painting/$slug'
     | '/print/$slug'
     | '/series/$slug'
+    | '/series/lightshow'
+    | '/series/lightshowtemp'
     | '/api/webhooks/stripe'
   fileRoutesById: FileRoutesById
 }
@@ -235,6 +259,8 @@ export interface RootRouteChildren {
   PaintingSlugRoute: typeof PaintingSlugRoute
   PrintSlugRoute: typeof PrintSlugRoute
   SeriesSlugRoute: typeof SeriesSlugRoute
+  SeriesLightshowRoute: typeof SeriesLightshowRoute
+  SeriesLightshowtempRoute: typeof SeriesLightshowtempRoute
   ApiWebhooksStripeRoute: typeof ApiWebhooksStripeRoute
 }
 
@@ -345,6 +371,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SeriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/series/lightshow': {
+      id: '/series/lightshow'
+      path: '/series/lightshow'
+      fullPath: '/series/lightshow'
+      preLoaderRoute: typeof SeriesLightshowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/series/lightshowtemp': {
+      id: '/series/lightshowtemp'
+      path: '/series/lightshowtemp'
+      fullPath: '/series/lightshowtemp'
+      preLoaderRoute: typeof SeriesLightshowtempRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/webhooks/stripe': {
       id: '/api/webhooks/stripe'
       path: '/api/webhooks/stripe'
@@ -371,6 +411,8 @@ const rootRouteChildren: RootRouteChildren = {
   PaintingSlugRoute: PaintingSlugRoute,
   PrintSlugRoute: PrintSlugRoute,
   SeriesSlugRoute: SeriesSlugRoute,
+  SeriesLightshowRoute: SeriesLightshowRoute,
+  SeriesLightshowtempRoute: SeriesLightshowtempRoute,
   ApiWebhooksStripeRoute: ApiWebhooksStripeRoute,
 }
 export const routeTree = rootRouteImport

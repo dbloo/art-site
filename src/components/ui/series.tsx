@@ -67,7 +67,7 @@ const HorizontalSpread = ({seriesData}: {seriesData : Series}) => {
 
 
 export function Series ({slug}: SeriesParams) {
-    const seriesData = series.find((s)=> s.slug === slug)
+    
 
     return (
         <div className={`w-full mask-b-from-90% pb-50  ${seriesData?.background}`}>
