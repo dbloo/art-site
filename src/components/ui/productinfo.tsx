@@ -244,6 +244,9 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
             <div className = "lg:ml-10 flex flex-col gap-5 text-left w-full">
                 <h1 className={`text-4xl text-center lg:text-6xl  lg:text-left font-bold mt-5 w-full break-all ${getTitleClass(product.name)} `}>{product?.name}</h1>
                 <p className='opacity-60 font-light w-full lg:w-150'>[{product?.year} |  {product?.size} | {product?.medium}] </p>
+
+                                    <p>{product?.description}</p>
+
                 
 
             <hr className=' w-full border-black/30 mb-5'/>
@@ -303,6 +306,8 @@ export function ItemInfoPaintings ({slug} : {slug:string}){
                 <p className='opacity-80 font-light w-full lg:w-150'><strong>Year: </strong>{painting?.year} </p>
                 <p className='opacity-80 font-light w-full lg:w-150'><strong>Size: </strong> [{painting?.size}] </p>
                 <p className='opacity-80 font-light w-full lg:w-150'><strong>Medium: </strong>{painting?.medium}</p>
+                <div className='opacity-80 font-light w-full lg:w-150 flex flex-col gap-2'>
+                </div>
                 </div>
                 
 

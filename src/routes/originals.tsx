@@ -31,10 +31,10 @@ function RouteComponent() {
 
   function getTitleClass(title: string) {
         const len = title.length;
-        if (len <= 8) return "text-5xl";
-        if (len <= 14) return "text-4xl";
+        if (len <= 8) return "text-4xl";
+        if (len <= 14) return "text-3xl";
         if (len <= 20) return "lg:text-4xl text-xl";
-        return "text-xl";
+        return "text-3xl";
 }
 
 
@@ -73,9 +73,9 @@ function RouteComponent() {
                       style={{ backgroundImage: `url(${painting.images[0]})` }}
                       className="shadow-lg hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"
                     />
-                    <h1 className={`${getTitleClass(painting.name)} lg:text-left text-center mt-5 mb-5 font-bold`}>{painting.name}</h1>
+                    <h1 className={`${getTitleClass(painting.name)} lg:text-left text-center mt-5 mb-5 font-medium`}>{painting.name}</h1>
                     <div className="flex flex-row justify-between w-full">
-                      <p>{painting.year}</p>
+                      <p>{painting.price.toLocaleString()}</p>
                       <p className='font-light opacity-70'>[{painting.size}]</p>
                     </div>
                   </Link>

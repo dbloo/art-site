@@ -62,20 +62,20 @@ export const products = {
         },
         {
             id: 4,
-            name: "Merriman",
+            name: "Sundown",
             slug: "merriman",
             medium: "Acrylic paint and marker on canvas",
             size: "25 x 28 inches",
             price: 250,
             prints: [
-               {sizes: "8 x 10 in.", price: 50},
-                {sizes: "10 x 12 in.", price: 95},
-                {sizes: "20 x 24 in.", price: 150},
+               {sizes: "8 x 8 in.", price: 50},
+                {sizes: "12 x 12 in.", price: 95},
+                {sizes: "24 x 24 in.", price: 150},
                 
             ],
-            images: ["/assets/products/merriman-large.webp"],
-            productImage: "/assets/products/merriman.jpg",
-            thumbnail:["/assets/products/merriman-thumbnail.webp"],
+            images: ["/assets/products/sundown-large.webp"],
+            productImage: "/assets/products/sundown.jpg",
+            thumbnail:["/assets/products/sundown-thumbnail.webp"],
             description: "",
             year: "2026"
 
@@ -125,6 +125,69 @@ export const products = {
 
         },
 
+        {
+            id: 6,
+            name: "Heelflip",
+            slug: "heel-flip",
+            medium: "Acrylic on canvas",
+            size: "18 x 24 inches",
+            price: 250,
+            prints: [
+               {sizes: "8 x 8 in.", price: 50},
+                {sizes: "12 x 12 in.", price: 95},
+                {sizes: "24 x 24 in.", price: 150},
+            ],
+            images: ["/assets/products/heelflip-large.webp"],
+            productImage: "/assets/products/heelflip.jpg",
+            thumbnail:["/assets/products/heelflip-thumbnail.webp"],
+            description: "",
+            year: "2026"
+
+
+        },
+
+        {
+            id: 7,
+            name: "SRII",
+            slug: "srii",
+            medium: "Acrylic on canvas",
+            size: "18 x 24 inches",
+            price: 250,
+            prints: [
+               {sizes: "8 x 8 in.", price: 50},
+                {sizes: "12 x 12 in.", price: 95},
+                {sizes: "24 x 24 in.", price: 150},
+            ],
+            images: ["/assets/products/SRII-large.webp"],
+            productImage: "/assets/products/SRII.jpg",
+            thumbnail:["/assets/products/SRII-thumbnail.webp"],
+            description: "",
+            year: "2026"
+
+
+        },
+
+        {
+            id: 8,
+            name: "Horizon",
+            slug: "horizon",
+            medium: "Acrylic on canvas",
+            size: "18 x 24 inches",
+            price: 250,
+            prints: [
+               {sizes: "8 x 8 in.", price: 50},
+                {sizes: "12 x 12 in.", price: 95},
+                {sizes: "24 x 24 in.", price: 150},
+            ],
+            images: ["/assets/products/horizon-large.webp"],
+            productImage: "/assets/products/horizon.jpg",
+            thumbnail:["/assets/products/horizon-thumbnail.webp"],
+            description: "",
+            year: "2026"
+
+
+        },
+
     
         
     ],
@@ -141,7 +204,7 @@ export const products = {
             images: ["/assets/products/bigtop-large.webp",],
             productImage: "/assets/products/bigtop.jpg",
             thumbnail: ["/assets/products/bigtop-thumbnail.webp"],
-            description: "",
+            description: "Signed by the artist. Does not come stretched or framed.",
             year: "2026"
 
         },
@@ -155,7 +218,7 @@ export const products = {
             images: ["/assets/products/whatifnot-xl.webp"],
             productImage: "/assets/products/whatifnot.JPG",
             thumbnail: ["/assets/products/whiteifnot-thumbnail.webp"],
-            description: "",
+            description: "Signed by the artist. Does not come stretched or framed.",
             year: "2025"
 
         },
@@ -169,7 +232,7 @@ export const products = {
             images: ["/assets/products/afteryou-large.webp"],
             productImage: "/assets/products/afteryou.jpg",
             thumbnail:["/assets/products/afteryou-thumbnail.webp"],
-            description: "",
+            description: "Signed by the artist. Does not come stretched or framed.",
             year: "2026"
 
         },
@@ -183,7 +246,7 @@ export const products = {
             images: ["/assets/products/crystal-xl.webp",],
             productImage: "/assets/products/crystal.jpg",
             thumbnail:["/assets/products/crystal-thumbnail.webp"],
-            description: "",
+            description: "Signed by the artist.",
             year: "2025"
 
         },
@@ -198,7 +261,7 @@ export const products = {
             images: ["/assets/products/overcrook-xl.webp",],
             productImage: "/assets/products/overcrook.JPG",
             thumbnail:["/assets/products/overcrook-thumbnail.webp"],
-            description: "",
+            description: "Signed by the artist. Does not come stretched or framed.",
             year: "2026"
 
         },
@@ -213,7 +276,7 @@ export const products = {
             images: ["/assets/products/heelflip-xl.webp",],
             productImage: "/assets/products/heelflip.jpg",
             thumbnail:["/assets/products/heelflip-thumbnail.webp", ],
-            description: "",
+            description: "Signed by the artist. Does not come stretched or framed.",
             year: "2021"
 
         },

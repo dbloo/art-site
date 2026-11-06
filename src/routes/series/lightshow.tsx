@@ -67,7 +67,7 @@ function RouteComponent() {
 
             <div className='border border-black rounded-2xl  p-3 lg:p-8 '>
     <h1 className='lg:text-6xl text-5xl  font-black mb-5'>Lightshow</h1>
-    <p className='text-lg font-light lg:text-xl opacity-60 mb-5'>Lightshow takes place on the night of June 19th, 1798, where the Circus' headliner, 26 year old Bartholomew Braitworth, dubbed Mr. Crystal, is set to perform his world renowned routine. Born with diamond teeth, he is a global anomaly, and the world's most famous clown. Despite the glory, Braitworth's life is far from shiny. Disillusioned with the humiliation, the neglect, and the abuse, Braitworth is incredibly reluctant to perform again, and has developed a great deal of animosity towards his captors. </p>
+    <p className='text-lg font-light lg:text-xl opacity-60 mb-5'>Lightshow takes place on the night of June 19th, 1798, where circus headliner 26 year old Bartholomew Braitworth, dubbed Mr. Crystal, is set to perform his world renowned routine. Born with diamond teeth, he is a global anomaly, and the world's most famous clown. Despite the glory, Braitworth's life is far from shiny. Disillusioned with the humiliation, the neglect, and the abuse, Braitworth is incredibly reluctant to perform again, and has developed a great deal of animosity towards his captors. </p>
 
     <hr/>
             <Gallery paintings = {paintings}></Gallery>
