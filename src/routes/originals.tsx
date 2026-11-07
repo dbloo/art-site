@@ -75,7 +75,7 @@ function RouteComponent() {
                     />
                     <h1 className={`${getTitleClass(painting.name)} lg:text-left text-center mt-5 mb-5 font-medium`}>{painting.name}</h1>
                     <div className="flex flex-row justify-between w-full">
-                      <p>{painting.price.toLocaleString()}</p>
+                      <p>${painting.price.toLocaleString()}</p>
                       <p className='font-light opacity-70'>[{painting.size}]</p>
                     </div>
                   </Link>
