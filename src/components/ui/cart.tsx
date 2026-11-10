@@ -2,7 +2,7 @@ import { useCart } from '#/context/CartContext'
 import { Spinner } from '#/components/ui/spinner'
 import {Button, StyledButton} from "@/components/ui/button"
 import {Link} from "@tanstack/react-router"
-import {Trash2} from "lucide-react"
+import {Trash2, Lock} from "lucide-react"
 import {useEffect} from "react"
 
 
@@ -156,6 +156,7 @@ export function Cart () {
                 <h1 className='text-3xl lg:text-4xl flex w-full lg:justify-end lg:pr-40 mb-15'>Subtotal: ${subtotal.toLocaleString()}</h1>
 
                 <StyledButton onClick = {handleCheckout} disabled = {isLoading} className='w-full mb-3'>Checkout</StyledButton>
+                <div className = "relative flex flex-row lg:gap-2 gap-1  mt-5 items-center justify-center w-full"><Lock size={12}></Lock><p className=' font-light  text-sm opacity-70'>Powered by</p><img className = "lg:absolute right-133 -top-1 opacity-60 w-10" src = "./stripe.png"></img></div>
 
             </div>
 

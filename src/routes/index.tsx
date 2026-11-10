@@ -1,54 +1,111 @@
-import { createFileRoute } from '@tanstack/react-router'
-import {StyledButton} from '../components/ui/button'
-import {products} from '../siteinfo/products'
-import {Link} from '@tanstack/react-router'
-import { RotatingCarousel, SlidingCarousel  } from '#/components/ui/carousel'
+import { useEffect, useRef } from 'react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { StyledButton } from '../components/ui/button'
+import { products } from '../siteinfo/products'
+import { SlidingCarousel } from '#/components/ui/carousel'
+import {ArrowRight} from "lucide-react"
 
+export const Route = createFileRoute('/')({
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: 'Dominic Bloomfield | Fine Art Prints and Originals' },
+      {
+        name: 'description',
+        content:
+          'Premium archival fine art prints and originals by Dominic Bloomfield. Illustrations, paintings, and graphic design.',
+      },
+    ],
+  }),
+})
 
+function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-export const Route = createFileRoute('/')({ component: Home })
+  // Respect reduced-motion: show the first frame instead of autoplaying.
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (mq.matches) videoRef.current?.pause()
+  }, [])
 
+  return (
+    <section
+      aria-label="Introduction"
+      className="relative h-[70svh] min-h-[420px] w-full overflow-hidden bg-black lg:h-[88svh]"
+    >
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        // poster="/assets/images/hero-poster.jpg"  // add a still frame for instant paint
+        aria-hidden="true"
+      >
+        <source src="/assets/videos/flatground(web).mp4" type="video/mp4" />
+      </video>
 
+      {/* Scrim so the name stays legible over any frame */}
+      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
+      <div className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-7xl px-5 pb-8 lg:px-12 lg:pb-14">
+        <h1 className="text-balance text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-9xl">
+          Dominic
+          <br />
+          Bloomfield
+        </h1>
+        <p className="mt-4 max-w-md text-lg font-light text-white/80 lg:text-xl">
+          I rlly like making things that my younger self would think is cool.
+        </p>
+      </div>
+    </section>
+  )
+}
 
 function Home() {
   return (
-    <main className="">
-      <section>
-        
-        <div className="overflow-clip w-screen text-center justify-center items-center relative lg:w-full bg-black h-auto lg:h-150  ">
-        {/* <h1 className='absolute text-3xl mt-40 lg:mt-30 left-5 lg:left-70 lg:top-30 lg:text-8xl font-black  text-white  z-100 '>Dominic Bloomfield</h1> */}
-              <video className='w-screen 'autoPlay loop muted playsInline src = "/assets/videos/flatground(web).mp4"></video>
-              </div>
-              </section>
-     <section className="w-screen lg:px-60 p-5  gap-4">
-      <div className = "mt-10">
+    <main>
+      <Hero />
 
+      <section
+        aria-labelledby="prints-heading"
+        className="mx-auto w-full max-w-7xl px-5 py-14 lg:px-12 lg:py-24"
+      >
+        <div className="mb-8 flex flex-col gap-2 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h2
+              id="prints-heading"
+              className="text-4xl font-black tracking-tight lg:text-6xl"
+            >
+              Shop prints
+            </h2>
+            <p className="mt-2 text-lg font-light text-black/60 lg:text-xl">
+              Premium archival-quality fine art prints.
+            </p>
+          </div>
 
-    <div className="mt-10 text-2xl lg:text-4xl font-light">
-      <h1 className='lg:text-6xl text-4xl font-black'>Shop Prints</h1>
-      <p className="mb-10 text-xl font-light opacity-50 mt-3">
-    Premium archival fine art prints
-  </p>
+          
+          <Link
+            to="/prints"
+            className=" hidden text-lg underline underline-offset-4 decoration-black/30 hover:decoration-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black lg:flex lg:items-center lg:gap-2"
+          >
+            View all prints
+            <ArrowRight></ArrowRight>
+          </Link>
+        </div>
 
-  <SlidingCarousel prints={products.prints} />
+        <SlidingCarousel prints={products.prints} />
 
-  <div className="mt-5 flex flex-col">
-      <StyledButton to ="/prints" className="bg-white border border-black text-black">
-        Shop all prints
-      </StyledButton>
-  </div>
-</div>
-
-      {/* <div className="mt-20 w-full relative  text-2xl lg:text-4xl font-light">
-      <h1 className=' right-0 flex flex-row-reverse text-4xl font-bold'>Past works</h1>
-      <p className="mb-10 text-xl text-right font-light opacity-50 mt-3">
-    Illustrations, Paintings, Graphic Design, and more projects.
-  </p>
-      <div className='w-full h-40 border border-black rounded-2xl'></div>
-      </div> */}
-      </div>
-
+        <div className="mt-8 lg:hidden">
+          <StyledButton
+            to="/prints"
+            className="w-full border border-black bg-white text-black"
+          >
+            Shop all prints
+          </StyledButton>
+        </div>
       </section>
     </main>
   )

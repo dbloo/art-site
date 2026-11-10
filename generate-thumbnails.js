@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const INPUT_DIR = path.join(__dirname, "public/assets/products");
+const INPUT_DIR = path.join(__dirname, "public/assets/images");
 const OUTPUT_DIR = INPUT_DIR;
 
 const sizes = [
@@ -41,7 +41,7 @@ async function processImage(file) {
 async function run() {
   const files = await fs.readdir(INPUT_DIR);
   for (const file of files) {
-    await processImage("lightshow-5.jpg");
+    await processImage("dompic.jpg");
   }
   console.log("✅ All thumbnails generated!");
 }

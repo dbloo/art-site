@@ -199,14 +199,16 @@ function RouteComponent() {
   }
   
   return (<div className='rise-in pt-30 w-full flex flex-col justify-center items-center h-auto p-5 lg:p-60'>
-    <div className=' '>
+    <div className='w-full border border-black rounded-2xl  px-3 py-5  lg:p-8 '>
       <h1 className='text-5xl font-black lg:text-6xl mb-5'>About</h1>
       <hr className='mb-10 '/>
-      <div className = "flex flex-col lg:flex-row gap-15 ">
+      <div className = "lg:items-start items-center w-full flex flex-col lg:flex-row gap-15 ">
     <p className='font-light text-xl'>
       {about.description}
       
       </p>
+      <div className = "size-81 lg:w-400 lg:h-200 bg-center bg-cover" style = {{backgroundImage: "url(/assets/images/dompic-large.webp)"}}></div>
+
 
 
       
