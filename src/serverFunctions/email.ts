@@ -45,7 +45,6 @@ export const submitEmail = createServerFn({ method: 'POST' }).handler(
         WelcomeEmail({
           firstName: '',
           siteUrl: 'https://dominicbloomfield.com',
-          imageUrl: 'https://dominicbloomfield.com/assets/hero.jpg',
           unsubscribeUrl: '{{{RESEND_UNSUBSCRIBE_URL}}}',
         }),
       )
