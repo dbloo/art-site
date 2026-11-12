@@ -2,27 +2,6 @@ export const products = {
     prints: [
 
         {
-            id: 1,
-            name: "Big Top",
-            slug: "bigtop",
-            medium: "Acrylic paint and marker on canvas",
-            size: "15 x 17 inches",
-            price: 250,
-            prints: [
-               {sizes: "8 x 10 in.", price: 50},
-                {sizes: "10 x 12 in.", price: 95},
-                {sizes: "20 x 24 in.", price: 150},
-            ], 
-            images: ["/assets/products/bigtop-large.webp"],
-            productImage: "/assets/products/bigtop.jpg",
-            thumbnail:["/assets/products/bigtop-thumbnail.webp"],
-            description: "",
-            year: "2026"
-
-
-        },
-
-        {
             id: 2,
             name: "After You",
             slug: "after-you",
@@ -63,7 +42,7 @@ export const products = {
         {
             id: 4,
             name: "Sundown",
-            slug: "merriman",
+            slug: "sundown",
             medium: "Acrylic paint and marker on canvas",
             size: "25 x 28 inches",
             price: 250,
@@ -119,27 +98,6 @@ export const products = {
             images: ["/assets/products/moore-xl.webp", "/assets/products/mockups/moore_mockup-large.webp"],
             productImage: "/assets/products/moore.JPG",
             thumbnail:["/assets/products/moore-thumbnail.webp"],
-            description: "",
-            year: "2026"
-
-
-        },
-
-        {
-            id: 6,
-            name: "Heelflip",
-            slug: "heel-flip",
-            medium: "Acrylic on canvas",
-            size: "18 x 24 inches",
-            price: 250,
-            prints: [
-               {sizes: "8 x 8 in.", price: 50},
-                {sizes: "12 x 12 in.", price: 95},
-                {sizes: "24 x 24 in.", price: 150},
-            ],
-            images: ["/assets/products/heelflip-large.webp"],
-            productImage: "/assets/products/heelflip.jpg",
-            thumbnail:["/assets/products/heelflip-thumbnail.webp"],
             description: "",
             year: "2026"
 

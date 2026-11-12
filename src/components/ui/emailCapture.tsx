@@ -90,7 +90,7 @@ export const EmailCapture = () => {
                 disabled={isLoading}
                 placeholder="put it here"
                 autoCapitalize="off"
-                className={`relative border border-black transition-shadow focus-visible:ring-4 focus-visible:ring-[#FADE3E] ${
+                className={`relative border placeholder:text-black/40 border-black transition-shadow focus-visible:ring-4 focus-visible:ring-[#FADE3E] ${
                 flash ? 'ring-4 ring-[#FADE3E]' : ''
   }`}
               />
