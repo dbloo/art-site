@@ -3,8 +3,6 @@ import { products } from '#/siteinfo/products'
 import { useState, useEffect } from 'react'
 import {getStock} from "@/serverFunctions/stock"
 import {Skeleton} from "@/components/ui/skeleton"
-import {Input} from "@/components/ui/input"
-import {Button} from "@/components/ui/button"
 
 import {EmailCapture} from "@/components/ui/emailCapture"
 
