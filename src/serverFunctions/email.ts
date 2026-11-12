@@ -11,7 +11,7 @@ const emailSchema = z.object({
   email: z.email('Please enter a valid email address.'),
 })
 
-const resend = new Resend(process.env.RESEND_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY)
 const db = getDb()
 
 export const submitEmail = createServerFn({ method: 'POST' }).handler(
