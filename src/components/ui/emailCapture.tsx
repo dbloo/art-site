@@ -66,7 +66,7 @@ export const EmailCapture = () => {
   })
 
   return (
-    <div className=" relative w-100 rise-in">
+    <div className=" relative w-full lg:w-100 rise-in">
       <emailForm.Field
         name="email"
         children={(field) => {
