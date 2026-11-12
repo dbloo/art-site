@@ -15,6 +15,7 @@ import { Route as CartRouteImport } from './routes/cart'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DrawingsRouteImport } from './routes/drawings'
 import { Route as GraphicdesignRouteImport } from './routes/graphicdesign'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as OriginalsRouteImport } from './routes/originals'
 import { Route as PaintingsRouteImport } from './routes/paintings'
 import { Route as PrintsRouteImport } from './routes/prints'
@@ -56,6 +57,11 @@ const DrawingsRoute = DrawingsRouteImport.update({
 const GraphicdesignRoute = GraphicdesignRouteImport.update({
   id: '/graphicdesign',
   path: '/graphicdesign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OriginalsRoute = OriginalsRouteImport.update({
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/drawings': typeof DrawingsRoute
   '/graphicdesign': typeof GraphicdesignRoute
+  '/newsletter': typeof NewsletterRoute
   '/originals': typeof OriginalsRoute
   '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/drawings': typeof DrawingsRoute
   '/graphicdesign': typeof GraphicdesignRoute
+  '/newsletter': typeof NewsletterRoute
   '/originals': typeof OriginalsRoute
   '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/drawings': typeof DrawingsRoute
   '/graphicdesign': typeof GraphicdesignRoute
+  '/newsletter': typeof NewsletterRoute
   '/originals': typeof OriginalsRoute
   '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
@@ -189,6 +198,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/drawings'
     | '/graphicdesign'
+    | '/newsletter'
     | '/originals'
     | '/paintings'
     | '/prints'
@@ -209,6 +219,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/drawings'
     | '/graphicdesign'
+    | '/newsletter'
     | '/originals'
     | '/paintings'
     | '/prints'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/drawings'
     | '/graphicdesign'
+    | '/newsletter'
     | '/originals'
     | '/paintings'
     | '/prints'
@@ -250,6 +262,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DrawingsRoute: typeof DrawingsRoute
   GraphicdesignRoute: typeof GraphicdesignRoute
+  NewsletterRoute: typeof NewsletterRoute
   OriginalsRoute: typeof OriginalsRoute
   PaintingsRoute: typeof PaintingsRoute
   PrintsRoute: typeof PrintsRoute
@@ -306,6 +319,13 @@ declare module '@tanstack/react-router' {
       path: '/graphicdesign'
       fullPath: '/graphicdesign'
       preLoaderRoute: typeof GraphicdesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/originals': {
@@ -402,6 +422,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DrawingsRoute: DrawingsRoute,
   GraphicdesignRoute: GraphicdesignRoute,
+  NewsletterRoute: NewsletterRoute,
   OriginalsRoute: OriginalsRoute,
   PaintingsRoute: PaintingsRoute,
   PrintsRoute: PrintsRoute,

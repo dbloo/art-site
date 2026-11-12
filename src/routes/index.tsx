@@ -51,12 +51,12 @@ function Hero() {
       <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
       <div className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-7xl px-5 pb-8 lg:px-12 lg:pb-14">
-        <h1 className="text-balance text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-9xl">
+        <h1 className="rise-in text-balance text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-9xl">
           Dominic
           <br />
           Bloomfield
         </h1>
-        <p className="mt-4 max-w-md text-lg font-light text-white/80 lg:text-xl">
+        <p className="rise-in mt-4 max-w-md text-lg font-light text-white/80 lg:text-xl">
           I rlly like making things that my younger self would think is cool.
         </p>
       </div>
@@ -73,7 +73,7 @@ function Home() {
         aria-labelledby="prints-heading"
         className="mx-auto w-full max-w-7xl px-5 py-14 lg:px-12 lg:py-24"
       >
-        <div className="mb-8 flex flex-col gap-2 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
+        <div className="rise-in mb-8 flex flex-col gap-2 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <h2
               id="prints-heading"

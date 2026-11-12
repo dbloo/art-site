@@ -54,7 +54,7 @@ export function SlidingCarousel({ prints, autoScrollInterval = 2000 }: CarouselP
     >
       <div
         ref={scrollRef}
-        className="w-full items-center  overflow-x-scroll scrollbar-none lg:w-full flex flex-row gap-5 lg:p-8 p-5 border border-black rounded-2xl snap-x snap-mandatory"
+        className="w-full rise-in items-center  overflow-x-scroll scrollbar-none lg:w-full flex flex-row gap-5 lg:p-8 p-5 border border-black rounded-2xl snap-x snap-mandatory"
       >
         {prints.map((product, i) => (
           <Link

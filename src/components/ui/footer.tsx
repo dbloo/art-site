@@ -1,18 +1,24 @@
 import { Link } from "@tanstack/react-router"
+import { EmailCapture } from "./emailCapture"
 
 export function Footer  () {
 
     return (<>        
-<div className="w-full  relative mt-30 ">
+<div id= "newsletter" className="w-full rise-in relative mt-30 scroll-mt-30">
     <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-5 lg:h-full  lg:relative absolute  lg:top-0 -top-3 w-full"src = "/assets/graphics/footer-graphic_2.svg"></img>
     <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-15 lg:h-20   absolute  lg:top-0 -top-9 w-full"src = "/assets/graphics/graphic2.svg"></img>
 
     <div className="p-5  w-full  lg:px-60 py-20 text-black h-auto  bg-accent1 ">
 
-        <div className = "w-full grid lg:grid-cols-2">
+        <div className = "w-full grid mb-10 lg:grid-cols-2">
 
             <div className="lg:w-1/2 w-full">
-                    <h1 className="text-2xl lg:text-4xl font-bold mb-5">Dominic Bloomfield Art</h1>
+
+                    <h1 className="text-2xl lg:text-4xl font-bold mb-10">Dominic Bloomfield Art</h1>
+
+                    <p className="mb-5 ">Enter your email to get notified when I release new work!</p>
+                    <EmailCapture/>
+
 
 
                 </div>
@@ -50,9 +56,9 @@ export function Footer  () {
 
     
 
-        <div><h1 className="text-center lg: text-leftlg:mt-20 lg:text-lg opacity-60">The artist, (Dominic Bloomfield and All Associated Works), rights are protected by the Federal Copyright Act of 1976 and the Federal Visual Rights Act of 1990. Purchase of a copyrighted artwork does not transfer the copyright. The copyright to produce the works in copies, to produce derivative work based on the copyrighted image, and distribute copies is retained by the Visual Artist. Any transfer of this copyright must be in writing expressly identifying what rights are being sold and for what purpose. ​ Works of art cannot be modified without the permission of the artist. Works cannot be distributed, mutilated, or modified in any way that would prejudice the reputation of the Artist.</h1></div>
+        
 
-        <div><p className="text-center mt-10 opacity-50">&copy; 2026 Dominic Bloomfield Art</p></div>
+        <div><p className="text-center mt-10 opacity-50 font-light ">&copy; 2026 Dominic Bloomfield Art. All Rights Reserved.</p></div>
 
 
     </div>

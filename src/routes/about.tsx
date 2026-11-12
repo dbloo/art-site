@@ -1,417 +1,205 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/about')({
-  component: RouteComponent,
+  component: About,
+  head: () => ({
+    meta: [
+      { title: 'About | Dominic Bloomfield' },
+      {
+        name: 'description',
+        content:
+          'Dominic Bloomfield is an Afro-Caribbean multidisciplinary artist from Mandeville, Jamaica working in acrylic painting, illustration, and graphic design.',
+      },
+    ],
+  }),
 })
 
+/* ---------- Content ---------- */
 
+const bio =
+  'Dominic Bloomfield is an Afro-Caribbean multidisciplinary artist from Mandeville, Jamaica that specializes in acrylic canvas paintings, illustrations, and graphic design. His work offers vibrant colors and warped anatomy and perspective against liminal and abstract backgrounds, which communicates a sense of playfulness, with a grace of unease, that leaves the viewer filling in the pieces with their own experiences.'
 
-function RouteComponent() {
+type Entry = { title: string; meta: string }
+type YearGroup = { year: string; entries: Entry[] }
+type CvBlock = { heading: string; groups: YearGroup[] }
 
-  const about = {
-    description: "Dominic Bloomfield is an Afro-Caribbean multidisciplinary artist from Mandeville, Jamaica that specializes in acrylic canvas paintings, illustrations, and graphic design. His work offers vibrant colors and warped anatomy and perspective against liminal and abstract backgrounds, which communicates a sense of playfulness, with a grace of unease, that leaves the viewer filling in the pieces with their own experiences."
-  }
-
-  const awards =  {
-
-      twentyFour: 
-      
-      [
-
+const cv: CvBlock[] = [
+  {
+    heading: 'Solo exhibitions',
+    groups: [
       {
-      year: "2024",
-      title: "Creative Futures Collective Soho House Fellowship, Soho House",
-      location: "Miami, FL"
+        year: '2026',
+        entries: [
+          { title: 'Outside My Skin', meta: 'The Cutting Gallery, Miramar, FL' },
+        ],
       },
-      ]
-    
-
-  }
-
-  const bibliography =  {
-
-    twentyFive: 
-      
-      [
-
+    ],
+  },
+  {
+    heading: 'Group exhibitions',
+    groups: [
       {
-      title: "Selected Works",
-      publication: "Elated Magazine"
+        year: '2026',
+        entries: [
+          { title: 'Bazaar Broward', meta: 'MAD Arts, Dania Beach, FL' },
+          {
+            title: 'Hot Rod: Car Show and Art Exhibit',
+            meta: 'The Wisteria, Southwest Ranches, FL',
+          },
+          {
+            title: 'BIG: Culture & Arts Festival',
+            meta: 'Downtown Gainesville, Gainesville, FL',
+          },
+          { title: 'Troubled Waters', meta: 'Downtown Miami, Miami, FL' },
+        ],
       },
-
-
-      
-      ],
-
-      twentyTwo: 
-      
-      [
-
       {
-      title: "Meet Dominic Bloomfield",
-      publication: "Canvas Rebel"
+        year: '2025',
+        entries: [
+          { title: 'Bazaar a La Carte', meta: 'Riverset Studios, Miami, FL' },
+          { title: 'Miami Saves America', meta: 'Dear Eleanor, Miami, FL' },
+        ],
       },
-
-
-      
-      ],
-
-      twentyOne: 
-      
-      [
-
       {
-      title: "A Hushed Explosion",
-      publication: "2020 Vision Digital"
+        year: '2024',
+        entries: [
+          {
+            title: 'Miami Underground Showcase Feat. Atomik',
+            meta: '2300 NW 7th Ave, Miami, FL',
+          },
+        ],
       },
-
       {
-      title: "Kasinator Visuals, With Space Between Us: An Anthology of Art During the COVID-19 Lockdown",
-      publication: "Blurb"
-      }
-
-
-      
-      ],
-
-      twentyTwenty: 
-      
-      [
-
-      {
-      title: "Meet Dominic Bloomfield",
-      publication: "Voyage MIA"
+        year: '2022',
+        entries: [
+          {
+            title: 'Icon 2022',
+            meta: 'Boomer Gallery, London, United Kingdom',
+          },
+        ],
       },
-
-
-      
-      ],
-    
-
-  }
-
-
-
-  const soloExhibitions =  {
-
-      twentySix: 
-      
-      [
-
+    ],
+  },
+  {
+    heading: 'Awards',
+    groups: [
       {
-      year: "2026",
-      title: "Outside My Skin",
-      venue: "The Cutting Gallery",
-      location: "Miramar, FL"
+        year: '2024',
+        entries: [
+          {
+            title: 'Creative Futures Collective Soho House Fellowship',
+            meta: 'Soho House, Miami, FL',
+          },
+        ],
       },
-      ]
-    
-
-  }
-
-  const groupExhibitions =  {
-
-      twentySix: 
-      
-      [
-
+    ],
+  },
+  {
+    heading: 'Bibliography',
+    groups: [
       {
-      title: "Bazaar Broward",
-      venue: "MAD Arts",
-      location: "Dania Beach, FL"
+        year: '2025',
+        entries: [{ title: 'Selected Works', meta: 'Elated Magazine' }],
       },
-
       {
-
-      title: "Hot Rod: Car Show and Art Exhibit",
-      venue: "The Wisteria",
-      location: "Southewest Ranches, FL"
+        year: '2022',
+        entries: [{ title: 'Meet Dominic Bloomfield', meta: 'Canvas Rebel' }],
       },
-
       {
-
-      title: "BIG: Culture & Arts Festival",
-      venue: "Downtown Gainesville",
-      location: "Gainesville, FL"
+        year: '2021',
+        entries: [
+          { title: 'A Hushed Explosion', meta: '2020 Vision Digital' },
+          {
+            title:
+              'Kasinator Visuals, With Space Between Us: An Anthology of Art During the COVID-19 Lockdown',
+            meta: 'Blurb',
+          },
+        ],
       },
-
       {
-   
-      title: "Troubled Waters",
-      venue: "Downtown Miami",
-      location: "Miami, FL"
+        year: '2020',
+        entries: [{ title: 'Meet Dominic Bloomfield', meta: 'Voyage MIA' }],
       },
-      ],
-
-      twentyFive: 
-      
-      [
-
-      {
-
-      title: "Bazaar a La Carte",
-      venue: "Riverset Studios",
-      location: "Miami, FL"
-      },
-
-      {
-
-      title: "Miami Saves America",
-      venue: "Dear Eleanor",
-      location: "Miami, FL"
-      },
-
-      
-
-      ],
-
-      twentyFour: 
-      
-      [
-
-      {
-
-      title: "Miami Underground Showcase Feat. Atomik" ,
-      venue: "2300 NW 7th Ave",
-      location: "Miami, FL"
-      },
-
-      
-
-      ],
-
-      twentyTwo: 
-      
-      [
-
-      {
-
-      title: "Icon 2022" ,
-      venue: "Boomer Gallery",
-      location: "London, United Kingdom"
-      },
-
-      
-
-      ],
-    
-
-  }
-  
-  return (<div className='rise-in pt-30 w-full flex flex-col justify-center items-center h-auto p-5 lg:p-60'>
-    <div className='w-full border border-black rounded-2xl  px-3 py-5  lg:p-8 '>
-      <h1 className='text-5xl font-black lg:text-6xl mb-5'>About</h1>
-      <hr className='mb-10 '/>
-      <div className = "lg:items-start items-center w-full flex flex-col lg:flex-row gap-15 ">
-    <p className='font-light text-xl'>
-      {about.description}
-      
-      </p>
-      <div className = "size-81 lg:w-400 lg:h-200 bg-center bg-cover" style = {{backgroundImage: "url(/assets/images/dompic-large.webp)"}}></div>
+    ],
+  },
+]
 
 
 
-      
+function CvSection({ heading, groups }: CvBlock) {
+  const id = `cv-${heading.toLowerCase().replace(/\s+/g, '-')}`
+
+  return (
+    <section
+      aria-labelledby={id}
+      className="grid gap-6 border-t border-black py-10 lg:grid-cols-[14rem_1fr] lg:gap-12 lg:py-14"
+    >
+      <h3
+        id={id}
+        className="text-2xl font-bold tracking-tight lg:sticky lg:top-28 lg:self-start"
+      >
+        {heading}
+      </h3>
+
+      <div className="flex flex-col gap-8">
+        {groups.map((group) => (
+          <div
+            key={group.year}
+            className="grid grid-cols-[3.5rem_1fr] gap-4 lg:grid-cols-[5rem_1fr]"
+          >
+            <p className="text-lg font-medium tabular-nums lg:text-xl">
+              {group.year}
+            </p>
+            <ul className="flex flex-col gap-3">
+              {group.entries.map((entry) => (
+                <li key={entry.title} className="max-w-prose font-light">
+                  <span className="font-medium">{entry.title}</span>
+                  {', '}
+                  {entry.meta}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
+    </section>
+  )
+}
 
-      <div className='mt-40'>
-        
+function About() {
+  return (
+    <main className="rise-in mx-auto w-full max-w-7xl px-5 pb-20 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
+      <h1 className="mb-8 text-5xl font-black tracking-tight lg:mb-14 lg:text-8xl">
+        About
+      </h1>
 
+      <section className="grid items-start gap-10 lg:grid-cols-[1fr_minmax(0,28rem)] lg:gap-20">
+        <p className="max-w-2xl text-balance text-xl font-light leading-relaxed lg:text-3xl lg:leading-snug">
+          {bio}
+        </p>
 
-        <h1 className='text-5xl lg:text-6xl mb-5 font-black '>CV</h1>
-      <hr className='mb-15 '/>
+        <img
+          src="/assets/images/dompic-large.webp"
+          alt="Portrait of Dominic Bloomfield"
+          width={800}
+          height={1000}
+          decoding="async"
+          className="aspect-4/5 rounded-md shadow-md w-full max-w-sm object-cover lg:max-w-none"
+        />
+      </section>
 
-      <div className='mb-20'>
+      <section aria-labelledby="cv-heading" className="mt-24 lg:mt-40">
+        <h2
+          id="cv-heading"
+          className="mb-8 text-4xl font-black tracking-tight lg:mb-12 lg:text-6xl"
+        >
+          CV
+        </h2>
 
-      <h1 className='mb-15 text-4xl'>Solo Exhibitions</h1>
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2026</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {soloExhibitions.twentySix.map((i,e) =>{ return(
-        
-        
-         
-        <p className=''><span className='font-medium'>{i.title}</span>, {i.venue}, {i.location}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-        </div>
-
-        <div className=''>
-
-      <h1 className='mb-15 text-4xl'>Group Exhibitions</h1>
-      <div className='flex flex-row gap-10 mb-15 '>
-      <p className='text-2xl'>2026</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {groupExhibitions.twentySix.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.venue}, {i.location}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-      <div className='flex flex-row gap-10 mb-15'>
-      <p className='text-2xl'>2025</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {groupExhibitions.twentyFive.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.venue}, {i.location}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-      <div className='flex flex-row gap-10 mb-15'>
-      <p className='text-2xl'>2024</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {groupExhibitions.twentyFour.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.venue}, {i.location}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2022</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {groupExhibitions.twentyTwo.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.venue}, {i.location}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-
-      
-      </div>
-
-      <h1 className='mb-15 text-4xl mt-20'>Awards</h1>
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2024</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {awards.twentyFour.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.location}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-
-      <h1 className='mb-15 text-4xl mt-20'>Bibliography</h1>
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2025</p>
-      <div className='flex gap-5 flex-col font-light justify-center mb-15'>
-      {bibliography.twentyFive.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.publication}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2022</p>
-      <div className='flex gap-5 flex-col font-light justify-center mb-15'>
-      {bibliography.twentyTwo.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.publication}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2021</p>
-      <div className='flex gap-5 flex-col font-light justify-center mb-15'>
-      {bibliography.twentyOne.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.publication}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-
-      <div className='flex flex-row gap-10'>
-      <p className='text-2xl'>2020</p>
-      <div className='flex gap-5 flex-col font-light justify-center'>
-      {bibliography.twentyTwenty.map((i,e) =>{ return(
-        
-        
-         
-        <p className='italics'><span className='font-medium'>{i.title}</span>, {i.publication}</p>
-  
-        
-      )
-      
-      
-      })}
-      </div>
-      </div>
-
-        </div>
-
-
-      </div>
-      </div>
-      
-      </div>
-      )
+        {cv.map((block) => (
+          <CvSection key={block.heading} {...block} />
+        ))}
+      </section>
+    </main>
+  )
 }

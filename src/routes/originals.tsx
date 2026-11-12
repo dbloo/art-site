@@ -3,6 +3,10 @@ import { products } from '#/siteinfo/products'
 import { useState, useEffect } from 'react'
 import {getStock} from "@/serverFunctions/stock"
 import {Skeleton} from "@/components/ui/skeleton"
+import {Input} from "@/components/ui/input"
+import {Button} from "@/components/ui/button"
+
+import {EmailCapture} from "@/components/ui/emailCapture"
 
 
 export const Route = createFileRoute('/originals')({
@@ -10,6 +14,8 @@ export const Route = createFileRoute('/originals')({
 })
 
 function RouteComponent() {
+
+  const notForSale = true;
 
   const [stockMap, setStockMap] = useState<Record<number, boolean>>({});
   const [loading, setLoading] = useState(true);
@@ -37,7 +43,13 @@ function RouteComponent() {
         return "text-3xl";
 }
 
+  if (notForSale) {
+    return (<div className='rise-in items-center justify-center flex flex-col  gap-5 px-5 pt-40 lg:py-60 text-center  w-screen h-1/2 '>
+      <h2 className='lg:text-4xl text-4xl font-black '>Sorry, I'm not selling any originals rn.</h2>
+      <p>Drop your email below to get notified as soon as I release new work.</p>
+      <EmailCapture/>
 
+    </div>)}
   
   return (
   
