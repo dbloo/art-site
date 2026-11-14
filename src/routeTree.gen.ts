@@ -19,6 +19,7 @@ import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as OriginalsRouteImport } from './routes/originals'
 import { Route as PaintingsRouteImport } from './routes/paintings'
 import { Route as PrintsRouteImport } from './routes/prints'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ApiCheckoutRouteImport } from './routes/api/checkout'
 import { Route as CheckoutSuccessRouteImport } from './routes/checkout/success'
 import { Route as OriginalSlugRouteImport } from './routes/original/$slug'
@@ -79,6 +80,11 @@ const PrintsRoute = PrintsRouteImport.update({
   path: '/prints',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiCheckoutRoute = ApiCheckoutRouteImport.update({
   id: '/api/checkout',
   path: '/api/checkout',
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/originals': typeof OriginalsRoute
   '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
+  '/privacy': typeof PrivacyRoute
   '/api/checkout': typeof ApiCheckoutRoute
   '/checkout/success': typeof CheckoutSuccessRoute
   '/original/$slug': typeof OriginalSlugRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/originals': typeof OriginalsRoute
   '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
+  '/privacy': typeof PrivacyRoute
   '/api/checkout': typeof ApiCheckoutRoute
   '/checkout/success': typeof CheckoutSuccessRoute
   '/original/$slug': typeof OriginalSlugRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/originals': typeof OriginalsRoute
   '/paintings': typeof PaintingsRoute
   '/prints': typeof PrintsRoute
+  '/privacy': typeof PrivacyRoute
   '/api/checkout': typeof ApiCheckoutRoute
   '/checkout/success': typeof CheckoutSuccessRoute
   '/original/$slug': typeof OriginalSlugRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/originals'
     | '/paintings'
     | '/prints'
+    | '/privacy'
     | '/api/checkout'
     | '/checkout/success'
     | '/original/$slug'
@@ -223,6 +233,7 @@ export interface FileRouteTypes {
     | '/originals'
     | '/paintings'
     | '/prints'
+    | '/privacy'
     | '/api/checkout'
     | '/checkout/success'
     | '/original/$slug'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
     | '/originals'
     | '/paintings'
     | '/prints'
+    | '/privacy'
     | '/api/checkout'
     | '/checkout/success'
     | '/original/$slug'
@@ -266,6 +278,7 @@ export interface RootRouteChildren {
   OriginalsRoute: typeof OriginalsRoute
   PaintingsRoute: typeof PaintingsRoute
   PrintsRoute: typeof PrintsRoute
+  PrivacyRoute: typeof PrivacyRoute
   ApiCheckoutRoute: typeof ApiCheckoutRoute
   CheckoutSuccessRoute: typeof CheckoutSuccessRoute
   OriginalSlugRoute: typeof OriginalSlugRoute
@@ -349,6 +362,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrintsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/checkout': {
       id: '/api/checkout'
       path: '/api/checkout'
@@ -426,6 +446,7 @@ const rootRouteChildren: RootRouteChildren = {
   OriginalsRoute: OriginalsRoute,
   PaintingsRoute: PaintingsRoute,
   PrintsRoute: PrintsRoute,
+  PrivacyRoute: PrivacyRoute,
   ApiCheckoutRoute: ApiCheckoutRoute,
   CheckoutSuccessRoute: CheckoutSuccessRoute,
   OriginalSlugRoute: OriginalSlugRoute,

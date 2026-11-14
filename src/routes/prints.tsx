@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { products } from '#/siteinfo/products'
 import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button"
+import { EmailCapture } from '#/components/ui/emailCapture'
 
 export const Route = createFileRoute('/prints')({
   component: RouteComponent,
@@ -12,10 +13,11 @@ function RouteComponent() {
   const notForSale = false;
 
   if (notForSale) {
-      return (<div className='rise-in items-center justify-center flex flex-col  gap-5 px-5 pt-40 lg:py-60 text-center  w-screen h-auto '>
-        <h2 className='lg:text-4xl text-4xl font-black '>Sorry, I'm not selling any prints rn.</h2>
-        <p>Drop your email below to get notified as soon as I release new work.</p>
-        <div className = "mt-10 relative w-100 "><Input placeholder='put it here' className=' relative border border-black  '></Input><Button className='bg-white right-0 text-black border-black border hover:bg-black/10 cursor-pointer absolute'>Submit</Button></div>
+      return (<div className='rise-in items-center justify-center flex flex-col  gap-5 px-5 pt-40 lg:py-60 text-center  w-screen h-1/2 '>
+        <span className='text-6xl p-2 font-black bg-[#FADE22]'>Sorry,</span>
+        <h2 className='lg:text-4xl text-4xl font-black '> I'm not selling any prints rn.</h2>
+        <p className='mb-10'>Drop your email below to get notified as soon as I release new work.</p>
+        <EmailCapture/>
   
       </div>)}
 

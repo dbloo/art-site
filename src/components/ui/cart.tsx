@@ -156,7 +156,15 @@ export function Cart () {
                 <h1 className='text-3xl lg:text-4xl flex w-full lg:justify-end lg:pr-40 mb-15'>Subtotal: ${subtotal.toLocaleString()}</h1>
 
                 <StyledButton onClick = {handleCheckout} disabled = {isLoading} className='w-full mb-3'>Checkout</StyledButton>
-                <div className = "relative flex flex-row lg:gap-2 gap-1  mt-5 items-center justify-center w-full"><Lock size={12}></Lock><p className=' font-light  text-sm opacity-70'>Powered by</p><img className = "lg:absolute right-133 -top-1 opacity-60 w-10" src = "./stripe.png"></img></div>
+                <div className = "mx-5 mt-3 lg:mt-5 opacity-50 w-full items-center justify-center flex">
+                    <div className=' flex w-45 gap-0 items-center relative flex-row'>
+                        <div className='flex flex-row gap-2 items-center'>
+                    <Lock size={12}></Lock>
+                    <p className=' font-light  text-sm opacity-70'>Powered by</p>
+                    </div>
+                    <img className = " mt-1 opacity-60 w-10" src = "./stripe.png"></img>
+                    </div>
+                    </div>
 
             </div>
 
@@ -169,9 +177,9 @@ export function Cart () {
                 <div className = "opacity-80 flex flex-col gap-2">
                 <h1 className='font-extrabold text-2xl lg:text-3xl '>SHIPPING POLICY:</h1>
 
-                 <hr className = "mt-5"></hr>
+                 <hr className = "mt-5 border-black/40"></hr>
 
-                   <p className='font-light mt-5'> <strong>Domestic Orders (U.S.):</strong> 5-10 Business Days</p>
+                   <p className='font-light mt-10'> <strong>Domestic Orders (U.S.):</strong> 5-10 Business Days</p>
 
                     <p className='font-light'><strong className='font-medium'>Interational Orders:</strong> 10-15 Business Days</p>
                     </div>
@@ -185,9 +193,9 @@ export function Cart () {
                 <div className = "mt-10 opacity-80 flex flex-col gap-2">
                 <h1 className='font-extrabold  text-2xl lg:text-3xl'>RETURNS & REFUNDS POLICY:</h1>
 
-                <hr className = "mt-5"></hr>
+                <hr className = "mt-5 border-black/40"></hr>
 
-                   <strong className='text-2xl mt-5'> Original Artworks</strong>
+                   <strong className='text-2xl mt-10'> Original Artworks</strong>
 
                     <p className='font-light'>{`All original works are one-of-a-kind and sold as final sale. Because of their unique nature, we do not accept returns or exchanges on originals except in cases of damage during shipping (see below).`}</p>
 
@@ -195,7 +203,7 @@ export function Cart () {
 
                     <p className='font-light'>{`We accept returns on prints within 14 days of delivery, provided the item is unused and in its original packaging, free of damage, marks, or alterations and accompanied by proof of purchase (order number or receipt)`}</p>
 
-                    <p className='mt-5 font-light'>To start a return, contact us at <strong className='font-bold'>contact.dominicbloomfield@gmail.com</strong>  with your order number and reason for return. Once approved, we'll provide return instructions. Return shipping costs are the responsibility of the customer unless the return is due to our error (wrong item shipped, defect, etc.). Refunds are issued to the original payment method within 5–10 business days of us receiving the returned item</p>
+                    <p className='mt-5 font-light'>To start a return, contact us at <strong className='font-bold'>art@dominicbloomfield.com</strong>  with your order number and reason for return. Once approved, we'll provide return instructions. Return shipping costs are the responsibility of the customer unless the return is due to our error (wrong item shipped, defect, etc.). Refunds are issued to the original payment method within 5–10 business days of us receiving the returned item</p>
 
                     <strong className='text-2xl mt-5'> Damaged or Defective Items </strong>
 

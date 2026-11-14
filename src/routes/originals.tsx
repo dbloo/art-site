@@ -43,7 +43,8 @@ function RouteComponent() {
 
   if (notForSale) {
     return (<div className='rise-in items-center justify-center flex flex-col  gap-5 px-5 pt-40 lg:py-60 text-center  w-screen h-1/2 '>
-      <h2 className='lg:text-4xl text-4xl font-black '>Sorry, I'm not selling any originals rn.</h2>
+      <span className='text-6xl p-2 font-black bg-[#FADE22]'>Sorry,</span>
+      <h2 className='lg:text-4xl text-4xl font-black '> I'm not selling any originals rn.</h2>
       <p className='mb-10'>Drop your email below to get notified as soon as I release new work.</p>
       <EmailCapture/>
 

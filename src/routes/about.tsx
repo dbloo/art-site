@@ -17,7 +17,7 @@ export const Route = createFileRoute('/about')({
 /* ---------- Content ---------- */
 
 const bio =
-  'Dominic Bloomfield is an Afro-Caribbean multidisciplinary artist from Mandeville, Jamaica that specializes in acrylic canvas paintings, illustrations, and graphic design. His work offers vibrant colors and warped anatomy and perspective against liminal and abstract backgrounds, which communicates a sense of playfulness, with a grace of unease, that leaves the viewer filling in the pieces with their own experiences.'
+  'is an Afro-Caribbean multidisciplinary artist from Mandeville, Jamaica that specializes in acrylic canvas paintings, illustrations, and graphic design. His work offers vibrant colors and warped anatomy and perspective against liminal and abstract backgrounds, which communicates a sense of playfulness, with a grace of unease, that leaves the viewer filling in the pieces with their own experiences.'
 
 type Entry = { title: string; meta: string }
 type YearGroup = { year: string; entries: Entry[] }
@@ -173,10 +173,13 @@ function About() {
         About
       </h1>
 
-      <section className="grid items-start gap-10 lg:grid-cols-[1fr_minmax(0,28rem)] lg:gap-20">
+      <section className="leading-loose  tracking-wide grid items-start gap-10 lg:grid-cols-[1fr_minmax(0,28rem)] lg:gap-20">
+        <div className='w-full'>
+        <h1 className='font-bold text-3xl lg:text-4xl bg-[#FADE22] w-full mb-3 '>Dominic Bloomfield</h1>
         <p className="max-w-2xl text-balance text-xl font-light leading-relaxed lg:text-3xl lg:leading-snug">
           {bio}
         </p>
+        </div>
 
         <img
           src="/assets/images/dompic-large.webp"

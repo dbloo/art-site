@@ -231,7 +231,7 @@ export function ProductInfoOriginals ({slug} : {slug: string}) {
     }
 
      return (
-        <div className='rise-in mb-30 lg:w-screen w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
+        <div className='rise-in mb-30 lg:min-h-screen lg:w-screen w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
 
         <div className="justify-center w-full lg:pt-30 pt-25 h-auto  relative  flex flex-col  gap-5 lg:px-60  p-5 ">
             <Link className = "w-25"to = {`/originals`}><Button className = " cursor-pointer hover:bg-black/10 justify-baseline items-center w-25 -z-10  bg-white text-black border border-black"><ChevronLeft></ChevronLeft>Back </Button></Link>
@@ -289,7 +289,7 @@ export function ItemInfoPaintings ({slug} : {slug:string}){
     
 
      return (
-        <div className='rise-in mb-30 lg:w-screen w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
+        <div className='rise-in mb-30 lg:w-screen lg:min-h-200 w-full h-full lg:h-auto justify-center flex items-center transition-all ease-in-out duration-75'>
 
         <div className="justify-center w-full lg:pt-30 pt-25 h-auto  relative  flex flex-col  gap-5 lg:px-60  p-5 ">
             <Link className = "w-25" to = {`${painting?.isSeries ? `/series/${painting?.series}` : `/paintings`}`}><Button className = " cursor-pointer hover:bg-black/10 justify-baseline items-center w-25 -z-10  bg-white text-black border border-black"><ChevronLeft></ChevronLeft>Back </Button></Link>

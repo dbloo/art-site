@@ -6,7 +6,7 @@ export function Footer  () {
     return (<>        
 <div id= "newsletter" className="w-full rise-in relative mt-30 scroll-mt-30">
     <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-5 lg:h-full  lg:relative absolute  lg:top-0 -top-3 w-full"src = "/assets/graphics/footer-graphic_2.svg"></img>
-    <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-15 lg:h-20   absolute  lg:top-0 -top-9 w-full"src = "/assets/graphics/graphic2.svg"></img>
+    <img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = "h-15 lg:h-20   absolute  lg:top-5 -top-9 w-full"src = "/assets/graphics/graphic2.svg"></img>
 
     <div className="p-5  w-full  lg:px-60 py-20 text-black h-auto  bg-accent1 ">
 
@@ -18,6 +18,7 @@ export function Footer  () {
 
                     <p className="mb-5 ">Enter your email to get notified when I release new work!</p>
                     <EmailCapture/>
+                    <Link to = "/privacy"><p className=" text-xs lg:text-md underline text-black/40 mt-5">Privacy Policy</p></Link>
 
 
 
