@@ -9,6 +9,18 @@ const stripe = new Stripe(
     : process.env.STRIPE_SECRET_KEY ?? ''
 )
 
+const SHIPPING_COUNTRIES = [
+  // North America
+  'US', 'CA', 'MX',
+  // UK and Europe
+  'GB', 'IE', 'FR', 'DE', 'ES', 'IT', 'NL', 'BE', 'PT', 'AT', 'CH',
+  'SE', 'NO', 'DK', 'FI',
+  // Caribbean (add the ones you ship to)
+  'JM', 'BS', 'BB', 'TT',
+  // Asia-Pacific
+  'AU', 'NZ', 'JP', 'SG',
+] as Stripe.Checkout.SessionCreateParams.ShippingAddressCollection.AllowedCountry[]
+
 export const Route = createFileRoute('/api/checkout')({
   server: {
     handlers: {
@@ -41,9 +53,10 @@ export const Route = createFileRoute('/api/checkout')({
                 unit_amount: Math.round(item.price * 100),
               },
               quantity: item.quantity,
-            })),
-            success_url: `${process.env.SITE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.SITE_URL}/cart`,
+            })),             
+             shipping_address_collection: { allowed_countries: SHIPPING_COUNTRIES },
+            success_url: `${process.env.NODE_ENV === "development" ? `http://localhost:3000/checkout/success?session_id={CHECKOUT_SESSION_ID}`: `${process.env.SITE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`}`,
+            cancel_url: `${process.env.NODE_ENV === "development" ? `http://localhost:3000/cart`: `${process.env.SITE_URL}/cart`}`,
              metadata: {
     cart: JSON.stringify(
       cart.map((item: any) => ({ id: item.id, size: item.selectedSize, qty: item.quantity, img: item.productImage }))
