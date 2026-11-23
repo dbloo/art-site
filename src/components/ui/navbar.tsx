@@ -26,6 +26,7 @@ const NAV = [
     ],
   },
   { label: 'About', to: '/about' },
+  { label: 'Contact', to: '/contact' },
 ] as const
 
 type NavEntry = (typeof NAV)[number]
