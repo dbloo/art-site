@@ -149,6 +149,7 @@ function DesktopNav({ cartCount }: { cartCount: number }) {
                     <li className={`${dim} font-light hover:-translate-y-0.5 transition-all duration-100 ease-in-out`}>
                       <Link onClick={closeAll} to="/about">About</Link>
                     </li>
+                   
                   </div>
                 </div>
               </ul>

@@ -75,20 +75,13 @@ function RouteComponent() {
   if (construction) return <ConstructionPage />
 
   // One gentle entrance for each column instead of a delay on every element.
-  const enter = (delay: number) =>
-    reduceMotion
-      ? {}
-      : {
-          initial: { y: 16, opacity: 0 },
-          animate: { y: 0, opacity: 1 },
-          transition: { duration: 0.45, delay },
-        }
+  
 
   return (
     <main className="mx-auto w-full max-w-7xl px-5 pb-20 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
-      <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,36rem)] lg:gap-24">
+      <div className="rise-in grid gap-12 lg:grid-cols-[1fr_minmax(0,36rem)] lg:gap-24">
         {/* Left: heading and direct contact */}
-        <motion.div {...enter(0)}>
+        <motion.div>
           <h1 className="text-5xl font-black tracking-tight lg:text-8xl">
             Contact
           </h1>
@@ -103,16 +96,13 @@ function RouteComponent() {
         </motion.div>
 
         {/* Right: form or confirmation */}
-        <motion.div {...enter(0.1)}>
-          <AnimatePresence mode="wait" initial={false}>
+        <motion.div >
+          <AnimatePresence >
             {status === 'success' ? (
               <motion.div
                 key="sent"
                 role="status"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
+            
                 className=""
               >
                 <p className="text-4xl font-black tracking-tight lg:text-5xl">
@@ -134,10 +124,7 @@ function RouteComponent() {
               <motion.form
                 key="form"
                 noValidate
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                
                 onSubmit={(e) => {
                   e.preventDefault()
                   e.stopPropagation()
@@ -225,7 +212,7 @@ function RouteComponent() {
                           onChange={(e) => field.handleChange(e.target.value)}
                           onBlur={field.handleBlur}
                           aria-invalid={isInvalid}
-                          placeholder="What's on your mind?"
+                          placeholder="lmk"
                           autoComplete="off"
                           disabled={isLoading}
                           className={`${fieldClass} min-h-44 resize-y`}
