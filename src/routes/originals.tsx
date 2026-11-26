@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { products } from '#/siteinfo/products'
+import { products, sellingOriginals } from '#/siteinfo/products'
 import { useState, useEffect } from 'react'
 import {getStock} from "@/serverFunctions/stock"
 import {Skeleton} from "@/components/ui/skeleton"
+import { applySale } from '@/components/ui/sale'
 
 import {EmailCapture} from "@/components/ui/emailCapture"
 
@@ -13,18 +14,22 @@ export const Route = createFileRoute('/originals')({
 
 function RouteComponent() {
 
-  const notForSale = true;
+  const notForSale = false;
 
-  const [stockMap, setStockMap] = useState<Record<number, boolean>>({});
+  const paintings = products.paintings.filter((p)=>  sellingOriginals.includes(p.name))
+
+  const [stockMap, setStockMap] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(true);
+
+  
 
   useEffect(() => {
     const fetchAllStock = async () => {
       setLoading(true);
       const entries = await Promise.all(
-        products.paintings.map(async (painting) => {
-          const stock = await getStock({ data: painting.id }); 
-          return [painting.id, stock !== null && stock > 0] as const;
+        paintings.map(async (painting) => {
+          const stock = await getStock({ data: painting.name }); 
+          return [painting.name, stock !== null && stock > 0] as const;
         })
       );
       setStockMap(Object.fromEntries(entries));
@@ -66,8 +71,10 @@ function RouteComponent() {
                 </div>
 
 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-        {products.paintings.map((painting) => {
-              const inStock = stockMap[painting.id] ?? true;
+        {paintings.reverse().map((painting) => {
+          const price = applySale(painting.price, painting.slug)
+          const discounted = price < painting.price
+              const inStock = stockMap[painting.name] ?? true;
 
               return (
                 <div key={painting.id} className='pb-10 relative'>
@@ -82,11 +89,22 @@ function RouteComponent() {
                   <Link to={`/original/${painting.slug}`}>
                     <div
                       style={{ backgroundImage: `url(${painting.images[0]})` }}
-                      className="shadow-lg hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"
+                      className="shadow-lg relative hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"
                     />
                     <h1 className={`${getTitleClass(painting.name)} lg:text-left text-center mt-5 mb-5 font-medium`}>{painting.name}</h1>
                     <div className="flex flex-row justify-between w-full">
-                      <p>${painting.price.toLocaleString()}</p>
+                      <div className = "flex flex-row items-center gap-5 ">
+                      {/* {discounted && inStock && <img className="absolute w-15 m-3 top-0 right-0" src="/assets/graphics/50sale.webp" />} */}
+
+                        <div className="flex flex-row items-center gap-5">
+                          {discounted && (
+                            <p className="line-through decoration-2 opacity-30 font-light text-center">
+                              ${painting.price.toLocaleString()}
+                            </p>
+                          )}
+                          <p className={discounted ? 'font-bold bg-[#FAD305]' : ''}>${price.toLocaleString()}</p>
+                        </div>
+                      </div>
                       <p className='font-light opacity-70'>[{painting.size}]</p>
                     </div>
                   </Link>

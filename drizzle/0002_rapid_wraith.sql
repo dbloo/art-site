@@ -1,0 +1,1 @@
+ALTER TABLE "submitted_coupon_codes" ADD COLUMN "code" text NOT NULL;

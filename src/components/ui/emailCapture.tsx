@@ -95,9 +95,9 @@ export const EmailCapture = () => {
   }`}
               />
 
-              {isInvalid && <FieldError errors={field.state.meta.errors} />}
+              {isInvalid && <FieldError className = "rise-in" errors={field.state.meta.errors} />}
 
-              <div className = "text-center" aria-live="polite">
+              <div className = "text-center rise-in" aria-live="polite">
                 {status === 'error' && (
                   <p className="text-red-500 mt-2">
                     There was an error submitting your email. Please try again.

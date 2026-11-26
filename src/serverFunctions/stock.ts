@@ -5,21 +5,25 @@ import { eq, and, gt, sql } from 'drizzle-orm'
 import { getDb } from '@/db';
 
 export const getStock = createServerFn({ method: 'GET' })
-  .validator((id: number) => id)
-  .handler(async ({ data: id }) => {
+  .validator((name: string) => name)
+  .handler(async ({ data: name }) => {
     const db = getDb()
     const { originalsStock } = await import('@/db/schema')
     try {
-      const result = await db
+      const [row] = await db
         .select()
         .from(originalsStock)
-        .where(eq(originalsStock.id, id));
-      return result.length > 0 ? result[0].stock : null;
+        .where(eq(originalsStock.name, name))
+        .limit(1)
+
+      console.log('getStock', { name, row })
+
+      return row?.stock ?? null
     } catch (error) {
-      console.error('Error fetching original stock:', error);
-      return null;
+      console.error('Error fetching original stock:', error)
+      return null
     }
-  });
+  })
 
 export const decrementStockIfAvailable = createServerFn({ method: 'POST' })
   .validator((input: { id: number }) => input)

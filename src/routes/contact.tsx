@@ -139,7 +139,7 @@ function RouteComponent() {
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
                       <Field>
-                        <label htmlFor={field.name} className="font-light">
+                        <label htmlFor={field.name} className="font-regular">
                           Name
                         </label>
                         <Input
@@ -170,7 +170,7 @@ function RouteComponent() {
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
                       <Field>
-                        <label htmlFor={field.name} className="font-light">
+                        <label htmlFor={field.name} className="font-regular">
                           Email
                         </label>
                         <Input
@@ -202,7 +202,7 @@ function RouteComponent() {
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
                       <Field>
-                        <label htmlFor={field.name} className="font-light">
+                        <label htmlFor={field.name} className="font-regular">
                           Message
                         </label>
                         <Textarea

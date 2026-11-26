@@ -1,23 +1,68 @@
 import { useCart } from '#/context/CartContext'
-import { Spinner } from '#/components/ui/spinner'
 import {Button, StyledButton} from "@/components/ui/button"
+import { useForm } from '@tanstack/react-form'
+
 import {Link} from "@tanstack/react-router"
 import {Trash2, Lock} from "lucide-react"
-import {useEffect} from "react"
+import { Input } from './input'
+import { Spinner } from './spinner'
+import { Field, FieldError } from '@/components/ui/field'
+import { z } from 'zod'
+import { useState } from 'react'
+import { submitCouponCode } from '#/serverFunctions/coupon'
+
 
 
 
 
 import type { CartItem } from '#/context/CartContext';
 
+type Status = 'idle' | 'success' | 'duplicate' | 'error' | 'incorrect'
+
+
+
 
 export function Cart () {
 
-    const { cart, removeFromCart, subtotal, addToCart, isLoading, setIsLoading, clearCart } = useCart();
 
+    const { cart, removeFromCart, subtotal,setDiscount, applyDiscount, discount, addToCart, isLoading, setIsLoading, clearCart } = useCart();
+
+   
+      const [status, setStatus] = useState<Status>('idle')
+    
 
   
-    
+    const couponForm = useForm({
+        defaultValues: {
+            code: '',
+        },
+
+        onSubmit: async ({value}) => {
+            setIsLoading(true);
+
+            try {
+                const code = await submitCouponCode({data: value as any}) 
+                if(code?.success) {
+                    setStatus('success')
+                    setDiscount( parseFloat(code.offer[0].offer))
+                    applyDiscount();
+                } else if (code?.reason == "duplicate"){
+                                        setStatus('duplicate')
+                                        
+
+
+                } else if (code?.reason == "incorrect") {
+                                  setStatus('incorrect');
+
+                }
+                setIsLoading(false)
+            }catch (e){
+                setIsLoading(false);
+                setStatus('error');
+            }
+        }
+
+    })
 
     async function handleCheckout () {
 
@@ -94,7 +139,7 @@ export function Cart () {
 
                    <Link to ={`/print/${item.slug}`}><img onContextMenu={(e) => e.preventDefault()} draggable = {false} className = " hover:-translate-y-1 duration-300 transition-all rounded-lg shadow-md w-20 " src = {item.image}></img></Link>
 
-                                           <h1 className='text-sm opacity-50 font-medium items-center'>{item.name}</h1>
+                                           <h1 className='text-sm opacity-50 font-medium text-center items-center'>{item.name}</h1>
 
                    <h1 className=' font-light text-center text-sm'>[{item.selectedSize}] {item.productType} </h1>                                 
 
@@ -153,9 +198,84 @@ export function Cart () {
 
          
 
-                <h1 className='text-3xl lg:text-4xl flex w-full lg:justify-end lg:pr-40 mb-15'>Subtotal: ${subtotal.toLocaleString()}</h1>
+                
+                <div className = "flex flex-row lg:pr-40  gap-5 mb-15 lg:justify-end w-full ">
+                  <h1 className = "text-3xl lg:text-4xl ">Subtotal: </h1>
+                  <h1 className={`${discount > 0 ? "line-through opacity-30 font-light " : ""}text-3xl lg:text-4xl  `}> ${subtotal .toLocaleString()}</h1>
+                {discount > 0 && <h1 className='text-3xl lg:text-4xl  '> ${discount > 0 ? ((subtotal - (subtotal *discount))).toLocaleString() : subtotal.toLocaleString()}</h1>}
+                </div>
 
-                <StyledButton onClick = {handleCheckout} disabled = {isLoading} className='w-full mb-3'>Checkout</StyledButton>
+                 <div className=" relative w-full justify-end flex lg:w-100 rise-in">
+                      <couponForm.Field
+                        name="code"
+                        children={(field) => {
+                          const isInvalid =
+                            field.state.meta.isTouched && !field.state.meta.isValid
+                
+                          return (
+                            <Field>
+                                <label htmlFor={field.name} className="font-light">
+                          Discount Code
+                        </label>
+                              <Input
+                              id="discount-code"
+                                name={field.name}
+                                value={field.state.value}
+                                onChange={(e) => {
+                                  field.handleChange(e.target.value)
+                                  if (status !== 'idle') setStatus('idle')
+                                }}
+                                onBlur={field.handleBlur}
+                                aria-invalid={isInvalid || status === 'duplicate'}
+                                type="text"
+                                autoComplete="off"
+                                disabled={isLoading}
+                                placeholder="put it here"
+                                autoCapitalize="off"
+                                className={`relative border placeholder:text-black/40 border-black/70 transition-shadow focus-visible:ring-4 focus-visible:ring-[#FADE3E]`}
+                              />
+                
+                              {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                
+                              <div className = "text-center mb-5 " aria-live="polite">
+                                {status === 'error' && (
+                                  <p className="text-red-500 rise-in mt-2">
+                                    There was an error submitting your code. Please try it again.
+                                  </p>
+                                )}
+                                {status === 'duplicate' && (
+                                  <p className="rise-in mt-2">
+                                    {'This code has already been redeemed </3'}
+                                  </p>
+                                )}
+                                {status === 'success' && (
+                                  <p className="rise-in mt-2">{discount * 100}% discount successfully applied :D</p>
+                                )}
+
+                                {status === 'incorrect' && (
+                                  <p className="text-red-500 rise-in mt-2">The code you entered was invalid.</p>
+                                )}
+                                
+                              </div>
+                            </Field>
+                          )
+                        }}
+                      />
+                
+                      <Button
+                        disabled={isLoading}
+                        onClick={couponForm.handleSubmit}
+                        className="bg-transparent right-0 top-9 text-black border-black/80 border hover:bg-black/10 cursor-pointer absolute"
+                      >
+                        {isLoading ? 'Submitting' : 'Submit'}
+                        {isLoading && <Spinner />}
+                      </Button>
+                    </div>
+
+                                    <StyledButton onClick = {handleCheckout} disabled = {isLoading} className=' bg-[#FAD305] w-full mb-3'>Checkout</StyledButton>
+
+
+
                 <div className = "mx-5 mt-3 lg:mt-5 opacity-50 w-full items-center justify-center flex">
                     <div className=' flex w-45 gap-0 items-center relative flex-row'>
                         <div className='flex flex-row gap-2 items-center'>

@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { products } from '#/siteinfo/products'
-import {Input} from "@/components/ui/input"
-import {Button} from "@/components/ui/button"
+import { products, sellingPrints } from '#/siteinfo/products'
 import { EmailCapture } from '#/components/ui/emailCapture'
+import { isOnSale, SALE } from '#/components/ui/sale'
 
 export const Route = createFileRoute('/prints')({
   component: RouteComponent,
@@ -11,6 +10,7 @@ export const Route = createFileRoute('/prints')({
 function RouteComponent() {
 
   const notForSale = false;
+  const prints = products.prints.filter((p)=>  sellingPrints.includes(p.name))
 
   if (notForSale) {
       return (<div className='rise-in items-center justify-center flex flex-col  gap-5 px-5 pt-40 lg:py-60 text-center  w-screen h-1/2 '>
@@ -38,10 +38,17 @@ function RouteComponent() {
                 </div>
 
 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-        {products.prints.map((print, e) => 
+        {prints.reverse().map((print, e) => 
         <>
         
-        <div className='pb-10  '><Link to = {`/print/${print.slug}`}><div style={{backgroundImage: `url(${print.thumbnail})`}} className = "shadow-lg  hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out  bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"></div><h1 className='text-4xl lg:text-left text-center mt-5 mb-5'>{print.name}</h1><div className = "flex flex-row justify-between w-full"><p className = "font-light">From ${print.prints[0].price}</p></div></Link></div>
+        <div className='pb-10 relative '><Link to = {`/print/${print.slug}`}><div style={{backgroundImage: `url(${print.thumbnail})`}} className = "shadow-lg  hover:-translate-y-1 hover:brightness-70 transition-all ease-in-out  bg-cover bg-center rounded-2xl w-full h-100 lg:h-120"></div>
+        <h1 className='text-3xl lg:text-left text-center mt-5 mb-5'>{print.name}</h1>
+        <div className = "flex flex-row justify-between w-full">
+          <div className = "flex flex-row items-center text-center gap-3 mr-10 justify-center">
+                From {isOnSale && <p className = "lg:text-xl text-lg  line-through decoration-2 lg:decoration-2 opacity-30 font-light mt-10 mb-10 text-center">${ (print.prints[0].price)}</p>}
+                <p className='lg:text-2xl text-xl  bg-[#FAD305] lg:font-BOLD mt-10 mb-10 text-center'>${( isOnSale ? (print.prints[0].price - (print.prints[0].price * SALE.percentOff /100 )) : print.prints[0].price).toLocaleString()}</p>
+                </div></div></Link>
+          </div>
 
         </>
         

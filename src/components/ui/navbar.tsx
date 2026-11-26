@@ -4,6 +4,7 @@ import { Link, useRouterState } from '@tanstack/react-router'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown, Menu, ShoppingCart, X } from 'lucide-react'
 import { useCart } from '#/context/CartContext'
+import { isOnSale } from './sale'
 
 /* -------------------------------------------------------------------------- */
 /*  Mobile nav links (keep in sync with the desktop links below)              */
@@ -68,14 +69,14 @@ function DesktopNav({ cartCount }: { cartCount: number }) {
   const dim = isShopOpen || isWorksOpen ? 'opacity-30' : 'opacity-100'
 
   return (
-    <div className="hidden lg:block">
-      <div style={{ transform: 'translateY(-130px)' }} className="z-40 fixed w-full">
+    <div className={`${isOnSale ? "pb-10": ""} hidden lg:block`}>
+      <div style={{ transform: 'translateY(-130px)' }} className="z-40  fixed w-full">
         <div
           className={`${
             isShopOpen ? 'transition-all h-70' : `transition-all ${isWorksOpen ? 'h-90' : 'h-55'}`
           } fixed bg-white w-full items-center flex flex-row`}
         >
-          <nav className="flex py-8 px-60 w-full fixed top-30 justify-between items-center flex-row">
+          <nav className="   flex py-8 px-60 w-full fixed top-30 justify-between items-center flex-row">
             <div className="w-full flex flex-row relative">
               <Link onClick={closeAll} to="/">
                 <img
@@ -289,7 +290,7 @@ function MobileNav({ cartCount }: { cartCount: number }) {
   }
 
   return (
-    <div className="lg:hidden">
+    <div className={`${isOnSale ? "mb-10": ""} lg:hidden`}>
       <header
         style={{ height: BAR_H }}
         className="fixed inset-x-0 top-0 z-40 border-b border-black/10 bg-white"

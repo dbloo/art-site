@@ -64,7 +64,7 @@ function RouteComponent() {
 
     
     <div className='w-full mt-30 lg:p-10  p-5 h-auto border border-black rounded-2xl flex flex-col items-center '>
-    <h1 className=' text-6xl text-center lg:text-9xl font-black'>THANK YOU!  </h1>
+    <h1 className=' text-6xl text-center lg:text-9xl font-black bg-[#FAD305]'>THANK YOU!  </h1>
     <p className=' text-2xl w-full lg:text-3xl text-center mt-5 '>Your order is being proccessed.</p>
     <p className='text-xl font-light text-center mt-10'>Keep an eye on your inbox for processing updates. Enjoy your new piece of art! </p>
     </div>

@@ -5,6 +5,8 @@ import {
 } from '@tanstack/react-router'
 
 import { CartProvider } from '#/context/CartContext'
+import { Banner } from '#/components/ui/banner'
+import { isOnSale } from '#/components/ui/sale'
 
 
 import Navbar from '../components/ui/navbar'
@@ -64,7 +66,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <CartProvider>
 
       <body>
-        <Navbar />
+         <Navbar />
+        {isOnSale &&<Banner/>}
         {children}
         <Footer />
         <Scripts />

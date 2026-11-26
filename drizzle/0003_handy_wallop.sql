@@ -1,0 +1,1 @@
+ALTER TABLE "coupon_codes" ALTER COLUMN "offer" SET DATA TYPE numeric;

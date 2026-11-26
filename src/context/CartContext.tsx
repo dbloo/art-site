@@ -1,7 +1,5 @@
 import { createContext, useState, useContext, useEffect  } from "react";
 import {Spinner} from "@/components/ui/spinner"
-import {getStock} from "@/serverFunctions/stock"
-
 
 
 interface CartProviderProps {
@@ -14,6 +12,7 @@ export interface CartItem {
   selectedSize?: string;
   productType: string;
   price: number;
+  onSale?:boolean;
   quantity: number;
   [key: string]: any;
   slug: string; 
@@ -39,6 +38,9 @@ interface CartContextType {
   getCartSize: number,
   status: string,
   inStock: boolean,
+  discount: number,
+  applyDiscount: () => void
+  setDiscount: (discount: number) => void;
   setIsInStock: (id: string, inStock: boolean) => void;
   productImage: string;
 }
@@ -52,11 +54,14 @@ const defaultCartValue: CartContextType = {
   clearCart: () => {},
   isItemInCart: () => undefined,
   isLoading: false,
+  discount: 0,
+  setDiscount: ()=>{},
   setIsLoading: ()=>{},
   getCartSize: 0,
   status: "",
   setStatus: ()=> {},
   setIsInStock: () => {},
+  applyDiscount: ()=> {},
   inStock: false,
   productImage: ""
 };
@@ -68,6 +73,7 @@ export function CartProvider({children} : CartProviderProps) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("");
+  const [discount, setDiscount] = useState(0);
 
 
   const [cart, setCart] = useState<CartItem[]>(() => {
@@ -171,9 +177,11 @@ export function CartProvider({children} : CartProviderProps) {
 
   };
   const subtotal = cart.reduce(
-    (sum:any, item:any) => sum + item.price * item.quantity,
+    (sum:any, item:any) => (sum + item.price * item.quantity),
     0
   );
+
+  const applyDiscount = () => {subtotal - (subtotal * discount)}
 
   const clearCart = () => {
     setCart([]);
@@ -186,7 +194,7 @@ export function CartProvider({children} : CartProviderProps) {
 
  
   return (
-    <CartContext.Provider value={{ getCartSize, cart, status, addToCart, removeFromCart, subtotal, isItemInCart, isLoading, setStatus, setIsLoading, clearCart}}>
+    <CartContext.Provider value={{ getCartSize, cart, status, addToCart, removeFromCart,discount, setDiscount, applyDiscount, subtotal, isItemInCart, isLoading, setStatus, setIsLoading, clearCart}}>
       {isLoading && <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
     <Spinner />
   </div>}

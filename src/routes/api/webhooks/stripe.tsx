@@ -1,10 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { decrementStockIfAvailable } from '@/serverFunctions/stock'
+import { processedSessions } from '@/db/schema'
 import Stripe from 'stripe'
 import { Resend } from 'resend'
 
+import { and, eq, gt, sql } from 'drizzle-orm'
+import { products } from '@/siteinfo/products'
+import { getDb } from '@/db'
+import { originalsStock } from '@/db/schema'
+
 const stripe = new Stripe(
-  process.env.STRIPE_SECRET_TEST_KEY ?? process.env.STRIPE_SECRET_KEY ?? '',
+  process.env.NODE_ENV === 'development'
+    ? process.env.STRIPE_SECRET_TEST_KEY ?? ''
+    : process.env.STRIPE_SECRET_KEY ?? ''
 )
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
 const resend = new Resend(process.env.RESEND_KEY)
@@ -41,11 +49,7 @@ function formatAddress(a?: Stripe.Address | null) {
     .join('<br/>')
 }
 
-async function sendOrderEmail(
-  sessionId: string,
-  event: Stripe.Event,
-  stockIssueIds: number[],
-) {
+async function sendOrderEmail(sessionId: string, event: Stripe.Event){
   // The event only holds a summary, so fetch the full session with its items.
   const session = await stripe.checkout.sessions.retrieve(sessionId, {
     expand: ['line_items'],
@@ -76,11 +80,6 @@ async function sendOrderEmail(
   const base = `https://dashboard.stripe.com/${event.livemode ? '' : 'test/'}payments`
   const dashboardUrl = paymentId ? `${base}/${paymentId}` : base
 
-  const stockWarning = stockIssueIds.length
-    ? `<p style="background:#FADE3E;padding:10px 12px;font-size:14px;margin:0 0 24px">
-         <strong>Stock issue:</strong> couldn't decrement stock for item ID(s) ${stockIssueIds.join(', ')}. Check inventory.
-       </p>`
-    : ''
 
   const html = `
     <div style="font-family:Helvetica,Arial,sans-serif;max-width:560px;color:#000">
@@ -89,7 +88,6 @@ async function sendOrderEmail(
       </h1>
       <p style="color:#6b6b6b;margin:0 0 24px">${total} total${event.livemode ? '' : ' (test mode)'}</p>
 
-      ${stockWarning}
 
       <h2 style="font-size:16px;margin:0 0 8px">Items</h2>
       <table style="width:100%;border-collapse:collapse;font-size:14px">
@@ -154,36 +152,45 @@ export const Route = createFileRoute('/api/webhooks/stripe')({
           return new Response('Invalid signature', { status: 400 })
         }
 
-        if (event.type === 'checkout.session.completed') {
-          const session = event.data.object as Stripe.Checkout.Session
-          console.log('metadata:', session.metadata)
+                if (event.type === 'checkout.session.completed') {
+  const session = event.data.object as Stripe.Checkout.Session
 
-          const cartItems: { id: number }[] = JSON.parse(
-            session.metadata?.cart ?? '[]',
-          )
-          console.log('parsed cart items:', cartItems)
+  if (session.payment_status === 'paid') {
+    const db = getDb()
 
-          // 1. Stock first (unchanged behavior), remembering any failures.
-          const stockIssueIds: number[] = []
-          for (const item of cartItems) {
-            const ok = await decrementStockIfAvailable({ data: { id: item.id } })
-            console.log(`decrement result for ${item.id}:`, ok)
-            if (!ok) stockIssueIds.push(item.id)
-          }
+    // Skip if we've already handled this session (Stripe retries)
+    const claimed = await db
+      .insert(processedSessions)
+      .values({ sessionId: session.id })
+      .onConflictDoNothing()
+      .returning()
 
-          // 2. Notify yourself. Failures are logged but NOT returned as errors:
-          //    a non-200 response makes Stripe retry the whole event, which
-          //    would decrement stock a second time.
-          if (session.payment_status === 'paid') {
-            try {
-              await sendOrderEmail(session.id, event, stockIssueIds)
-            } catch (err) {
-              console.error('Failed to send order email:', err)
-            }
-          }
-        } else {
-          console.log('ignored event type:', event.type)
-        }
+    if (claimed.length > 0) {
+      const items: { t: string; s: string }[] = JSON.parse(session.metadata?.cart ?? '[]')
+      const oversold: string[] = []
+
+      for (const m of items) {
+        if (m.t !== 'o') continue
+        const painting = products.paintings.find((p) => p.slug === m.s)
+        if (!painting) continue
+
+        const updated = await db
+          .update(originalsStock)
+          .set({ stock: sql`${originalsStock.stock} - 1` })
+          .where(and(eq(originalsStock.name, painting.name), gt(originalsStock.stock, 0)))
+          .returning()
+
+        if (updated.length === 0) oversold.push(painting.name)
+      }
+
+      try {
+        await sendOrderEmail(session.id, event)
+      } catch (err) {
+        console.error('Failed to send order email:', err)
+      }
+    }
+  }
+}
 
         return new Response('ok', { status: 200 })
       },
