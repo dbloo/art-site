@@ -11,11 +11,13 @@ export const SALE = {
   appliesTo: undefined as string[] | undefined,
 }
 
-export const now = new Date()
-  export const active = now >= SALE.starts && now <= SALE.ends
+ const now = new Date()
+ const active = now >= SALE.starts && now <= SALE.ends
 
 export function applySale(price: number, slug: string) {
   
+     const now = new Date()
+ const active = now >= SALE.starts && now <= SALE.ends
 //   const eligible = !SALE.appliesTo || SALE.appliesTo.includes(slug)
   if (!active || !isOnSale ) return price
   return Math.round(price * (1 - SALE.percentOff / 100) * 100) / 100
