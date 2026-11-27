@@ -1,6 +1,6 @@
 
-export const sellingPrints = ["Sundown", "Moore", "What if not! Complete??", "SRII", "Heelflip", "Horizon", "Mr.Crystal", "After You", "Foreign Rhymes with Orange"]
-export const sellingOriginals = ["Big Top", "After You", "Mr. Crystal", "Horizon", "Adequate Natural", "Catch and Release", "Sundown", "Heavy", "Show Your Face"]
+export const sellingPrints = ["Sundown", "Moore", "What if not! Complete??", "SRII", "Heelflip", "Horizon", "Mr.Crystal", "After You", "Foreign Rhymes with Orange", "Flatground", "Unplugged"]
+export const sellingOriginals = ["Big Top", "After You", "Mr. Crystal", "Horizon", "Adequate Natural", "Catch and Release", "Sundown", "Heavy", "Show Your Face", "Unplugged"]
 
 
 export const products = {
@@ -199,6 +199,48 @@ export const products = {
 
         },
 
+        {
+            id: 8,
+            name: "Flatground",
+            slug: "flatground",
+            medium: "Acrylic on canvas",
+            size: "48 x 48 inches",
+            price: 250,
+            prints: [
+               {sizes: "8 x 8 in.", price: 50},
+                {sizes: "12 x 12 in.", price: 95},
+                {sizes: "24 x 24 in.", price: 150},
+            ],
+            images: ["/assets/products/flatground-large.webp", "/assets/products/mockups/flatground_mockup-large.webp"],
+            productImage: "/assets/products/flatground.jpg",
+            thumbnail:["/assets/products/flatground-thumbnail.webp"],
+            description: "",
+            year: "2026"
+
+
+        },
+
+        {
+            id: 8,
+            name: "Unplugged",
+            slug: "unplugged",
+            medium: "Acrylic on canvas",
+            size: "11 x 14 inches",
+            price: 250,
+            prints: [
+               {sizes: "8 x 10 in.", price: 50},
+                {sizes: "10 x 12 in.", price: 95},
+                {sizes: "20 x 24 in.", price: 150},
+            ],
+            images: ["/assets/products/unplugged-large.webp"],
+            productImage: "/assets/products/unplugged.jpg",
+            thumbnail:["/assets/products/unplugged-thumbnail.webp"],
+            description: "",
+            year: "2026"
+
+
+        },
+
     
         
     ],
@@ -268,7 +310,7 @@ export const products = {
             slug: "horizon",
             medium: "Acrylic paint and marker on canvas",
             size: "24 x 24 inches",
-            price: 800,
+            price: 1100,
             images: ["/assets/products/horizon-large.webp",],
             productImage: "/assets/products/horizon.jpg",
             thumbnail:["/assets/products/horizon-thumbnail.webp"],
@@ -377,6 +419,21 @@ export const products = {
             images: ["/assets/products/heelflip-large.webp",],
             productImage: "/assets/products/heelflip.jpg",
             thumbnail:["/assets/products/heelflip-thumbnail.webp", ],
+            description: "Signed by the artist. Does not come stretched or framed.",
+            year: "2021"
+
+        },
+
+        {
+            id: 6,
+            name: "Unplugged",
+            slug: "unplugged",
+            medium: "Acrylic paint and marker on canvas",
+            size: "11 x 14 inches",
+            price: 700,
+            images: ["/assets/products/unplugged-large.webp",],
+            productImage: "/assets/products/unplugged.jpg",
+            thumbnail:["/assets/products/unplugged-thumbnail.webp", ],
             description: "Signed by the artist. Does not come stretched or framed.",
             year: "2021"
 

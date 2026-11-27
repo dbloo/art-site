@@ -64,7 +64,7 @@ export const submitCouponCode = createServerFn({method: "GET"}).handler(
 
             console.log(offer[0].offer)
 
-                return {success: true, reason: 'success', offer: offer} as const
+                return {success: true, reason: 'success', offer: offer[0].offer} as const
             }
 
         
